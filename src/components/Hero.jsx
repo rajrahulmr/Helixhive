@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function Hero() {
-  const [activeConsoleTab, setActiveConsoleTab] = useState('vitals');
-
   return (
     <section className="relative w-full overflow-hidden pt-32 pb-20 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8">
       {/* Atmospheric Ambient Glows */}
@@ -18,7 +16,7 @@ export default function Hero() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-container" />
           </span>
           <span className="font-mono text-xs tracking-widest uppercase text-primary-fixed font-semibold">
-            ⚡ High Performance Web Architecture
+            ⚡ Handcrafted Web Architecture • Zero WordPress Bloat
           </span>
         </div>
 
@@ -34,8 +32,8 @@ export default function Hero() {
         </h1>
 
         {/* Subheadline */}
-        <p className="mt-6 text-lg md:text-xl text-on-surface-variant max-w-2xl text-balance leading-relaxed">
-          We build modern, ultra-fast websites designed to convert your target audience into predictable, scalable revenue. Zero bloat, zero technical debt.
+        <p className="mt-6 text-base sm:text-lg md:text-xl text-on-surface-variant max-w-2xl text-balance leading-relaxed">
+          Affordable, ultra-fast websites designed to turn visitors into paying customers and WhatsApp inquiries. Zero slow plugins, zero technical headache.
         </p>
 
         {/* Action CTAs */}
@@ -44,7 +42,7 @@ export default function Hero() {
             href="#pricing"
             className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-xl text-base font-bold text-on-primary-fixed bg-gradient-to-r from-primary-container to-secondary-container shadow-[0_0_30px_rgba(0,242,254,0.4)] hover:shadow-[0_0_45px_rgba(0,242,254,0.65)] hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
           >
-            <span>View Pricing</span>
+            <span>View Transparent Pricing</span>
             <span className="material-symbols-outlined ml-2 text-[20px]">arrow_forward</span>
           </a>
 
@@ -54,180 +52,165 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-base font-semibold text-primary bg-surface-container-high/80 border border-outline-variant/40 hover:bg-surface-container-high hover:text-white transition-all shadow-md group"
           >
-            <span className="material-symbols-outlined text-[20px] text-primary-container group-hover:scale-110 transition-transform">
+            <span className="material-symbols-outlined text-[20px] text-[#25D366] group-hover:scale-110 transition-transform">
               chat
             </span>
-            <span>Chat on WhatsApp</span>
+            <span>Chat on WhatsApp (+91 7907142807)</span>
           </a>
         </div>
 
-        {/* Verified Metric Telemetry Strip */}
-        <div className="mt-12 w-full max-w-4xl p-4 sm:p-5 rounded-2xl bg-surface-container/70 border border-outline-variant/40 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.35)] grid grid-cols-2 md:grid-cols-4 gap-y-4 gap-x-2 divide-y md:divide-y-0 md:divide-x divide-outline-variant/30">
-          <div className="flex flex-col items-center p-2">
-            <span className="font-display text-2xl sm:text-3xl font-bold text-primary tracking-tight">99.9%</span>
-            <span className="font-mono text-xs text-on-surface-variant uppercase tracking-wider mt-1">Lighthouse Score</span>
+        {/* ============================================================== */}
+        {/* RELEVANT 3-STEP PROCESS & CLIENT GUARANTEES (REPLACED CONSOLE) */}
+        {/* ============================================================== */}
+        <div className="w-full max-w-6xl mt-14 sm:mt-18">
+          
+          {/* Process Section Title */}
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="font-mono text-xs uppercase tracking-widest text-primary-container font-semibold">
+              SIMPLE & RAPID DELIVERY
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-on-surface mt-1 leading-tight">
+              From idea to live website in 3 simple steps
+            </h2>
+            <p className="text-xs sm:text-sm md:text-base text-on-surface-variant mt-2">
+              No complex paperwork. We take care of layout, copy structure, mobile optimization, hosting, and WhatsApp connection.
+            </p>
           </div>
-          <div className="flex flex-col items-center p-2 pt-3 md:pt-2">
-            <span className="font-display text-2xl sm:text-3xl font-bold text-primary-container tracking-tight">2.4x</span>
-            <span className="font-mono text-xs text-on-surface-variant uppercase tracking-wider mt-1">Conversion Lift</span>
-          </div>
-          <div className="flex flex-col items-center p-2 pt-3 md:pt-2">
-            <span className="font-display text-2xl sm:text-3xl font-bold text-secondary tracking-tight">7-Day</span>
-            <span className="font-mono text-xs text-on-surface-variant uppercase tracking-wider mt-1">Rapid Turnaround</span>
-          </div>
-          <div className="flex flex-col items-center p-2 pt-3 md:pt-2">
-            <span className="font-display text-2xl sm:text-3xl font-bold text-primary-fixed tracking-tight">50+</span>
-            <span className="font-mono text-xs text-on-surface-variant uppercase tracking-wider mt-1">Founders Served</span>
-          </div>
-        </div>
 
-        {/* High Tech Interactive Dashboard Mockup */}
-        <div className="relative w-full max-w-5xl mt-12 rounded-2xl p-2 sm:p-3 bg-surface-container-highest/30 border border-outline-variant/40 backdrop-blur-2xl shadow-[0_25px_70px_-15px_rgba(0,0,0,0.8)]">
-          <div className="rounded-xl bg-surface-container-lowest p-4 sm:p-6 overflow-hidden flex flex-col gap-4 text-left border border-outline-variant/20">
-            {/* Top Window Bar */}
-            <div className="flex items-center justify-between pb-3 border-b border-outline-variant/30">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-error/80 inline-block" />
-                <span className="w-3 h-3 rounded-full bg-secondary-container/80 inline-block" />
-                <span className="w-3 h-3 rounded-full bg-primary-container/80 inline-block" />
-                <span className="font-mono text-xs text-on-surface-variant ml-3 hidden sm:inline">
-                  helixhive-vitals-console.sys
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-md">
-                  <button
-                    onClick={() => setActiveConsoleTab('vitals')}
-                    className={`px-2.5 py-0.5 rounded text-xs font-mono transition-all ${
-                      activeConsoleTab === 'vitals'
-                        ? 'bg-primary-container text-on-primary-fixed font-bold'
-                        : 'text-on-surface-variant hover:text-on-surface'
-                    }`}
-                  >
-                    Vitals
-                  </button>
-                  <button
-                    onClick={() => setActiveConsoleTab('funnel')}
-                    className={`px-2.5 py-0.5 rounded text-xs font-mono transition-all ${
-                      activeConsoleTab === 'funnel'
-                        ? 'bg-primary-container text-on-primary-fixed font-bold'
-                        : 'text-on-surface-variant hover:text-on-surface'
-                    }`}
-                  >
-                    Funnel
-                  </button>
-                  <button
-                    onClick={() => setActiveConsoleTab('speed')}
-                    className={`px-2.5 py-0.5 rounded text-xs font-mono transition-all ${
-                      activeConsoleTab === 'speed'
-                        ? 'bg-primary-container text-on-primary-fixed font-bold'
-                        : 'text-on-surface-variant hover:text-on-surface'
-                    }`}
-                  >
-                    Speed
-                  </button>
+          {/* 3 Step Process Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-left mb-10">
+            {/* Step 1 */}
+            <div className="p-6 rounded-2xl bg-surface-container/70 border border-outline-variant/30 hover:border-primary-container/40 backdrop-blur-xl shadow-lg transition-all duration-300 relative group flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="w-10 h-10 rounded-xl bg-primary-container/15 border border-primary-container/30 flex items-center justify-center font-display font-bold text-primary-container text-base">
+                    01
+                  </span>
+                  <span className="font-mono text-[11px] text-primary uppercase tracking-wider bg-surface-container-highest px-2.5 py-1 rounded-md">
+                    Step 1 • 2 Minutes
+                  </span>
                 </div>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-primary-container/10 border border-primary-container/20 text-primary-container font-mono text-[11px] font-semibold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse" />
-                  LIVE TELEMETRY
-                </span>
+                <h3 className="font-display text-lg sm:text-xl font-bold text-on-surface mb-2 group-hover:text-primary-container transition-colors">
+                  Choose Plan & Send Details
+                </h3>
+                <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                  Pick your budget plan (starting at ₹1499) and share your business details, products, or reference sites via WhatsApp.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-outline-variant/20 flex items-center gap-1.5 text-xs font-mono text-primary-container">
+                <span className="material-symbols-outlined text-[16px]">bolt</span>
+                <span>Zero paperwork required</span>
               </div>
             </div>
 
-            {/* Interactive Console Content */}
-            {activeConsoleTab === 'vitals' && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
-                <div className="p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/30 flex flex-col justify-between hover:border-primary-container/40 transition-colors">
-                  <span className="font-mono text-xs text-on-surface-variant uppercase tracking-wider">
-                    Core Web Vitals
+            {/* Step 2 */}
+            <div className="p-6 rounded-2xl bg-surface-container/70 border border-outline-variant/30 hover:border-secondary/40 backdrop-blur-xl shadow-lg transition-all duration-300 relative group flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="w-10 h-10 rounded-xl bg-secondary-container/15 border border-secondary/30 flex items-center justify-center font-display font-bold text-secondary text-base">
+                    02
                   </span>
-                  <div className="my-2 flex items-baseline gap-2">
-                    <span className="font-display text-3xl font-bold text-primary">100 / 100</span>
-                    <span className="font-mono text-xs text-primary-container font-semibold">Optimal</span>
-                  </div>
-                  <div className="w-full bg-surface-container-lowest rounded-full h-1.5 overflow-hidden">
-                    <div className="bg-gradient-to-r from-primary-container to-secondary h-1.5 rounded-full w-full" />
-                  </div>
-                  <span className="font-mono text-[11px] text-on-surface-variant mt-2">
-                    FCP: 0.3s • LCP: 0.7s • CLS: 0.000
+                  <span className="font-mono text-[11px] text-secondary uppercase tracking-wider bg-surface-container-highest px-2.5 py-1 rounded-md">
+                    Step 2 • 48-72 Hours
                   </span>
                 </div>
-
-                <div className="p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/30 flex flex-col justify-between hover:border-secondary/40 transition-colors">
-                  <span className="font-mono text-xs text-on-surface-variant uppercase tracking-wider">
-                    Edge TTFB Response
-                  </span>
-                  <div className="my-2 flex items-baseline gap-2">
-                    <span className="font-display text-3xl font-bold text-secondary">38 ms</span>
-                    <span className="font-mono text-xs text-secondary font-semibold">CDN Global</span>
-                  </div>
-                  <div className="w-full bg-surface-container-lowest rounded-full h-1.5 overflow-hidden">
-                    <div className="bg-gradient-to-r from-secondary to-primary-fixed h-1.5 rounded-full w-[94%]" />
-                  </div>
-                  <span className="font-mono text-[11px] text-on-surface-variant mt-2">
-                    Multi-region edge network cached
-                  </span>
-                </div>
-
-                <div className="p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/30 flex flex-col justify-between hover:border-primary-fixed/40 transition-colors">
-                  <span className="font-mono text-xs text-on-surface-variant uppercase tracking-wider">
-                    Interactive Readiness
-                  </span>
-                  <div className="my-2 flex items-baseline gap-2">
-                    <span className="font-display text-3xl font-bold text-primary-fixed">0.5s TTI</span>
-                    <span className="font-mono text-xs text-primary-container font-semibold">Zero Bloat</span>
-                  </div>
-                  <div className="w-full bg-surface-container-lowest rounded-full h-1.5 overflow-hidden">
-                    <div className="bg-gradient-to-r from-primary-container to-secondary-container h-1.5 rounded-full w-[98%]" />
-                  </div>
-                  <span className="font-mono text-[11px] text-on-surface-variant mt-2">
-                    Instant user input handling
-                  </span>
-                </div>
+                <h3 className="font-display text-lg sm:text-xl font-bold text-on-surface mb-2 group-hover:text-secondary transition-colors">
+                  Rapid Design & Clean Build
+                </h3>
+                <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                  We engineer your custom, mobile-first website using modern React and clean CSS. Zero bloated WordPress templates.
+                </p>
               </div>
-            )}
-
-            {activeConsoleTab === 'funnel' && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
-                <div className="p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/30">
-                  <span className="font-mono text-xs text-on-surface-variant uppercase">Average Bounce Drop</span>
-                  <div className="text-3xl font-bold font-display text-primary mt-2">-42%</div>
-                  <p className="font-mono text-xs text-on-surface-variant mt-1">Visitors stay and engage 3x longer</p>
-                </div>
-                <div className="p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/30">
-                  <span className="font-mono text-xs text-on-surface-variant uppercase">CTA Click Through</span>
-                  <div className="text-3xl font-bold font-display text-primary-container mt-2">+168%</div>
-                  <p className="font-mono text-xs text-on-surface-variant mt-1">Engineered visual hierarchy & contrast</p>
-                </div>
-                <div className="p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/30">
-                  <span className="font-mono text-xs text-on-surface-variant uppercase">Direct WhatsApp Leads</span>
-                  <div className="text-3xl font-bold font-display text-secondary mt-2">Instant</div>
-                  <p className="font-mono text-xs text-on-surface-variant mt-1">Single-tap conversational checkout</p>
-                </div>
+              <div className="mt-5 pt-3 border-t border-outline-variant/20 flex items-center gap-1.5 text-xs font-mono text-secondary">
+                <span className="material-symbols-outlined text-[16px]">speed</span>
+                <span>100/100 Mobile Speed score</span>
               </div>
-            )}
+            </div>
 
-            {activeConsoleTab === 'speed' && (
-              <div className="p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/30 flex flex-col gap-3">
-                <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="text-primary font-bold">Helixhive Engineered Architecture</span>
-                  <span className="text-primary-container">0.5s Load Time (99/100)</span>
+            {/* Step 3 */}
+            <div className="p-6 rounded-2xl bg-surface-container/70 border border-outline-variant/30 hover:border-primary-fixed/40 backdrop-blur-xl shadow-lg transition-all duration-300 relative group flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="w-10 h-10 rounded-xl bg-primary-fixed/15 border border-primary-fixed/30 flex items-center justify-center font-display font-bold text-primary-fixed text-base">
+                    03
+                  </span>
+                  <span className="font-mono text-[11px] text-primary-fixed uppercase tracking-wider bg-surface-container-highest px-2.5 py-1 rounded-md">
+                    Step 3 • Live Launch
+                  </span>
                 </div>
-                <div className="w-full bg-surface-container-lowest rounded-full h-2">
-                  <div className="bg-gradient-to-r from-primary-container to-secondary h-2 rounded-full w-[99%]" />
-                </div>
-
-                <div className="flex items-center justify-between text-xs font-mono text-on-surface-variant mt-1">
-                  <span>Traditional Agency / WordPress</span>
-                  <span className="text-error">4.8s Load Time (38/100)</span>
-                </div>
-                <div className="w-full bg-surface-container-lowest rounded-full h-2">
-                  <div className="bg-error/60 h-2 rounded-full w-[38%]" />
-                </div>
+                <h3 className="font-display text-lg sm:text-xl font-bold text-on-surface mb-2 group-hover:text-primary-fixed transition-colors">
+                  Review, Launch & Get Leads
+                </h3>
+                <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                  Review your draft with revisions, connect your domain & SSL, and start getting direct customer WhatsApp messages & calls.
+                </p>
               </div>
-            )}
+              <div className="mt-5 pt-3 border-t border-outline-variant/20 flex items-center gap-1.5 text-xs font-mono text-primary-fixed">
+                <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                <span>Ready to accept inquiries</span>
+              </div>
+            </div>
           </div>
+
+          {/* Standard Inclusions Strip (Mobile Responsive Grid) */}
+          <div className="p-5 sm:p-7 rounded-2xl bg-surface-container-high/60 border border-outline-variant/40 backdrop-blur-2xl shadow-xl text-left">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-outline-variant/30">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-wider text-primary-container font-semibold">
+                  THE HELIXHIVE STANDARD
+                </span>
+                <h4 className="font-display text-lg sm:text-xl font-bold text-primary mt-0.5">
+                  Included with every website we engineer
+                </h4>
+              </div>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-semibold shrink-0">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                Zero Hidden Maintenance Fees
+              </span>
+            </div>
+
+            {/* 6 Core Guarantees Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mt-5">
+              <div className="p-3.5 rounded-xl bg-surface-container-lowest/70 border border-outline-variant/20 flex flex-col gap-1.5 hover:border-primary-container/40 transition-colors">
+                <span className="material-symbols-outlined text-[#25D366] text-[24px]">chat</span>
+                <span className="font-display text-xs font-bold text-on-surface">1-Tap WhatsApp</span>
+                <span className="text-[11px] text-on-surface-variant leading-tight">Instant customer orders & chats</span>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-surface-container-lowest/70 border border-outline-variant/20 flex flex-col gap-1.5 hover:border-secondary/40 transition-colors">
+                <span className="material-symbols-outlined text-secondary text-[24px]">bolt</span>
+                <span className="font-display text-xs font-bold text-on-surface">0.5s Fast Speed</span>
+                <span className="text-[11px] text-on-surface-variant leading-tight">Zero bounce on mobile networks</span>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-surface-container-lowest/70 border border-outline-variant/20 flex flex-col gap-1.5 hover:border-primary-fixed/40 transition-colors">
+                <span className="material-symbols-outlined text-primary-fixed text-[24px]">devices</span>
+                <span className="font-display text-xs font-bold text-on-surface">100% Mobile Ready</span>
+                <span className="text-[11px] text-on-surface-variant leading-tight">Thumb-friendly tap buttons</span>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-surface-container-lowest/70 border border-outline-variant/20 flex flex-col gap-1.5 hover:border-primary-container/40 transition-colors">
+                <span className="material-symbols-outlined text-primary-container text-[24px]">location_on</span>
+                <span className="font-display text-xs font-bold text-on-surface">Google Maps & Social</span>
+                <span className="text-[11px] text-on-surface-variant leading-tight">Directions & Instagram sync</span>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-surface-container-lowest/70 border border-outline-variant/20 flex flex-col gap-1.5 hover:border-secondary/40 transition-colors">
+                <span className="material-symbols-outlined text-secondary text-[24px]">lock</span>
+                <span className="font-display text-xs font-bold text-on-surface">Free SSL Lock</span>
+                <span className="text-[11px] text-on-surface-variant leading-tight">HTTPS secure padlock</span>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-surface-container-lowest/70 border border-outline-variant/20 flex flex-col gap-1.5 hover:border-primary-fixed/40 transition-colors">
+                <span className="material-symbols-outlined text-primary-fixed text-[24px]">verified</span>
+                <span className="font-display text-xs font-bold text-on-surface">Zero WordPress</span>
+                <span className="text-[11px] text-on-surface-variant leading-tight">Pure code, zero hackable plugins</span>
+              </div>
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
   );
