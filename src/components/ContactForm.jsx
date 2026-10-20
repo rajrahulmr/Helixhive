@@ -133,36 +133,76 @@ ${formData.message.trim() || 'Looking for a clean, high-speed modern website.'}`
     window.open(waUrl, '_blank', 'noopener,noreferrer');
   };
 
-  // Submit via Email
-  const handleSubmitEmail = (e) => {
+  const [submissionError, setSubmissionError] = useState('');
+
+  // Submit via Web3Forms Email API
+  const handleSubmitEmail = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
+    setSubmissionError('');
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
 
-      try {
-        confetti({
-          particleCount: 110,
-          spread: 75,
-          origin: { y: 0.6 },
-          colors: ['#00f2fe', '#92dbff', '#25D366', '#ffffff'],
-        });
-      } catch (err) {
-        // ignore
+    try {
+      if (!accessKey || accessKey === 'YOUR_ACCESS_KEY_HERE') {
+        // If access key is not yet configured, provide fallback guidance
+        throw new Error('Web3Forms Access Key is not configured yet. Please set VITE_WEB3FORMS_ACCESS_KEY or send via WhatsApp.');
       }
 
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `⚡ New Helixhive Inquiry: ${formData.plan} - ${formData.fullName}`,
+          from_name: 'Helixhive Inquiries',
+          name: formData.fullName,
+          phone: formData.phone,
+          email: formData.email || 'not-provided@client.com',
+          plan: formData.plan,
+          message: formData.message,
+          botcheck: '', // Honeypot field for spam prevention
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitting(false);
+        setSubmitted(true);
+
+        try {
+          confetti({
+            particleCount: 110,
+            spread: 75,
+            origin: { y: 0.6 },
+            colors: ['#00f2fe', '#92dbff', '#25D366', '#ffffff'],
+          });
+        } catch (err) {
+          // ignore
+        }
+
+        window._lastLeadWaUrl = buildWhatsAppUrl();
+      } else {
+        throw new Error(data.message || 'Email delivery failed. Please try again or send via WhatsApp.');
+      }
+    } catch (err) {
+      console.error('Web3Forms Error:', err);
+      setIsSubmitting(false);
+      setSubmissionError(err.message || 'Something went wrong. Please use WhatsApp or email directly.');
+
+      // Fallback mailto link
       const subject = encodeURIComponent(`Website Inquiry: ${formData.plan} - ${formData.fullName}`);
       const body = encodeURIComponent(
         `Name / Business: ${formData.fullName}\nPhone / WhatsApp: ${formData.phone}\nEmail: ${formData.email || 'N/A'}\nPlan: ${formData.plan}\n\nProject Requirements:\n${formData.message}`
       );
-
-      window._lastLeadWaUrl = buildWhatsAppUrl();
       window._lastLeadMailUrl = `mailto:rajrahulmr96@gmail.com?subject=${subject}&body=${body}`;
-    }, 500);
+    }
   };
 
   const handleCopyPhone = () => {
@@ -529,6 +569,22 @@ ${formData.message.trim() || 'Looking for a clean, high-speed modern website.'}`
                     <span className="text-xs text-error font-mono">{errors.message}</span>
                   )}
                 </div>
+
+                {/* Error Banner if API submission fails */}
+                {submissionError && (
+                  <div className="p-3.5 rounded-xl bg-error-container/20 border border-error/50 text-error text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="material-symbols-outlined text-[18px] shrink-0">error</span>
+                      <span>{submissionError}</span>
+                    </div>
+                    <a
+                      href={window._lastLeadMailUrl || 'mailto:rajrahulmr96@gmail.com'}
+                      className="underline font-bold font-mono text-[11px] shrink-0 text-primary hover:text-white"
+                    >
+                      Open Email App
+                    </a>
+                  </div>
+                )}
 
                 {/* Dual Action Buttons: Send to WhatsApp OR Send Email */}
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
