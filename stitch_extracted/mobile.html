@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_blank" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-fixed": "#001f2a", "on-surface": "#d6e4f9", "on-primary-fixed-variant": "#004f53", "on-tertiary-fixed": "#101b30", "outline": "#849495", "background": "#061423", "secondary-fixed-dim": "#6dd2ff", "surface-container": "#132030", "on-primary-container": "#006a70", "tertiary-container": "#d0dbf7", "error": "#ffb4ab", "primary-fixed": "#6ff6ff", "primary": "#e0fdff", "on-surface-variant": "#b9cacb", "tertiary": "#f7f7ff", "secondary-container": "#00c4fd", "surface-container-lowest": "#020f1e", "secondary-fixed": "#bfe9ff", "on-primary": "#00373a", "surface-container-high": "#1e2b3b", "on-background": "#d6e4f9", "primary-fixed-dim": "#00dce6", "inverse-surface": "#d6e4f9", "error-container": "#93000a", "primary-container": "#00f2fe", "on-error": "#690005", "on-tertiary-container": "#556078", "on-secondary-fixed-variant": "#004d65", "surface-container-low": "#0f1c2c", "on-tertiary": "#263046", "surface-bright": "#2d3a4a", "on-secondary-container": "#004d66", "on-secondary": "#003547", "tertiary-fixed-dim": "#bbc6e2", "surface-variant": "#283646", "tertiary-fixed": "#d7e2ff", "secondary": "#92dbff", "surface-dim": "#061423", "on-tertiary-fixed-variant": "#3c475d", "outline-variant": "#3a494b", "surface-container-highest": "#283646", "on-error-container": "#ffdad6", "surface": "#061423", "surface-tint": "#00dce6", "on-primary-fixed": "#002022", "inverse-on-surface": "#243141", "inverse-primary": "#00696f" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin": "1.5rem", "gutter": "1.5rem", "gutter-lg": "2rem", "margin-lg": "5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-md": "1rem", "margin-md": "3rem", "gutter-sm": "1rem", "space-xl": "2.5rem", "space-lg": "1.5rem" }, "fontFamily": { "body-md": ["Geist"], "display-hero": ["Space Grotesk"], "display-hero-mobile": ["Space Grotesk"], "body-lg": ["Geist"], "headline-lg": ["Space Grotesk"], "headline-lg-mobile": ["Space Grotesk"], "body-sm": ["Geist"], "headline-sm": ["Space Grotesk"], "label-mono-sm": ["JetBrains Mono"], "headline-md": ["Space Grotesk"], "label-mono-lg": ["JetBrains Mono"] }, "fontSize": { "body-md": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }], "display-hero": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "display-hero-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "headline-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-sm": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-mono-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "500" }], "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "label-mono-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.04em", "fontWeight": "500" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#061423;color:#d6e4f9;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface pt-safe pb-safe flex flex-col min-h-screen"><main class="flex flex-col relative w-full bg-surface"><div class="flex flex-col w-full text-on-surface overflow-hidden relative">
+<!-- Atmospheric Background Glow Elements -->
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[340px] h-[340px] bg-primary-container/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute top-[1800px] -left-20 w-[280px] h-[280px] bg-secondary-container/10 rounded-full blur-[90px] pointer-events-none"></div>
+<div class="absolute top-[3200px] -right-20 w-[300px] h-[300px] bg-primary-fixed-dim/10 rounded-full blur-[95px] pointer-events-none"></div>
+<!-- ================= 1. HERO SECTION ================= -->
+<section class="flex flex-col px-5 py-10 relative z-10">
+<!-- Architecture Pill Badge -->
+<div class="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-surface-container-high/80 shadow-[0_0_15px_rgba(0,242,254,0.15)] mb-6">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_#00f2fe]"></span>
+<span class="font-label-mono-sm text-label-mono-sm text-primary tracking-wider uppercase">⚡ High Performance Web Architecture</span>
+</div>
+<!-- Hero Title -->
+<h1 class="font-display-hero-mobile text-display-hero-mobile text-on-surface tracking-tight leading-[1.15] mb-5">
+<span class="text-primary-container drop-shadow-[0_0_20px_rgba(0,242,254,0.35)]">High-Converting</span> Websites Engineered for <span class="text-primary-container drop-shadow-[0_0_20px_rgba(0,242,254,0.35)]">Growing Businesses</span>
+</h1>
+<!-- Subheadline -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-8">
+      We build modern, ultra-fast websites designed to convert your target audience into predictable, scalable revenue. Zero bloat, zero technical debt.
+    </p>
+<!-- CTAs -->
+<div class="flex flex-col gap-3.5 mb-10">
+<a class="w-full inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-headline-sm text-[15px] font-bold tracking-tight shadow-[0_0_25px_rgba(0,242,254,0.35)] active:scale-[0.99] transition-transform" href="#pricing">
+<span>View Pricing ↓</span>
+</a>
+<a class="w-full inline-flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-xl bg-surface-container-high/90 text-on-surface font-body-md text-[14px] font-medium shadow-md active:bg-surface-variant transition-colors" href="https://wa.me/917907142807" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-primary-container text-[20px]">chat</span>
+<span>Chat on WhatsApp</span>
+</a>
+</div>
+<!-- 2x2 Metric Grid -->
+<div class="grid grid-cols-2 gap-3 mb-10">
+<div class="bg-surface-container/70 backdrop-blur-md rounded-xl p-4 flex flex-col justify-between shadow-sm">
+<span class="font-display-hero-mobile text-headline-sm text-primary-container font-bold tracking-tight">99.9%</span>
+<span class="font-label-mono-sm text-[10px] text-on-surface-variant uppercase mt-1 tracking-wider">Lighthouse Score</span>
+</div>
+<div class="bg-surface-container/70 backdrop-blur-md rounded-xl p-4 flex flex-col justify-between shadow-sm">
+<span class="font-display-hero-mobile text-headline-sm text-primary font-bold tracking-tight">2.4x</span>
+<span class="font-label-mono-sm text-[10px] text-on-surface-variant uppercase mt-1 tracking-wider">Conversion Lift</span>
+</div>
+<div class="bg-surface-container/70 backdrop-blur-md rounded-xl p-4 flex flex-col justify-between shadow-sm">
+<span class="font-display-hero-mobile text-headline-sm text-secondary font-bold tracking-tight">7-Day</span>
+<span class="font-label-mono-sm text-[10px] text-on-surface-variant uppercase mt-1 tracking-wider">Rapid Turnaround</span>
+</div>
+<div class="bg-surface-container/70 backdrop-blur-md rounded-xl p-4 flex flex-col justify-between shadow-sm">
+<span class="font-display-hero-mobile text-headline-sm text-primary-fixed font-bold tracking-tight">50+</span>
+<span class="font-label-mono-sm text-[10px] text-on-surface-variant uppercase mt-1 tracking-wider">Founders Served</span>
+</div>
+</div>
+<!-- Live Telemetry Console Card -->
+<div class="bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl p-5 shadow-[0_10px_35px_rgba(0,0,0,0.5)]">
+<!-- Top Bar -->
+<div class="flex items-center justify-between pb-3.5 mb-4">
+<div class="flex items-center gap-2">
+<div class="flex gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-error/70"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary/70"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container/70"></span>
+</div>
+<span class="font-label-mono-sm text-[11px] text-outline ml-1 truncate">helixhive-vitals-console.sys</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-high">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-mono-sm text-[9px] text-primary-container font-semibold tracking-wider">LIVE TELEMETRY</span>
+</div>
+</div>
+<!-- Telemetry Stats Stack -->
+<div class="flex flex-col gap-2.5 mb-4">
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low/80">
+<span class="font-label-mono-sm text-[11px] text-on-surface-variant">FIRST CONTENTFUL PAINT</span>
+<span class="font-label-mono-lg text-label-mono-sm font-semibold text-primary">0.38s <span class="text-primary-container font-normal">(~99.4%)</span></span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low/80">
+<span class="font-label-mono-sm text-[11px] text-on-surface-variant">VISIT TO LEAD RATIO</span>
+<span class="font-label-mono-lg text-label-mono-sm font-semibold text-primary">14.8% <span class="text-primary-container font-normal">(~+312%)</span></span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low/80 flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<span class="font-label-mono-sm text-[11px] text-on-surface-variant">CORE WEB VITALS</span>
+<span class="font-label-mono-sm text-[10px] text-primary-container bg-primary-container/10 px-1.5 py-0.5 rounded uppercase">Optimal Pass</span>
+</div>
+<span class="font-label-mono-sm text-[10px] text-outline">CLS: 0.00 • INP: 28ms • LCP: 0.7s</span>
+</div>
+</div>
+<!-- Live Chart Visual -->
+<div class="p-3 rounded-xl bg-surface-container-low/60 flex flex-col gap-2">
+<div class="flex justify-between items-center text-[10px] font-label-mono-sm text-outline">
+<span>TRAFFIC RETENTION AFTER HELIXHIVE RE-ENGINEERING</span>
+<span class="text-primary-container">W1 → W8</span>
+</div>
+<div class="w-full h-16 pt-1">
+<svg class="w-full h-full overflow-visible" fill="none" preserveaspectratio="none" viewbox="0 0 280 50">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00f2fe" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#00f2fe" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 45 C40 42, 70 38, 100 24 C140 12, 190 18, 230 8 C255 3, 270 2, 280 2" stroke="#00f2fe" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M0 45 C40 42, 70 38, 100 24 C140 12, 190 18, 230 8 C255 3, 270 2, 280 2 L280 50 L0 50 Z" fill="url(#chartGradient)"></path>
+<circle class="animate-pulse shadow-[0_0_8px_#00f2fe]" cx="280" cy="2" fill="#00f2fe" r="3.5"></circle>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 2. FEATURES SECTION ================= -->
+<section class="flex flex-col px-5 py-12 relative z-10 bg-surface-container-lowest/40">
+<div class="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full bg-surface-container-high mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-label-mono-sm text-[10px] text-primary tracking-widest uppercase">Engineered for Revenue</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight mb-3">
+      Why ambitious founders choose Helixhive over traditional agencies
+    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-8">
+      Most agencies build heavy, slow websites cluttered with generic plugins. We craft surgical, lightweight code that converts cold visitors into loyal buyers.
+    </p>
+<!-- 4 High-End Feature Bento Cards -->
+<div class="flex flex-col gap-4">
+<!-- Card 1 -->
+<div class="p-6 rounded-2xl bg-surface-container/80 backdrop-blur-md relative overflow-hidden group shadow-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-container/10 flex items-center justify-center text-primary-container mb-4">
+<span class="material-symbols-outlined text-[24px]">speed</span>
+</div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">High Speed Performance</h3>
+<span class="font-label-mono-sm text-[11px] text-primary-container bg-primary-container/10 px-2 py-0.5 rounded">&lt;400ms TTFB ✦</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Zero bloat architecture. Instant sub-second page transitions optimized for mobile networks, cutting visitor drop-off to absolute zero.
+        </p>
+</div>
+<!-- Card 2 -->
+<div class="p-6 rounded-2xl bg-surface-container/80 backdrop-blur-md relative overflow-hidden group shadow-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-container/10 flex items-center justify-center text-primary-container mb-4">
+<span class="material-symbols-outlined text-[24px]">trending_up</span>
+</div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Conversion Optimization</h3>
+<span class="font-label-mono-sm text-[11px] text-primary-container bg-primary-container/10 px-2 py-0.5 rounded">Architecture ⟳</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Precision visual hierarchies, psychological anchor points, and frictionless inquiry funnels designed specifically to trigger lead acquisition.
+        </p>
+</div>
+<!-- Card 3 -->
+<div class="p-6 rounded-2xl bg-surface-container/80 backdrop-blur-md relative overflow-hidden group shadow-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-container/10 flex items-center justify-center text-primary-container mb-4">
+<span class="material-symbols-outlined text-[24px]">devices</span>
+</div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Mobile-First Design</h3>
+<span class="font-label-mono-sm text-[11px] text-primary-container bg-primary-container/10 px-2 py-0.5 rounded">Breakpoint Matrix ⛶</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          More than 70% of high-intent buyers browse from phones. We design the mobile experience first, guaranteeing fluid ergonomics and thumb-friendly interaction.
+        </p>
+</div>
+<!-- Card 4 -->
+<div class="p-6 rounded-2xl bg-surface-container/80 backdrop-blur-md relative overflow-hidden group shadow-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-container/10 flex items-center justify-center text-primary-container mb-4">
+<span class="material-symbols-outlined text-[24px]">troubleshoot</span>
+</div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">SEO Ready Stack</h3>
+<span class="font-label-mono-sm text-[11px] text-primary-container bg-primary-container/10 px-2 py-0.5 rounded">Schema &amp; OG 🗲</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Deep structural semantic HTML, automated OpenGraph preview tags, and JSON-LD schema integration to dominate organic rankings from day one.
+        </p>
+</div>
+</div>
+</section>
+<!-- ================= 3. PRICING SECTION ================= -->
+<section class="flex flex-col px-5 py-12 relative z-10" id="pricing">
+<!-- Header -->
+<div class="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full bg-surface-container-high mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-label-mono-sm text-[10px] text-primary tracking-widest uppercase">Transparent Investment</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight mb-2">
+      Fixed transparent pricing. Zero surprise invoices.
+    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-5">
+      Select the strategic package tailored to your organization's immediate growth trajectory.
+    </p>
+<!-- Currency Badge -->
+<div class="inline-flex items-center self-start gap-1.5 px-3 py-1 rounded-full bg-surface-container text-outline mb-8">
+<span class="text-primary-container font-bold text-xs">●</span>
+<span class="font-label-mono-sm text-[11px] text-on-surface tracking-wider">All Plans in ₹ INR</span>
+</div>
+<!-- Pricing Cards Stack -->
+<div class="flex flex-col gap-6">
+<!-- Plan 1: Basic -->
+<div class="p-6 rounded-2xl bg-surface-container/70 backdrop-blur-md flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-mono-sm text-[11px] uppercase tracking-wider text-outline">Quick Launch</span>
+<span class="text-xs font-semibold text-primary bg-surface-container-high px-2 py-0.5 rounded">One-Time</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-1">Static One-Page Website</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-5">
+            Ideal for small businesses wanting an affordable, fast, and professional web presence.
+          </p>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="font-display-hero-mobile text-display-hero-mobile text-on-surface font-bold">₹859</span>
+<span class="font-label-mono-sm text-outline text-[12px]">/ one-time</span>
+</div>
+<!-- Feature List -->
+<ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface mb-6">
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>1 High-Converting Landing Section</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Mobile-First Responsive Layout</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Contact Form &amp; WhatsApp Integration</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Sub-Second TTFB Hosting Setup</span>
+</li>
+<li class="flex items-start gap-2.5 text-outline">
+<span class="material-symbols-outlined text-outline text-[18px] shrink-0 mt-0.5">info</span>
+<span class="text-[12px]">Domain purchase extra cost</span>
+</li>
+</ul>
+</div>
+<a class="w-full py-3.5 rounded-xl bg-surface-container-high text-on-surface font-headline-sm text-[14px] font-semibold text-center hover:bg-surface-variant active:scale-[0.99] transition-all" href="#contact">
+          Choose Basic →
+        </a>
+</div>
+<!-- Plan 2: Custom Make (Featured) -->
+<div class="p-6 rounded-2xl bg-surface-container-high/90 backdrop-blur-xl relative overflow-hidden shadow-[0_0_35px_rgba(0,242,254,0.18)]">
+<!-- Radiant Glow Accent Line -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary-container to-transparent"></div>
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-mono-sm text-[11px] uppercase tracking-wider text-primary-container font-semibold">Best Value • Most Popular</span>
+<span class="text-xs font-semibold text-on-primary bg-primary-container px-2.5 py-0.5 rounded shadow-[0_0_10px_#00f2fe]">Featured</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">Tailored Multi-Page Website</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-5">
+            Perfect for growing businesses that require tailored design, more pages, and higher lead conversions.
+          </p>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="font-display-hero-mobile text-display-hero-mobile text-primary-container font-bold drop-shadow-[0_0_15px_rgba(0,242,254,0.3)]">₹10,000</span>
+<span class="font-label-mono-sm text-outline text-[12px]">/ one-time</span>
+</div>
+<!-- Feature List -->
+<ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface mb-6">
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Up to 5 Fully Custom Crafted Pages</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Bespoke Visual Identity &amp; Modern UI Kit</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Comprehensive SEO &amp; Schema Injections</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Lead Pipeline Automation &amp; CRM Webhook</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Dedicated 30-Day Post-Launch Sprint Support</span>
+</li>
+<li class="flex items-start gap-2.5 text-outline">
+<span class="material-symbols-outlined text-outline text-[18px] shrink-0 mt-0.5">info</span>
+<span class="text-[12px]">Domain purchase extra cost</span>
+</li>
+</ul>
+</div>
+<a class="w-full py-4 rounded-xl bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-headline-sm text-[15px] font-bold text-center shadow-[0_0_25px_rgba(0,242,254,0.4)] active:scale-[0.99] transition-transform" href="#contact">
+          Choose Custom ⚡
+        </a>
+</div>
+<!-- Plan 3: Enterprise -->
+<div class="p-6 rounded-2xl bg-surface-container/70 backdrop-blur-md flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-mono-sm text-[11px] uppercase tracking-wider text-outline">Bespoke Architecture</span>
+<span class="text-xs font-semibold text-secondary-container bg-surface-container-high px-2 py-0.5 rounded">Enterprise</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-1">Bespoke Web Platform</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-5">
+            Full-scale custom engineering, CMS integration, dynamic user workflows, and unbounded feature sets.
+          </p>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="font-display-hero-mobile text-display-hero-mobile text-on-surface font-bold">₹25,000+</span>
+<span class="font-label-mono-sm text-outline text-[12px]">/ custom quote</span>
+</div>
+<!-- Feature List -->
+<ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface mb-6">
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Unlimited Pages &amp; Headless CMS Setup</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Custom Web Application &amp; Authentication Logic</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Global CDN Edge Acceleration</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Strict Enterprise SLA &amp; Direct Engineer Access</span>
+</li>
+</ul>
+</div>
+<a class="w-full py-3.5 rounded-xl bg-surface-container-high text-on-surface font-headline-sm text-[14px] font-semibold text-center hover:bg-surface-variant active:scale-[0.99] transition-all" href="#contact">
+          Contact Us →
+        </a>
+</div>
+</div>
+</section>
+<!-- ================= 4. CASE STUDIES SECTION ================= -->
+<section class="flex flex-col px-5 py-12 relative z-10 bg-surface-container-lowest/30">
+<div class="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full bg-surface-container-high mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-label-mono-sm text-[10px] text-primary tracking-widest uppercase">Proven Case Studies</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight mb-2">
+      Recent client websites engineered for scale and speed
+    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-8">
+      Real telemetry from real clients. Explore how engineering precision yields direct revenue impact.
+    </p>
+<!-- Case Study Cards Stack -->
+<div class="flex flex-col gap-6">
+<!-- Case 1 -->
+<div class="bg-surface-container/70 rounded-2xl overflow-hidden shadow-sm flex flex-col">
+<div class="w-full h-48 bg-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Futuristic logistics SaaS dashboard UI displayed on high tech screens, dark obsidian aesthetic with radiant cyan graphs, glowing data metrics, and slick clean typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrwNWjFP89_50wJ_6GXq7n-rolOyI61cFaay93HQopErf30Iby2qE93L4LvH57kai4LusKPWIizYPSPUzZTdkGenvNiSrPfrntDy_mJP6EE9-qpD1lebfrkvNfNZlaF4PdWaANOinGyPacRsZfKz3YWtNENO0PSmdnl7GI8xSQJBP8gWY3Xt_gs9wXTHpms-LDkUY8sa8zVgtxX0XuhYRxaCGhvfHHerwSF3AtkGzmqfE70HwV_i_e"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded font-label-mono-sm text-[10px] text-primary-container uppercase">
+            SaaS &amp; Enterprise
+          </span>
+</div>
+<div class="p-5 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-2">Nexus Logistics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Re-architected an enterprise supply chain portal from a cluttered monolithic system into a high-performance Next.js engine with instant lead forms.
+          </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-primary-container font-label-mono-sm text-[11px] font-semibold">
+              +180% Demo Requests
+            </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-label-mono-sm text-[11px]">
+              0.6s Load Time
+            </span>
+</div>
+</div>
+</div>
+<!-- Case 2 -->
+<div class="bg-surface-container/70 rounded-2xl overflow-hidden shadow-sm flex flex-col">
+<div class="w-full h-48 bg-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Artisanal specialty coffee ecommerce platform on a sleek mobile viewport, warm moody atmosphere mixed with dark obsidian neon highlights, premium packaging mockup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA133puYarl74ngVBnMglI5XHEY8xawTsL3bnGzFAQJ2ncX6bJJ-f3bzwmEFegsKYBM1Ibj1o4KTnTqvlHllun1wl6j75H6nUXiVDMX8Ufmw5wtEYDHhS5D49eOYZ5KJmEsIKYQx-BogK1DbZMG6xF0T4n8xxgygdwdAk1o68XQy0EUkeAJtvaDdXie-28MqPHqwSFuZT5jtuv4TLiXwP_yunh07advj7zmAlPHpqIsAmsXAj5j3wi4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded font-label-mono-sm text-[10px] text-primary-container uppercase">
+            E-Commerce &amp; Retail
+          </span>
+</div>
+<div class="p-5 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-2">Aura Coffee Co.</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Custom engineered a frictionless 2-tap checkout funnel that eradicated cart abandonment on mobile networks across Southeast Asia.
+          </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-primary-container font-label-mono-sm text-[11px] font-semibold">
+              +64% Cart Completion
+            </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-label-mono-sm text-[11px]">
+              Mobile-First Flow
+            </span>
+</div>
+</div>
+</div>
+<!-- Case 3 -->
+<div class="bg-surface-container/70 rounded-2xl overflow-hidden shadow-sm flex flex-col">
+<div class="w-full h-48 bg-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Ultra luxury modern architectural villa in Dubai at dusk, glass walls with neon cyan pool reflections, architectural blueprint overlays, luxury real estate editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgEdRnPzB7zkhiE2ieemwx0ltTXhf3sacidXrt6WZx2ECU4nHHLJFX2AshYZnPRyyq8hANy9zr-NoMQHJaxSJtHXWmnKFhUYf_vKi6ldaRtt56zNfmHrRIFrbHFodGkTOaPBGAyjPUO1FormUKMWxgDU-lWmaVQ-nH7kfjPIYvbflJ1zAX3W8E5mujNCXJ3jq2s_ayIuWi_mPMD7c7pn-JmoBeSRuW86Dv_iaPf0rO9gzGmpbdQUVr"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded font-label-mono-sm text-[10px] text-primary-container uppercase">
+            High-Net-Worth Real Estate
+          </span>
+</div>
+<div class="p-5 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-2">Vertex Real Estate</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Constructed an ultra-fast virtual showcase for high-net-worth property acquisitions in Dubai, capturing institutional buyers effortlessly.
+          </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-primary-container font-label-mono-sm text-[11px] font-semibold">
+              AED 42M Pipeline
+            </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-label-mono-sm text-[11px]">
+              99 Lighthouse
+            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 5. LEAD CAPTURE & CONTACT ================= -->
+<section class="flex flex-col px-5 py-12 relative z-10" id="contact">
+<div class="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full bg-surface-container-high mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-label-mono-sm text-[10px] text-primary tracking-widest uppercase">Initiate Project</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight mb-2">
+      Let's engineer your high-converting digital platform.
+    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+      Ready to replace your dated website with a lightning-fast conversion machine? Share your vision and we'll deliver an actionable scope within 4 hours.
+    </p>
+<!-- Quick Direct Contact Links -->
+<div class="flex flex-col gap-2.5 mb-8">
+<a class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container/70 shadow-sm active:bg-surface-variant" href="https://wa.me/917907142807" rel="noopener" target="_blank">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono-sm text-[10px] text-outline uppercase">WhatsApp Hotline</span>
+<span class="font-headline-sm text-[14px] text-on-surface font-semibold">+91 7907142807</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">arrow_forward</span>
+</a>
+<a class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container/70 shadow-sm active:bg-surface-variant" href="mailto:rajrahulmr96@gmail.com">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono-sm text-[10px] text-outline uppercase">Direct Email</span>
+<span class="font-headline-sm text-[14px] text-on-surface font-semibold">rajrahulmr96@gmail.com</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Testimonial Quote Card -->
+<div class="p-5 rounded-2xl bg-surface-container-high/60 backdrop-blur-md mb-8 shadow-sm">
+<div class="flex items-center gap-1 text-primary-container mb-3">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface italic leading-relaxed mb-4">
+        “Helixhive didn't just rebuild our website; they rebuilt our inbound pipeline. Within 3 weeks of launching our new tailored portal, conversion inquiries doubled and bounce rates fell below 18%. Worth every rupee.”
+      </p>
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of Kareem Al-Mansoor, middle eastern tech founder in sleek black minimalist blazer against subtle studio lighting, professional corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEj6N7lXcErPGRLM0ckg-vA1kchUV8KAP_Jai10vjmfmC5wv5tcnn3ZYhYr2ll6FS6KXcDLNgonDPb9xFL5T73w81tg2POalaLtzFEJU9gOzD4O8rnac7vqZDt5OAMzCQsW5YLN5fB3w91uLHzBjwHbxfwu6tVVhzd1bPwRn4z8Vg01Ato7ZG8DuIepo4JgYqx0RNiiTOJrsAUamg2vX0BEOlbqJmsNpAHqSpmp-Q0sYDcWE2TSPg2"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[13px] font-semibold text-on-surface">Kareem Al-Mansoor</span>
+<span class="font-label-mono-sm text-[11px] text-outline">Co-Founder, FreightScale DXB</span>
+</div>
+</div>
+</div>
+<!-- Interactive Lead Form -->
+<form class="p-6 rounded-2xl bg-surface-container-lowest/90 backdrop-blur-xl flex flex-col gap-4 shadow-xl" onsubmit="event.preventDefault(); alert('Brief received! The Helixhive engineering team will reach out within 4 hours.');">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-mono-sm text-[11px] text-on-surface-variant uppercase">Full Name</label>
+<input class="w-full px-4 py-3 rounded-xl bg-surface-container text-on-surface placeholder:text-outline font-body-sm text-[14px] focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="e.g. Rahul Sharma" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-mono-sm text-[11px] text-on-surface-variant uppercase">Business Email</label>
+<input class="w-full px-4 py-3 rounded-xl bg-surface-container text-on-surface placeholder:text-outline font-body-sm text-[14px] focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="e.g. rahul@company.com" required="" type="email"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-mono-sm text-[11px] text-on-surface-variant uppercase">Phone / WhatsApp</label>
+<input class="w-full px-4 py-3 rounded-xl bg-surface-container text-on-surface placeholder:text-outline font-body-sm text-[14px] focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="e.g. +91 98765 43210" required="" type="tel"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-mono-sm text-[11px] text-on-surface-variant uppercase">Business Type</label>
+<select class="w-full px-4 py-3 rounded-xl bg-surface-container text-on-surface font-body-sm text-[14px] focus:outline-none focus:ring-1 focus:ring-primary-container appearance-none">
+<option value="saas">SaaS / Tech Startup</option>
+<option value="ecommerce">E-Commerce &amp; D2C</option>
+<option value="b2b">B2B / Professional Services</option>
+<option value="realestate">Real Estate &amp; Construction</option>
+<option value="other">Other High Growth Sector</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-mono-sm text-[11px] text-on-surface-variant uppercase">Desired Plan / Requirement</label>
+<select class="w-full px-4 py-3 rounded-xl bg-surface-container text-on-surface font-body-sm text-[14px] focus:outline-none focus:ring-1 focus:ring-primary-container appearance-none">
+<option value="custom">Custom Make Plan (₹10,000) - Most Popular</option>
+<option value="basic">Basic Plan (₹859)</option>
+<option value="enterprise">Enterprise Bespoke (₹25,000+)</option>
+<option value="audit">Free Performance &amp; Conversion Audit</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-mono-sm text-[11px] text-on-surface-variant uppercase">Project Brief &amp; Objectives</label>
+<textarea class="w-full px-4 py-3 rounded-xl bg-surface-container text-on-surface placeholder:text-outline font-body-sm text-[14px] focus:outline-none focus:ring-1 focus:ring-primary-container resize-none" placeholder="Tell us about your current site, business goals, and timeline..." rows="3"></textarea>
+</div>
+<button class="w-full mt-2 py-4 rounded-xl bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-headline-sm text-[15px] font-bold text-center shadow-[0_0_25px_rgba(0,242,254,0.4)] active:scale-[0.99] transition-transform" type="submit">
+        Send Project Brief ⚡
+      </button>
+<div class="flex items-center justify-center gap-1.5 text-outline mt-1">
+<span class="material-symbols-outlined text-[15px]">lock</span>
+<span class="font-label-mono-sm text-[11px]">4-Hour Response • Strict NDA Protected</span>
+</div>
+</form>
+</section>
+<!-- ================= 6. FOOTER ================= -->
+<footer class="flex flex-col px-5 py-10 bg-surface-container-lowest relative z-10">
+<div class="flex flex-col gap-4 mb-8">
+<div class="flex items-center gap-2">
+<span class="text-primary-container font-headline-sm text-headline-sm font-bold tracking-tighter">HELIXHIVE</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+        Next-generation digital engineering agency crafting sub-second high conversion platforms for ambitious founders worldwide.
+      </p>
+</div>
+<!-- Footer Links Grid -->
+<div class="grid grid-cols-2 gap-6 mb-8">
+<div class="flex flex-col gap-2.5">
+<span class="font-label-mono-sm text-[11px] text-outline uppercase tracking-wider">Navigation</span>
+<a class="font-body-sm text-[13px] text-on-surface-variant hover:text-primary" href="#">Performance Core</a>
+<a class="font-body-sm text-[13px] text-on-surface-variant hover:text-primary" href="#pricing">Investment Packages</a>
+<a class="font-body-sm text-[13px] text-on-surface-variant hover:text-primary" href="#contact">Initiate Project</a>
+</div>
+<div class="flex flex-col gap-2.5">
+<span class="font-label-mono-sm text-[11px] text-outline uppercase tracking-wider">Direct Engagement</span>
+<a class="font-body-sm text-[13px] text-on-surface-variant hover:text-primary" href="https://wa.me/917907142807" rel="noopener" target="_blank">WhatsApp (+91 7907142807)</a>
+<a class="font-body-sm text-[13px] text-on-surface-variant hover:text-primary truncate" href="mailto:rajrahulmr96@gmail.com">rajrahulmr96@gmail.com</a>
+</div>
+</div>
+<!-- Status & Copyright Bar -->
+<div class="pt-6 flex flex-col gap-3">
+<div class="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full bg-surface-container">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-mono-sm text-[10px] text-primary">System Architecture v2.4 Active</span>
+</div>
+<p class="font-label-mono-sm text-[11px] text-outline">
+        © 2025 Helixhive Digital Systems. All engineering rights reserved.
+      </p>
+</div>
+</footer>
+</div></main></body></html>

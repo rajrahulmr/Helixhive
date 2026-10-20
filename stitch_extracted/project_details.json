@@ -1,0 +1,232 @@
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\"name\":\"projects/3844041722028070606\",\"title\":\"Helixhive Agency Landing Page\",\"visibility\":\"PRIVATE\",\"createTime\":\"2026-10-20T16:26:18.066426Z\",\"updateTime\":\"2026-10-20T16:46:03.800895Z\",\"projectType\":\"TEXT_TO_UI_PRO\",\"thumbnailScreenshot\":{\"name\":\"projects/3844041722028070606/screens/6267a58817f94a4f912ece64d6323a7c/fileEntries/screenshot\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AEtjO1X_fMkbntdfXfjbEehzmYDPH2-6xaKYgbQprUmjbLvbDN4clGPyRD20WaIxwqwhEZKJZ4z-LjBYHoevpCa3qZmtvBQJTQzsetT6yuivv1O6HTtcCScIiI_geF2qRCXgCbY_EOtyeQwN4FZSN2ta4fhNf0ueWdyiaMY-VQouRFNGUeCadTGGGR564yFLAKEmxIr0ThvYRMDQB6dWIaCBQyTcy80L0iOQ2uBv30oy5BCERZNhoNvqY-2wAA\"},\"origin\":\"STITCH\",\"deviceType\":\"DESKTOP\",\"designTheme\":{\"colorMode\":\"DARK\",\"font\":\"SPACE_GROTESK\",\"roundness\":\"ROUND_FOUR\",\"customColor\":\"#00f2fe\",\"headlineFont\":\"SPACE_GROTESK\",\"bodyFont\":\"GEIST\",\"labelFont\":\"JETBRAINS_MONO\",\"namedColors\":{\"surface_dim\":\"#061423\",\"on_error_container\":\"#ffdad6\",\"on_background\":\"#d6e4f9\",\"tertiary\":\"#f7f7ff\",\"on_surface_variant\":\"#b9cacb\",\"primary_container\":\"#00f2fe\",\"secondary_container\":\"#00c4fd\",\"inverse_primary\":\"#00696f\",\"surface_variant\":\"#283646\",\"secondary\":\"#92dbff\",\"outline\":\"#849495\",\"on_secondary\":\"#003547\",\"on_secondary_fixed\":\"#001f2a\",\"error_container\":\"#93000a\",\"on_tertiary_fixed_variant\":\"#3c475d\",\"surface_container_low\":\"#0f1c2c\",\"background\":\"#061423\",\"inverse_surface\":\"#d6e4f9\",\"tertiary_container\":\"#d0dbf7\",\"primary_fixed_dim\":\"#00dce6\",\"surface\":\"#061423\",\"on_primary_fixed_variant\":\"#004f53\",\"surface_bright\":\"#2d3a4a\",\"on_error\":\"#690005\",\"tertiary_fixed\":\"#d7e2ff\",\"primary_fixed\":\"#6ff6ff\",\"primary\":\"#e0fdff\",\"on_secondary_fixed_variant\":\"#004d65\",\"on_secondary_container\":\"#004d66\",\"on_primary_fixed\":\"#002022\",\"surface_tint\":\"#00dce6\",\"surface_container_highest\":\"#283646\",\"on_primary\":\"#00373a\",\"surface_container\":\"#132030\",\"outline_variant\":\"#3a494b\",\"on_primary_container\":\"#006a70\",\"tertiary_fixed_dim\":\"#bbc6e2\",\"on_tertiary_fixed\":\"#101b30\",\"surface_container_lowest\":\"#020f1e\",\"error\":\"#ffb4ab\",\"inverse_on_surface\":\"#243141\",\"on_tertiary\":\"#263046\",\"secondary_fixed\":\"#bfe9ff\",\"secondary_fixed_dim\":\"#6dd2ff\",\"on_tertiary_container\":\"#556078\",\"surface_container_high\":\"#1e2b3b\",\"on_surface\":\"#d6e4f9\"},\"designMd\":\"---\\nname: Helixhive Hyperline\\ncolors:\\n  surface: '#061423'\\n  surface-dim: '#061423'\\n  surface-bright: '#2d3a4a'\\n  surface-container-lowest: '#020f1e'\\n  surface-container-low: '#0f1c2c'\\n  surface-container: '#132030'\\n  surface-container-high: '#1e2b3b'\\n  surface-container-highest: '#283646'\\n  on-surface: '#d6e4f9'\\n  on-surface-variant: '#b9cacb'\\n  inverse-surface: '#d6e4f9'\\n  inverse-on-surface: '#243141'\\n  outline: '#849495'\\n  outline-variant: '#3a494b'\\n  surface-tint: '#00dce6'\\n  primary: '#e0fdff'\\n  on-primary: '#00373a'\\n  primary-container: '#00f2fe'\\n  on-primary-container: '#006a70'\\n  inverse-primary: '#00696f'\\n  secondary: '#92dbff'\\n  on-secondary: '#003547'\\n  secondary-container: '#00c4fd'\\n  on-secondary-container: '#004d66'\\n  tertiary: '#f7f7ff'\\n  on-tertiary: '#263046'\\n  tertiary-container: '#d0dbf7'\\n  on-tertiary-container: '#556078'\\n  error: '#ffb4ab'\\n  on-error: '#690005'\\n  error-container: '#93000a'\\n  on-error-container: '#ffdad6'\\n  primary-fixed: '#6ff6ff'\\n  primary-fixed-dim: '#00dce6'\\n  on-primary-fixed: '#002022'\\n  on-primary-fixed-variant: '#004f53'\\n  secondary-fixed: '#bfe9ff'\\n  secondary-fixed-dim: '#6dd2ff'\\n  on-secondary-fixed: '#001f2a'\\n  on-secondary-fixed-variant: '#004d65'\\n  tertiary-fixed: '#d7e2ff'\\n  tertiary-fixed-dim: '#bbc6e2'\\n  on-tertiary-fixed: '#101b30'\\n  on-tertiary-fixed-variant: '#3c475d'\\n  background: '#061423'\\n  on-background: '#d6e4f9'\\n  surface-variant: '#283646'\\ntypography:\\n  display-hero:\\n    fontFamily: Space Grotesk\\n    fontSize: 64px\\n    fontWeight: '700'\\n    lineHeight: 72px\\n    letterSpacing: -0.03em\\n  display-hero-mobile:\\n    fontFamily: Space Grotesk\\n    fontSize: 38px\\n    fontWeight: '700'\\n    lineHeight: 44px\\n    letterSpacing: -0.025em\\n  headline-lg:\\n    fontFamily: Space Grotesk\\n    fontSize: 44px\\n    fontWeight: '700'\\n    lineHeight: 52px\\n    letterSpacing: -0.025em\\n  headline-lg-mobile:\\n    fontFamily: Space Grotesk\\n    fontSize: 30px\\n    fontWeight: '600'\\n    lineHeight: 38px\\n    letterSpacing: -0.02em\\n  headline-md:\\n    fontFamily: Space Grotesk\\n    fontSize: 32px\\n    fontWeight: '600'\\n    lineHeight: 40px\\n    letterSpacing: -0.02em\\n  headline-sm:\\n    fontFamily: Space Grotesk\\n    fontSize: 24px\\n    fontWeight: '600'\\n    lineHeight: 32px\\n    letterSpacing: -0.015em\\n  body-lg:\\n    fontFamily: Geist\\n    fontSize: 18px\\n    fontWeight: '400'\\n    lineHeight: 28px\\n    letterSpacing: -0.01em\\n  body-md:\\n    fontFamily: Geist\\n    fontSize: 16px\\n    fontWeight: '400'\\n    lineHeight: 26px\\n    letterSpacing: 0em\\n  body-sm:\\n    fontFamily: Geist\\n    fontSize: 14px\\n    fontWeight: '400'\\n    lineHeight: 22px\\n    letterSpacing: 0em\\n  label-mono-lg:\\n    fontFamily: JetBrains Mono\\n    fontSize: 14px\\n    fontWeight: '500'\\n    lineHeight: 20px\\n    letterSpacing: 0.04em\\n  label-mono-sm:\\n    fontFamily: JetBrains Mono\\n    fontSize: 12px\\n    fontWeight: '500'\\n    lineHeight: 16px\\n    letterSpacing: 0.06em\\nrounded:\\n  sm: 0.125rem\\n  DEFAULT: 0.25rem\\n  md: 0.375rem\\n  lg: 0.5rem\\n  xl: 0.75rem\\n  full: 9999px\\nspacing:\\n  gutter: 1.5rem\\n  gutter-sm: 1rem\\n  gutter-lg: 2rem\\n  margin: 1.5rem\\n  margin-md: 3rem\\n  margin-lg: 5rem\\n  space-xs: 0.25rem\\n  space-sm: 0.5rem\\n  space-md: 1rem\\n  space-lg: 1.5rem\\n  space-xl: 2.5rem\\n---\\n\\n## Brand & Style\\n\\nThis design system expresses high-conviction, enterprise-grade digital engineering for next-generation platforms. The aesthetic fuses precision-engineered minimalism with hyper-lucid neon depth\u2014stripping away gratuitous visual noise while preserving radiant focal points that guide enterprise decision-makers toward conversion.\\n\\n- **Brand Archetype:** The Visionary Architect. Methodical, commanding, technological, and mathematically pristine.\\n- **Target Audience:** Enterprise founders, VP of Product leads, and technology directors seeking top-tier agency execution across AI platforms, fintech infrastructure, and high-performance web applications.\\n- **Visual Movement:** High-tech Glassmorphism rooted in Structural Minimalism. Dark obsidian matrices layered with precision border lights, directional cyan luminescences, and sharp mechanical typography.\\n- **Emotional Resonance:** Impeccable execution, institutional confidence, hyper-scale velocity, and future-proof design clarity.\\n\\n## Colors\\n\\nThe palette operates within a controlled tonal hierarchy of deep obsidian-slate surfaces punctuated by hyper-luminescent photon teal accents. High-converting contrast is achieved through deliberate luminance isolation: primary actions borrow intense neon emissions while foundational backdrops remain grounded.\\n\\n- **Primary (`#00F2FE`):** Kinetic Cyan. Used strictly for high-priority interactive touchpoints, primary conversion actions, dynamic focal indicators, and directional highlights.\\n- **Secondary (`#00C6FF`):** Electric Cerulean. Complements the primary with gradient terminal points, interactive states, active link hover treatments, and badge indicators.\\n- **Tertiary (`#1B263B`):** Deep Slate Cobalt. Serves as structural elevation tiers, subtle surface fills, dividers, and card backgrounds.\\n- **Neutral Core (`#0D1B2A`):** Obsidian Navy. The foundational viewport canvas providing infinite depth against which cyan glows project.\\n- **Surface Variant (`#0F172A`):** Deep Abyssal Slate. Baseline backdrop for nested containers, card wells, and dynamic code/metric windows.\\n- **Text & Foregrounds:**\\n  - `High-Emphasis Content`: `#F8FAFC` (Pure Titanium, 98% opacity)\\n  - `Medium-Emphasis Content`: `#94A3B8` (Muted Slate, 70% opacity)\\n  - `Structural Borders`: `rgba(0, 242, 254, 0.14)` resting, elevating to `rgba(0, 242, 254, 0.5)` on hover.\\n\\n## Typography\\n\\nThe typographic hierarchy implements a high-precision tripartite stack:\\n\\n- **Display & Headlines (Space Grotesk):** Engineered geometry with high mechanical character. Kerning is pulled tight (`-0.015em` to `-0.03em`) to project architectural density, authority, and modern technical prowess.\\n- **Body & Prose (Geist):** Neutral, pristine neo-grotesque engineered for rapid readability on ultra-dark backdrops without halation or eye fatigue.\\n- **Labels, Telemetry & Eyebrows (JetBrains Mono):** Technical monospace styling for metadata, tags, KPIs, and status markers. Always set in uppercase with tracked-out spacing for cryptographic precision.\\n\\n## Layout & Spacing\\n\\nThe layout is built upon a 12-column fluid grid system bounded by a max container width of `1280px` (`80rem`) on desktop. \\n\\n- **Grid Architecture:** \\n  - Desktop (1024px+): 12 columns, `gutter-lg` (2rem / 32px), side margins `margin-lg` (5rem / 80px).\\n  - Tablet (768px - 1023px): 8 columns, `gutter` (1.5rem / 24px), side margins `margin-md` (3rem / 48px).\\n  - Mobile (\\u003c768px): 4 columns, `gutter-sm` (1rem / 16px), side margins `margin` (1.5rem / 24px).\\n- **Rhythmic Stacking:** Vertical rhythm scales strictly on a base-8 grid. Section divisions demand dramatic negative space (`space-xl` multiplied by 3 or 4: 7.5rem - 10rem) to isolate narrative beats and give enterprise solutions massive perceptual value.\\n- **Content Density:** Component interiors preserve compact padding matrices (`space-md` to `space-lg`) to balance expansive canvas airiness with surgical module density.\\n\\n## Elevation & Depth\\n\\nDepth is defined through layered atmospheric backdrops, directional translucent borders, and localized neon emissions rather than traditional drop shadows.\\n\\n- **Base Canvas:** Solid `#0D1B2A` with optional faint radial falloff meshes in deep slate `#1B263B`.\\n- **Surface Layer 1 (Cards, Modules):** Glassmorphic fill consisting of `rgba(15, 23, 42, 0.65)` layered over background blur of `16px`. Outlined with a 1px border of `rgba(0, 242, 254, 0.12)`.\\n- **Surface Layer 2 (Modals, Overlays, Floating Nav):** `rgba(27, 38, 59, 0.8)` with `24px` backdrop blur, structured by a top-edge highlight: `inset 0 1px 0 0 rgba(0, 242, 254, 0.35)`.\\n- **Photonic Glows & Borders:**\\n  - `Glow Idle`: `0 0 20px -5px rgba(0, 242, 254, 0.2)`\\n  - `Glow Active / Hover`: `0 0 35px 0px rgba(0, 242, 254, 0.45), 0 0 10px 0px rgba(0, 198, 255, 0.6)`\\n  - Cards leverage mouse-aware linear gradients within border pseudo-elements: `linear-gradient(135deg, rgba(0,242,254,0.4) 0%, rgba(27,38,59,0.1) 60%)`.\\n\\n## Shapes\\n\\nThe design system enforces a disciplined `Soft` geometric geometry (`roundedness: 1`). Controlled, compact corner radii evoke machined hardware, precision optical lenses, and enterprise data terminals.\\n\\n- **Micro Components (Chips, Badges, Inputs):** `0.25rem` (4px).\\n- **Standard Components (Buttons, Tooltips):** `0.375rem` (6px).\\n- **Macro Components (Panels, Bento Cards, Modals):** `0.5rem` (8px).\\n- **Feature Surfaces (Outer Hero Modules):** `0.75rem` (12px).\\n- **Prohibitions:** Circular pill shapes and bubble radii are strictly prohibited to preserve high-tech structural integrity.\\n\\n## Components\\n\\n### Buttons\\n- **Primary Action (Hyper-Convert):** Background: linear gradient (`135deg`, `#00F2FE` 0%, `#00C6FF` 100%). Foreground: `#0D1B2A` (Space Grotesk, Bold, 14px). Box shadow: `0 0 24px rgba(0, 242, 254, 0.35)`. Hover: elevate glow brightness, `transform: translateY(-1px)`. Active: `scale(0.99)`.\\n- **Secondary / Ghost Outline:** Background: `rgba(27, 38, 59, 0.4)`. Border: `1px solid rgba(0, 242, 254, 0.3)`. Foreground: `#F8FAFC`. Hover: border brightens to `rgba(0, 242, 254, 0.8)`, background shifts to `rgba(0, 242, 254, 0.08)`.\\n\\n### Cards & Bento Modules\\n- Backing: `rgba(15, 23, 42, 0.7)` with `backdrop-filter: blur(12px)`.\\n- Stroke: 1px continuous solid `rgba(255, 255, 255, 0.07)` with dynamic interactive states that swap to a top-angled gradient sweep `rgba(0, 242, 254, 0.5)` to `transparent`.\\n- Padding: `1.5rem` (24px) for desktop, `1rem` (16px) for compact viewports.\\n\\n### Chips & Status Badges\\n- Font: `JetBrains Mono`, 11px, uppercase, letter-spacing `0.06em`.\\n- Structure: 1px border `rgba(0, 242, 254, 0.25)`, fill `rgba(0, 242, 254, 0.05)`, foreground `#00F2FE`.\\n- Indicator: 6px pulsing emerald or cyan dot with radial halo (`box-shadow: 0 0 8px #00F2FE`).\\n\\n### Form Inputs\\n- Fill: `#0F172A`.\\n- Border: `1px solid rgba(148, 163, 184, 0.2)`.\\n- Text: `#F8FAFC`, placeholder `#475569` (`Geist`, 14px).\\n- Focus State: Border color resolves to `#00F2FE` with an ambient ring: `0 0 0 1px #00F2FE, 0 0 16px rgba(0, 242, 254, 0.25)`. Outline is disabled.\\n\\n### Checkboxes & Toggle Controls\\n- Box: 18x18px, `rounded-sm` (2px), border `rgba(148, 163, 184, 0.4)`.\\n- Selected: Background `#00F2FE`, checkmark icon `#0D1B2A`, box-shadow `0 0 10px rgba(0, 242, 254, 0.5)`.\\n\\n### Lists & Key-Value Specs\\n- Dividers: `1px solid rgba(27, 38, 59, 0.6)`.\\n- Label: Monospace key (`#94A3B8`), Value: Titanium Grotesk (`#F8FAFC`).\\n- Bullet markers: 4x4px cyan micro-squares rotated 45 degrees.\\n\\n### Specialized Agency Component: Client Telemetry Strip\\n- A horizontal metrics banner displaying conversion benchmarks, API throughput, and client ROIs. Framed in low-opacity frosted glass with glowing divider ticks, utilizing `Space Grotesk` tabular numbers paired with `JetBrains Mono` subtext.\",\"colorVariant\":\"FIDELITY\",\"overridePrimaryColor\":\"#00f2fe\",\"overrideSecondaryColor\":\"#00c6ff\",\"overrideTertiaryColor\":\"#1b263b\",\"overrideNeutralColor\":\"#0d1b2a\",\"spacingScale\":2,\"typography\":{\"label-mono-sm\":{\"fontFamily\":\"JetBrains Mono\",\"fontSize\":\"12px\",\"fontWeight\":\"500\",\"lineHeight\":\"16px\",\"letterSpacing\":\"0.06em\"},\"headline-lg\":{\"fontFamily\":\"Space Grotesk\",\"fontSize\":\"44px\",\"fontWeight\":\"700\",\"lineHeight\":\"52px\",\"letterSpacing\":\"-0.025em\"},\"body-lg\":{\"fontFamily\":\"Geist\",\"fontSize\":\"18px\",\"fontWeight\":\"400\",\"lineHeight\":\"28px\",\"letterSpacing\":\"-0.01em\"},\"display-hero-mobile\":{\"fontFamily\":\"Space Grotesk\",\"fontSize\":\"38px\",\"fontWeight\":\"700\",\"lineHeight\":\"44px\",\"letterSpacing\":\"-0.025em\"},\"display-hero\":{\"fontFamily\":\"Space Grotesk\",\"fontSize\":\"64px\",\"fontWeight\":\"700\",\"lineHeight\":\"72px\",\"letterSpacing\":\"-0.03em\"},\"headline-lg-mobile\":{\"fontFamily\":\"Space Grotesk\",\"fontSize\":\"30px\",\"fontWeight\":\"600\",\"lineHeight\":\"38px\",\"letterSpacing\":\"-0.02em\"},\"body-sm\":{\"fontFamily\":\"Geist\",\"fontSize\":\"14px\",\"fontWeight\":\"400\",\"lineHeight\":\"22px\",\"letterSpacing\":\"0em\"},\"headline-sm\":{\"fontFamily\":\"Space Grotesk\",\"fontSize\":\"24px\",\"fontWeight\":\"600\",\"lineHeight\":\"32px\",\"letterSpacing\":\"-0.015em\"},\"label-mono-lg\":{\"fontFamily\":\"JetBrains Mono\",\"fontSize\":\"14px\",\"fontWeight\":\"500\",\"lineHeight\":\"20px\",\"letterSpacing\":\"0.04em\"},\"body-md\":{\"fontFamily\":\"Geist\",\"fontSize\":\"16px\",\"fontWeight\":\"400\",\"lineHeight\":\"26px\",\"letterSpacing\":\"0em\"},\"headline-md\":{\"fontFamily\":\"Space Grotesk\",\"fontSize\":\"32px\",\"fontWeight\":\"600\",\"lineHeight\":\"40px\",\"letterSpacing\":\"-0.02em\"}},\"spacing\":{\"gutter-sm\":\"1rem\",\"space-xs\":\"0.25rem\",\"space-sm\":\"0.5rem\",\"gutter-lg\":\"2rem\",\"space-lg\":\"1.5rem\",\"gutter\":\"1.5rem\",\"margin-lg\":\"5rem\",\"margin\":\"1.5rem\",\"space-xl\":\"2.5rem\",\"space-md\":\"1rem\",\"margin-md\":\"3rem\"},\"headlineFontFamily\":\"Space Grotesk\",\"bodyFontFamily\":\"Geist\",\"labelFontFamily\":\"JetBrains Mono\"},\"screenInstances\":[{\"id\":\"131ae63d31e54f1f9d8bae7e623c6a9b\",\"sourceScreen\":\"projects/3844041722028070606/screens/131ae63d31e54f1f9d8bae7e623c6a9b\",\"x\":2368,\"width\":390,\"height\":8323,\"label\":\"Generating Screen...\"},{\"id\":\"6267a58817f94a4f912ece64d6323a7c\",\"sourceScreen\":\"projects/3844041722028070606/screens/6267a58817f94a4f912ece64d6323a7c\",\"x\":1024,\"width\":1280,\"height\":4276,\"label\":\"Generating Screen...\"},{\"id\":\"864f3af908ab4038a5809f3f65bd4f8e\",\"sourceScreen\":\"projects/3844041722028070606/screens/864f3af908ab4038a5809f3f65bd4f8e\",\"x\":2822,\"width\":390,\"height\":5494,\"label\":\"Generating Screen...\",\"hidden\":true},{\"id\":\"assets_9a8e2c24d7f345b5a17c2803f866b2e8\",\"width\":960,\"height\":540,\"sourceAsset\":\"assets/9a8e2c24d7f345b5a17c2803f866b2e8\",\"type\":\"DESIGN_SYSTEM_INSTANCE\"},{\"id\":\"b5664e7c96c84171a43fb219d0917596\",\"sourceScreen\":\"projects/3844041722028070606/screens/b5664e7c96c84171a43fb219d0917596\",\"y\":4532,\"width\":390,\"height\":4109,\"label\":\"Helixhive | Mobile Landing Page\",\"hidden\":true}],\"metadata\":{\"userRole\":\"OWNER\"}}",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "createTime": "2026-10-20T16:26:18.066426Z",
+      "designTheme": {
+        "bodyFont": "GEIST",
+        "bodyFontFamily": "Geist",
+        "colorMode": "DARK",
+        "colorVariant": "FIDELITY",
+        "customColor": "#00f2fe",
+        "designMd": "---\nname: Helixhive Hyperline\ncolors:\n  surface: '#061423'\n  surface-dim: '#061423'\n  surface-bright: '#2d3a4a'\n  surface-container-lowest: '#020f1e'\n  surface-container-low: '#0f1c2c'\n  surface-container: '#132030'\n  surface-container-high: '#1e2b3b'\n  surface-container-highest: '#283646'\n  on-surface: '#d6e4f9'\n  on-surface-variant: '#b9cacb'\n  inverse-surface: '#d6e4f9'\n  inverse-on-surface: '#243141'\n  outline: '#849495'\n  outline-variant: '#3a494b'\n  surface-tint: '#00dce6'\n  primary: '#e0fdff'\n  on-primary: '#00373a'\n  primary-container: '#00f2fe'\n  on-primary-container: '#006a70'\n  inverse-primary: '#00696f'\n  secondary: '#92dbff'\n  on-secondary: '#003547'\n  secondary-container: '#00c4fd'\n  on-secondary-container: '#004d66'\n  tertiary: '#f7f7ff'\n  on-tertiary: '#263046'\n  tertiary-container: '#d0dbf7'\n  on-tertiary-container: '#556078'\n  error: '#ffb4ab'\n  on-error: '#690005'\n  error-container: '#93000a'\n  on-error-container: '#ffdad6'\n  primary-fixed: '#6ff6ff'\n  primary-fixed-dim: '#00dce6'\n  on-primary-fixed: '#002022'\n  on-primary-fixed-variant: '#004f53'\n  secondary-fixed: '#bfe9ff'\n  secondary-fixed-dim: '#6dd2ff'\n  on-secondary-fixed: '#001f2a'\n  on-secondary-fixed-variant: '#004d65'\n  tertiary-fixed: '#d7e2ff'\n  tertiary-fixed-dim: '#bbc6e2'\n  on-tertiary-fixed: '#101b30'\n  on-tertiary-fixed-variant: '#3c475d'\n  background: '#061423'\n  on-background: '#d6e4f9'\n  surface-variant: '#283646'\ntypography:\n  display-hero:\n    fontFamily: Space Grotesk\n    fontSize: 64px\n    fontWeight: '700'\n    lineHeight: 72px\n    letterSpacing: -0.03em\n  display-hero-mobile:\n    fontFamily: Space Grotesk\n    fontSize: 38px\n    fontWeight: '700'\n    lineHeight: 44px\n    letterSpacing: -0.025em\n  headline-lg:\n    fontFamily: Space Grotesk\n    fontSize: 44px\n    fontWeight: '700'\n    lineHeight: 52px\n    letterSpacing: -0.025em\n  headline-lg-mobile:\n    fontFamily: Space Grotesk\n    fontSize: 30px\n    fontWeight: '600'\n    lineHeight: 38px\n    letterSpacing: -0.02em\n  headline-md:\n    fontFamily: Space Grotesk\n    fontSize: 32px\n    fontWeight: '600'\n    lineHeight: 40px\n    letterSpacing: -0.02em\n  headline-sm:\n    fontFamily: Space Grotesk\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: 32px\n    letterSpacing: -0.015em\n  body-lg:\n    fontFamily: Geist\n    fontSize: 18px\n    fontWeight: '400'\n    lineHeight: 28px\n    letterSpacing: -0.01em\n  body-md:\n    fontFamily: Geist\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 26px\n    letterSpacing: 0em\n  body-sm:\n    fontFamily: Geist\n    fontSize: 14px\n    fontWeight: '400'\n    lineHeight: 22px\n    letterSpacing: 0em\n  label-mono-lg:\n    fontFamily: JetBrains Mono\n    fontSize: 14px\n    fontWeight: '500'\n    lineHeight: 20px\n    letterSpacing: 0.04em\n  label-mono-sm:\n    fontFamily: JetBrains Mono\n    fontSize: 12px\n    fontWeight: '500'\n    lineHeight: 16px\n    letterSpacing: 0.06em\nrounded:\n  sm: 0.125rem\n  DEFAULT: 0.25rem\n  md: 0.375rem\n  lg: 0.5rem\n  xl: 0.75rem\n  full: 9999px\nspacing:\n  gutter: 1.5rem\n  gutter-sm: 1rem\n  gutter-lg: 2rem\n  margin: 1.5rem\n  margin-md: 3rem\n  margin-lg: 5rem\n  space-xs: 0.25rem\n  space-sm: 0.5rem\n  space-md: 1rem\n  space-lg: 1.5rem\n  space-xl: 2.5rem\n---\n\n## Brand & Style\n\nThis design system expresses high-conviction, enterprise-grade digital engineering for next-generation platforms. The aesthetic fuses precision-engineered minimalism with hyper-lucid neon depth\u2014stripping away gratuitous visual noise while preserving radiant focal points that guide enterprise decision-makers toward conversion.\n\n- **Brand Archetype:** The Visionary Architect. Methodical, commanding, technological, and mathematically pristine.\n- **Target Audience:** Enterprise founders, VP of Product leads, and technology directors seeking top-tier agency execution across AI platforms, fintech infrastructure, and high-performance web applications.\n- **Visual Movement:** High-tech Glassmorphism rooted in Structural Minimalism. Dark obsidian matrices layered with precision border lights, directional cyan luminescences, and sharp mechanical typography.\n- **Emotional Resonance:** Impeccable execution, institutional confidence, hyper-scale velocity, and future-proof design clarity.\n\n## Colors\n\nThe palette operates within a controlled tonal hierarchy of deep obsidian-slate surfaces punctuated by hyper-luminescent photon teal accents. High-converting contrast is achieved through deliberate luminance isolation: primary actions borrow intense neon emissions while foundational backdrops remain grounded.\n\n- **Primary (`#00F2FE`):** Kinetic Cyan. Used strictly for high-priority interactive touchpoints, primary conversion actions, dynamic focal indicators, and directional highlights.\n- **Secondary (`#00C6FF`):** Electric Cerulean. Complements the primary with gradient terminal points, interactive states, active link hover treatments, and badge indicators.\n- **Tertiary (`#1B263B`):** Deep Slate Cobalt. Serves as structural elevation tiers, subtle surface fills, dividers, and card backgrounds.\n- **Neutral Core (`#0D1B2A`):** Obsidian Navy. The foundational viewport canvas providing infinite depth against which cyan glows project.\n- **Surface Variant (`#0F172A`):** Deep Abyssal Slate. Baseline backdrop for nested containers, card wells, and dynamic code/metric windows.\n- **Text & Foregrounds:**\n  - `High-Emphasis Content`: `#F8FAFC` (Pure Titanium, 98% opacity)\n  - `Medium-Emphasis Content`: `#94A3B8` (Muted Slate, 70% opacity)\n  - `Structural Borders`: `rgba(0, 242, 254, 0.14)` resting, elevating to `rgba(0, 242, 254, 0.5)` on hover.\n\n## Typography\n\nThe typographic hierarchy implements a high-precision tripartite stack:\n\n- **Display & Headlines (Space Grotesk):** Engineered geometry with high mechanical character. Kerning is pulled tight (`-0.015em` to `-0.03em`) to project architectural density, authority, and modern technical prowess.\n- **Body & Prose (Geist):** Neutral, pristine neo-grotesque engineered for rapid readability on ultra-dark backdrops without halation or eye fatigue.\n- **Labels, Telemetry & Eyebrows (JetBrains Mono):** Technical monospace styling for metadata, tags, KPIs, and status markers. Always set in uppercase with tracked-out spacing for cryptographic precision.\n\n## Layout & Spacing\n\nThe layout is built upon a 12-column fluid grid system bounded by a max container width of `1280px` (`80rem`) on desktop. \n\n- **Grid Architecture:** \n  - Desktop (1024px+): 12 columns, `gutter-lg` (2rem / 32px), side margins `margin-lg` (5rem / 80px).\n  - Tablet (768px - 1023px): 8 columns, `gutter` (1.5rem / 24px), side margins `margin-md` (3rem / 48px).\n  - Mobile (<768px): 4 columns, `gutter-sm` (1rem / 16px), side margins `margin` (1.5rem / 24px).\n- **Rhythmic Stacking:** Vertical rhythm scales strictly on a base-8 grid. Section divisions demand dramatic negative space (`space-xl` multiplied by 3 or 4: 7.5rem - 10rem) to isolate narrative beats and give enterprise solutions massive perceptual value.\n- **Content Density:** Component interiors preserve compact padding matrices (`space-md` to `space-lg`) to balance expansive canvas airiness with surgical module density.\n\n## Elevation & Depth\n\nDepth is defined through layered atmospheric backdrops, directional translucent borders, and localized neon emissions rather than traditional drop shadows.\n\n- **Base Canvas:** Solid `#0D1B2A` with optional faint radial falloff meshes in deep slate `#1B263B`.\n- **Surface Layer 1 (Cards, Modules):** Glassmorphic fill consisting of `rgba(15, 23, 42, 0.65)` layered over background blur of `16px`. Outlined with a 1px border of `rgba(0, 242, 254, 0.12)`.\n- **Surface Layer 2 (Modals, Overlays, Floating Nav):** `rgba(27, 38, 59, 0.8)` with `24px` backdrop blur, structured by a top-edge highlight: `inset 0 1px 0 0 rgba(0, 242, 254, 0.35)`.\n- **Photonic Glows & Borders:**\n  - `Glow Idle`: `0 0 20px -5px rgba(0, 242, 254, 0.2)`\n  - `Glow Active / Hover`: `0 0 35px 0px rgba(0, 242, 254, 0.45), 0 0 10px 0px rgba(0, 198, 255, 0.6)`\n  - Cards leverage mouse-aware linear gradients within border pseudo-elements: `linear-gradient(135deg, rgba(0,242,254,0.4) 0%, rgba(27,38,59,0.1) 60%)`.\n\n## Shapes\n\nThe design system enforces a disciplined `Soft` geometric geometry (`roundedness: 1`). Controlled, compact corner radii evoke machined hardware, precision optical lenses, and enterprise data terminals.\n\n- **Micro Components (Chips, Badges, Inputs):** `0.25rem` (4px).\n- **Standard Components (Buttons, Tooltips):** `0.375rem` (6px).\n- **Macro Components (Panels, Bento Cards, Modals):** `0.5rem` (8px).\n- **Feature Surfaces (Outer Hero Modules):** `0.75rem` (12px).\n- **Prohibitions:** Circular pill shapes and bubble radii are strictly prohibited to preserve high-tech structural integrity.\n\n## Components\n\n### Buttons\n- **Primary Action (Hyper-Convert):** Background: linear gradient (`135deg`, `#00F2FE` 0%, `#00C6FF` 100%). Foreground: `#0D1B2A` (Space Grotesk, Bold, 14px). Box shadow: `0 0 24px rgba(0, 242, 254, 0.35)`. Hover: elevate glow brightness, `transform: translateY(-1px)`. Active: `scale(0.99)`.\n- **Secondary / Ghost Outline:** Background: `rgba(27, 38, 59, 0.4)`. Border: `1px solid rgba(0, 242, 254, 0.3)`. Foreground: `#F8FAFC`. Hover: border brightens to `rgba(0, 242, 254, 0.8)`, background shifts to `rgba(0, 242, 254, 0.08)`.\n\n### Cards & Bento Modules\n- Backing: `rgba(15, 23, 42, 0.7)` with `backdrop-filter: blur(12px)`.\n- Stroke: 1px continuous solid `rgba(255, 255, 255, 0.07)` with dynamic interactive states that swap to a top-angled gradient sweep `rgba(0, 242, 254, 0.5)` to `transparent`.\n- Padding: `1.5rem` (24px) for desktop, `1rem` (16px) for compact viewports.\n\n### Chips & Status Badges\n- Font: `JetBrains Mono`, 11px, uppercase, letter-spacing `0.06em`.\n- Structure: 1px border `rgba(0, 242, 254, 0.25)`, fill `rgba(0, 242, 254, 0.05)`, foreground `#00F2FE`.\n- Indicator: 6px pulsing emerald or cyan dot with radial halo (`box-shadow: 0 0 8px #00F2FE`).\n\n### Form Inputs\n- Fill: `#0F172A`.\n- Border: `1px solid rgba(148, 163, 184, 0.2)`.\n- Text: `#F8FAFC`, placeholder `#475569` (`Geist`, 14px).\n- Focus State: Border color resolves to `#00F2FE` with an ambient ring: `0 0 0 1px #00F2FE, 0 0 16px rgba(0, 242, 254, 0.25)`. Outline is disabled.\n\n### Checkboxes & Toggle Controls\n- Box: 18x18px, `rounded-sm` (2px), border `rgba(148, 163, 184, 0.4)`.\n- Selected: Background `#00F2FE`, checkmark icon `#0D1B2A`, box-shadow `0 0 10px rgba(0, 242, 254, 0.5)`.\n\n### Lists & Key-Value Specs\n- Dividers: `1px solid rgba(27, 38, 59, 0.6)`.\n- Label: Monospace key (`#94A3B8`), Value: Titanium Grotesk (`#F8FAFC`).\n- Bullet markers: 4x4px cyan micro-squares rotated 45 degrees.\n\n### Specialized Agency Component: Client Telemetry Strip\n- A horizontal metrics banner displaying conversion benchmarks, API throughput, and client ROIs. Framed in low-opacity frosted glass with glowing divider ticks, utilizing `Space Grotesk` tabular numbers paired with `JetBrains Mono` subtext.",
+        "font": "SPACE_GROTESK",
+        "headlineFont": "SPACE_GROTESK",
+        "headlineFontFamily": "Space Grotesk",
+        "labelFont": "JETBRAINS_MONO",
+        "labelFontFamily": "JetBrains Mono",
+        "namedColors": {
+          "background": "#061423",
+          "error": "#ffb4ab",
+          "error_container": "#93000a",
+          "inverse_on_surface": "#243141",
+          "inverse_primary": "#00696f",
+          "inverse_surface": "#d6e4f9",
+          "on_background": "#d6e4f9",
+          "on_error": "#690005",
+          "on_error_container": "#ffdad6",
+          "on_primary": "#00373a",
+          "on_primary_container": "#006a70",
+          "on_primary_fixed": "#002022",
+          "on_primary_fixed_variant": "#004f53",
+          "on_secondary": "#003547",
+          "on_secondary_container": "#004d66",
+          "on_secondary_fixed": "#001f2a",
+          "on_secondary_fixed_variant": "#004d65",
+          "on_surface": "#d6e4f9",
+          "on_surface_variant": "#b9cacb",
+          "on_tertiary": "#263046",
+          "on_tertiary_container": "#556078",
+          "on_tertiary_fixed": "#101b30",
+          "on_tertiary_fixed_variant": "#3c475d",
+          "outline": "#849495",
+          "outline_variant": "#3a494b",
+          "primary": "#e0fdff",
+          "primary_container": "#00f2fe",
+          "primary_fixed": "#6ff6ff",
+          "primary_fixed_dim": "#00dce6",
+          "secondary": "#92dbff",
+          "secondary_container": "#00c4fd",
+          "secondary_fixed": "#bfe9ff",
+          "secondary_fixed_dim": "#6dd2ff",
+          "surface": "#061423",
+          "surface_bright": "#2d3a4a",
+          "surface_container": "#132030",
+          "surface_container_high": "#1e2b3b",
+          "surface_container_highest": "#283646",
+          "surface_container_low": "#0f1c2c",
+          "surface_container_lowest": "#020f1e",
+          "surface_dim": "#061423",
+          "surface_tint": "#00dce6",
+          "surface_variant": "#283646",
+          "tertiary": "#f7f7ff",
+          "tertiary_container": "#d0dbf7",
+          "tertiary_fixed": "#d7e2ff",
+          "tertiary_fixed_dim": "#bbc6e2"
+        },
+        "overrideNeutralColor": "#0d1b2a",
+        "overridePrimaryColor": "#00f2fe",
+        "overrideSecondaryColor": "#00c6ff",
+        "overrideTertiaryColor": "#1b263b",
+        "roundness": "ROUND_FOUR",
+        "spacing": {
+          "gutter": "1.5rem",
+          "gutter-lg": "2rem",
+          "gutter-sm": "1rem",
+          "margin": "1.5rem",
+          "margin-lg": "5rem",
+          "margin-md": "3rem",
+          "space-lg": "1.5rem",
+          "space-md": "1rem",
+          "space-sm": "0.5rem",
+          "space-xl": "2.5rem",
+          "space-xs": "0.25rem"
+        },
+        "spacingScale": 2,
+        "typography": {
+          "body-lg": {
+            "fontFamily": "Geist",
+            "fontSize": "18px",
+            "fontWeight": "400",
+            "letterSpacing": "-0.01em",
+            "lineHeight": "28px"
+          },
+          "body-md": {
+            "fontFamily": "Geist",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "letterSpacing": "0em",
+            "lineHeight": "26px"
+          },
+          "body-sm": {
+            "fontFamily": "Geist",
+            "fontSize": "14px",
+            "fontWeight": "400",
+            "letterSpacing": "0em",
+            "lineHeight": "22px"
+          },
+          "display-hero": {
+            "fontFamily": "Space Grotesk",
+            "fontSize": "64px",
+            "fontWeight": "700",
+            "letterSpacing": "-0.03em",
+            "lineHeight": "72px"
+          },
+          "display-hero-mobile": {
+            "fontFamily": "Space Grotesk",
+            "fontSize": "38px",
+            "fontWeight": "700",
+            "letterSpacing": "-0.025em",
+            "lineHeight": "44px"
+          },
+          "headline-lg": {
+            "fontFamily": "Space Grotesk",
+            "fontSize": "44px",
+            "fontWeight": "700",
+            "letterSpacing": "-0.025em",
+            "lineHeight": "52px"
+          },
+          "headline-lg-mobile": {
+            "fontFamily": "Space Grotesk",
+            "fontSize": "30px",
+            "fontWeight": "600",
+            "letterSpacing": "-0.02em",
+            "lineHeight": "38px"
+          },
+          "headline-md": {
+            "fontFamily": "Space Grotesk",
+            "fontSize": "32px",
+            "fontWeight": "600",
+            "letterSpacing": "-0.02em",
+            "lineHeight": "40px"
+          },
+          "headline-sm": {
+            "fontFamily": "Space Grotesk",
+            "fontSize": "24px",
+            "fontWeight": "600",
+            "letterSpacing": "-0.015em",
+            "lineHeight": "32px"
+          },
+          "label-mono-lg": {
+            "fontFamily": "JetBrains Mono",
+            "fontSize": "14px",
+            "fontWeight": "500",
+            "letterSpacing": "0.04em",
+            "lineHeight": "20px"
+          },
+          "label-mono-sm": {
+            "fontFamily": "JetBrains Mono",
+            "fontSize": "12px",
+            "fontWeight": "500",
+            "letterSpacing": "0.06em",
+            "lineHeight": "16px"
+          }
+        }
+      },
+      "deviceType": "DESKTOP",
+      "metadata": {
+        "userRole": "OWNER"
+      },
+      "name": "projects/3844041722028070606",
+      "origin": "STITCH",
+      "projectType": "TEXT_TO_UI_PRO",
+      "screenInstances": [
+        {
+          "height": 8323,
+          "id": "131ae63d31e54f1f9d8bae7e623c6a9b",
+          "label": "Generating Screen...",
+          "sourceScreen": "projects/3844041722028070606/screens/131ae63d31e54f1f9d8bae7e623c6a9b",
+          "width": 390,
+          "x": 2368
+        },
+        {
+          "height": 4276,
+          "id": "6267a58817f94a4f912ece64d6323a7c",
+          "label": "Generating Screen...",
+          "sourceScreen": "projects/3844041722028070606/screens/6267a58817f94a4f912ece64d6323a7c",
+          "width": 1280,
+          "x": 1024
+        },
+        {
+          "height": 5494,
+          "hidden": true,
+          "id": "864f3af908ab4038a5809f3f65bd4f8e",
+          "label": "Generating Screen...",
+          "sourceScreen": "projects/3844041722028070606/screens/864f3af908ab4038a5809f3f65bd4f8e",
+          "width": 390,
+          "x": 2822
+        },
+        {
+          "height": 540,
+          "id": "assets_9a8e2c24d7f345b5a17c2803f866b2e8",
+          "sourceAsset": "assets/9a8e2c24d7f345b5a17c2803f866b2e8",
+          "type": "DESIGN_SYSTEM_INSTANCE",
+          "width": 960
+        },
+        {
+          "height": 4109,
+          "hidden": true,
+          "id": "b5664e7c96c84171a43fb219d0917596",
+          "label": "Helixhive | Mobile Landing Page",
+          "sourceScreen": "projects/3844041722028070606/screens/b5664e7c96c84171a43fb219d0917596",
+          "width": 390,
+          "y": 4532
+        }
+      ],
+      "thumbnailScreenshot": {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida/AEtjO1X_fMkbntdfXfjbEehzmYDPH2-6xaKYgbQprUmjbLvbDN4clGPyRD20WaIxwqwhEZKJZ4z-LjBYHoevpCa3qZmtvBQJTQzsetT6yuivv1O6HTtcCScIiI_geF2qRCXgCbY_EOtyeQwN4FZSN2ta4fhNf0ueWdyiaMY-VQouRFNGUeCadTGGGR564yFLAKEmxIr0ThvYRMDQB6dWIaCBQyTcy80L0iOQ2uBv30oy5BCERZNhoNvqY-2wAA",
+        "name": "projects/3844041722028070606/screens/6267a58817f94a4f912ece64d6323a7c/fileEntries/screenshot"
+      },
+      "title": "Helixhive Agency Landing Page",
+      "updateTime": "2026-10-20T16:46:03.800895Z",
+      "visibility": "PRIVATE"
+    }
+  }
+}
