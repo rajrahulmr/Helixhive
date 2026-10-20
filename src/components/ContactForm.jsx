@@ -143,12 +143,11 @@ ${formData.message.trim() || 'Looking for a clean, high-speed modern website.'}`
     setIsSubmitting(true);
     setSubmissionError('');
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '62a9df12-21f7-4670-81ce-d98e5f89a799';
 
     try {
-      if (!accessKey || accessKey === 'YOUR_ACCESS_KEY_HERE') {
-        // If access key is not yet configured, provide fallback guidance
-        throw new Error('Web3Forms Access Key is not configured yet. Please set VITE_WEB3FORMS_ACCESS_KEY or send via WhatsApp.');
+      if (!accessKey) {
+        throw new Error('Web3Forms Access Key is missing. Please send via WhatsApp.');
       }
 
       const response = await fetch('https://api.web3forms.com/submit', {
