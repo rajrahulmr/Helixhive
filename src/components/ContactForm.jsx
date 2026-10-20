@@ -7,7 +7,7 @@ export default function ContactForm({ selectedPlan = '' }) {
     email: '',
     phone: '',
     businessType: 'B2B Services & SaaS',
-    plan: 'Custom Make Plan (₹10,000)',
+    plan: 'The ₹2999 Plan (₹2999)',
     message: '',
   });
 
@@ -340,9 +340,10 @@ export default function ContactForm({ selectedPlan = '' }) {
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl bg-surface-container-lowest text-on-surface border border-outline-variant/40 appearance-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all text-sm font-body pr-10 cursor-pointer font-medium"
                     >
-                      <option value="Custom Make Plan (₹10,000)">Custom Make Plan (₹10,000) — Most Popular</option>
-                      <option value="Basic Plan (₹859)">Basic Plan (₹859) — Quick Launch</option>
-                      <option value="Enterprise / Bespoke (₹25,000+)">Enterprise / Bespoke (₹25,000+)</option>
+                      <option value="The ₹1499 Plan (₹1499)">The ₹1499 Plan — Static One-Page</option>
+                      <option value="The ₹2999 Plan (₹2999)">The ₹2999 Plan — Modern React Multi-Page (Most Popular)</option>
+                      <option value="The ₹6999 Plan (₹6999)">The ₹6999 Plan — Dynamic Growth Web App</option>
+                      <option value="Enterprise Platform (₹19,999+)">The Enterprise Platform (₹19,999+ / Bespoke)</option>
                       <option value="General Strategic Consultation">General Strategic Consultation</option>
                     </select>
                     <span className="material-symbols-outlined pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">

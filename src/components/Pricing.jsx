@@ -5,70 +5,117 @@ export default function Pricing({ onSelectPlan }) {
 
   const plans = [
     {
-      id: 'basic',
-      name: 'Basic Plan',
-      badge: 'Quick Launch',
+      id: 'static-1499',
+      badge: 'Static site',
+      name: 'The ₹1499 Plan',
       popular: false,
       prices: {
-        INR: { amount: '₹859', period: 'one-time' },
-        USD: { amount: '$12', period: 'one-time' },
-        AED: { amount: 'AED 40', period: 'one-time' },
+        INR: { amount: '₹1499', unit: 'one page' },
+        USD: { amount: '$19', unit: 'one page' },
+        AED: { amount: 'AED 70', unit: 'one page' },
       },
-      subtitle: 'Static One-Page Website',
-      description: 'Ideal for small businesses wanting an affordable, fast, and professional web presence.',
+      description: 'A fixed, fast-loading page built for small businesses that mainly need to be found and contacted — not edited every week.',
       features: [
-        '1 High-Converting Single Page',
-        'Mobile Responsive Layout',
-        'Fast 2-3 Day Delivery',
-        'Domain purchase extra cost',
-        'Contact & WhatsApp Integration',
+        'Header, hero, about, why-choose-us & footer sections',
+        'Up to 10 products or services listed',
+        'Gallery of up to 10 images',
+        'Contact form + WhatsApp & direct call button',
+        'Free subdomain, WhatsApp & Instagram, Google Maps',
+        '2 rounds of edits on the first draft',
+        'Extra pages anytime, ₹400 each',
       ],
-      ctaText: 'Choose Basic',
-      whatsappMessage: 'Hi Helixhive! I am interested in the Basic Plan (₹859). Can we discuss the launch timeline?',
+      meta: {
+        delivery: 'ready in 2 days',
+        hosting: '₹1499/year (or free Netlify/Vercel connect)',
+        domain: 'free subdomain included — or if you need a custom domain, use yours, or we buy & connect one for you (extra charge)',
+      },
+      ctaText: 'Ask about this plan',
+      whatsappMessage: 'Hi Helixhive! I am interested in The ₹1499 Plan (Static One Page). Can we discuss the launch timeline?',
     },
     {
-      id: 'custom',
-      name: 'Custom Make Plan',
-      badge: 'Best Value',
+      id: 'react-2999',
+      badge: 'Modern React',
+      badgeHighlight: 'MOST POPULAR',
+      name: 'The ₹2999 Plan',
       popular: true,
       prices: {
-        INR: { amount: '₹10,000', period: 'one-time' },
-        USD: { amount: '$125', period: 'one-time' },
-        AED: { amount: 'AED 450', period: 'one-time' },
+        INR: { amount: '₹2999', unit: 'up to 5 pages' },
+        USD: { amount: '$39', unit: 'up to 5 pages' },
+        AED: { amount: 'AED 135', unit: 'up to 5 pages' },
       },
-      subtitle: 'Tailored Multi-Page Website',
-      description: 'Perfect for growing businesses that require tailored design, more pages, and higher lead conversions.',
+      description: 'A dynamic, high-performance modern React website for businesses that expect to grow — add pages, products, showcase galleries, and convert leads.',
       features: [
-        'Up to 5 Custom Pages',
-        'Custom Branding & Design System',
-        'Mobile & Tablet Responsive',
-        'Speed & SEO Optimization',
-        'Lead Capture & WhatsApp Setup',
-        'Domain purchase extra cost',
+        'All core sections + Up to 5 custom pages (React & Tailwind)',
+        'Up to 20 products or services listed',
+        'Gallery of up to 20 images',
+        'SSL certificate & Core Web Vitals 99+ speed included',
+        'Interactive contact form + instant WhatsApp integration',
+        'WhatsApp, Instagram & Google Maps integration',
+        '3 rounds of edits on the first draft',
+        'Extra pages anytime, ₹600 each',
       ],
-      ctaText: 'Choose Custom ⚡',
-      whatsappMessage: 'Hi Helixhive! I would like to get started with the Custom Make Plan (₹10,000). Let us build our custom website.',
+      meta: {
+        delivery: 'ready in 4-5 days',
+        hosting: '₹1999/year (or free edge deployment)',
+        domain: 'use yours, or we buy & connect one for you (extra charge)',
+      },
+      ctaText: 'Ask about this plan ⚡',
+      whatsappMessage: 'Hi Helixhive! I would like to get started with The ₹2999 Plan (Multi-Page React). Let us build our custom website.',
     },
     {
-      id: 'enterprise',
-      name: 'Enterprise Plan',
-      badge: 'Bespoke',
+      id: 'growth-6999',
+      badge: 'Dynamic Web App',
+      name: 'The ₹6999 Plan',
       popular: false,
       prices: {
-        INR: { amount: '₹25,000+', period: 'or Custom Quote' },
-        USD: { amount: '$320+', period: 'or Custom Quote' },
-        AED: { amount: 'AED 1,150+', period: 'or Custom Quote' },
+        INR: { amount: '₹6999', unit: 'multi-page dynamic' },
+        USD: { amount: '$89', unit: 'multi-page dynamic' },
+        AED: { amount: 'AED 320', unit: 'multi-page dynamic' },
       },
-      subtitle: 'Bespoke Web Platform',
-      description: 'Complete custom solutions, dynamic features, and integrations tailored to established organizations.',
+      description: 'Custom-engineered interactive web application with dynamic filters, lead capture automation, and high-impact conversion layout.',
       features: [
-        'Dynamic Content & Custom CMS',
-        'Custom Features & API Integrations',
-        'Advanced Analytics & CRM Sync',
-        'Dedicated Priority Engineering Support',
+        'Up to 10 custom pages with smooth micro-interactions',
+        'Dynamic product/service catalog or portfolio filtering',
+        'Advanced lead capture with email & CRM notifications',
+        'Schema markup & complete technical SEO setup',
+        'Dedicated mobile-first UX with 100/100 Lighthouse benchmark',
+        '5 rounds of revisions & dedicated project sprint',
+        'Extra pages anytime, ₹800 each',
       ],
-      ctaText: 'Contact Enterprise',
-      whatsappMessage: 'Hi Helixhive! Our company requires an Enterprise / Bespoke solution (₹25,000+). We have custom specifications to discuss.',
+      meta: {
+        delivery: 'ready in 6-7 days',
+        hosting: 'Cloud edge performance included',
+        domain: 'free custom domain DNS setup & SSL',
+      },
+      ctaText: 'Ask about this plan',
+      whatsappMessage: 'Hi Helixhive! I am interested in The ₹6999 Growth Web App Plan. Can we discuss our project requirements?',
+    },
+    {
+      id: 'enterprise-custom',
+      badge: 'Bespoke Software',
+      name: 'Enterprise Platform',
+      popular: false,
+      prices: {
+        INR: { amount: '₹19,999+', unit: 'custom quote' },
+        USD: { amount: '$249+', unit: 'custom quote' },
+        AED: { amount: 'AED 890+', unit: 'custom quote' },
+      },
+      description: 'Full-stack custom web applications, client portals, payment gateways, and tailored APIs engineered for serious business scale.',
+      features: [
+        'Full-stack custom architecture (React + Node/Serverless backend)',
+        'Custom database & API integrations',
+        'Payment gateway integration (Stripe / Razorpay)',
+        'Client portal, user auth, or custom admin dashboard',
+        'Dedicated Lead Architect & 30-day post-launch warranty',
+        'Enterprise-grade security, automated backups & SLA',
+      ],
+      meta: {
+        delivery: '2-3 weeks agile delivery',
+        hosting: 'Scalable AWS/Vercel cloud architecture',
+        domain: 'Full production provisioning & custom setup',
+      },
+      ctaText: 'Discuss Custom Scope',
+      whatsappMessage: 'Hi Helixhive! Our company requires an Enterprise / Bespoke solution (₹19,999+). We have custom specifications to discuss.',
     },
   ];
 
@@ -85,16 +132,17 @@ export default function Pricing({ onSelectPlan }) {
   return (
     <section className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-surface-container-lowest/60 relative" id="pricing">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        {/* Section Title & Currency Toggle */}
-        <div className="text-center max-w-2xl flex flex-col items-center mb-16">
-          <span className="font-mono text-xs uppercase tracking-widest text-primary-container font-semibold">
-            TRANSPARENT INVESTMENT
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-on-surface mt-2 leading-tight">
+        {/* Section Title & Philosophy */}
+        <div className="text-center max-w-3xl flex flex-col items-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-container/10 border border-primary-container/30 text-primary-container font-mono text-xs font-semibold uppercase tracking-wider mb-3">
+            <span>⚡ 100% Handcrafted React & Clean Code — Zero WordPress, Zero Bloat</span>
+          </div>
+
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-on-surface leading-tight">
             Fixed transparent pricing. Zero surprise invoices.
           </h2>
-          <p className="text-base sm:text-lg text-on-surface-variant mt-3">
-            Select the strategic package tailored to your organization’s immediate growth trajectory.
+          <p className="text-base sm:text-lg text-on-surface-variant mt-3 leading-relaxed">
+            From affordable, blazing-fast starter launches to bespoke high-scale web platforms. Select the strategic package engineered for your immediate growth.
           </p>
 
           {/* Dynamic Interactive Currency Switcher */}
@@ -136,77 +184,68 @@ export default function Pricing({ onSelectPlan }) {
           </div>
         </div>
 
-        {/* 3 Tier Pricing Grid */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        {/* 4 Tier Pricing Grid */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {plans.map((plan) => (
             <div
               key={plan.id}
-              className={`relative p-7 sm:p-8 rounded-2xl flex flex-col justify-between transition-all duration-300 ${
+              className={`relative p-6 sm:p-7 rounded-2xl flex flex-col justify-between transition-all duration-300 ${
                 plan.popular
-                  ? 'bg-surface-container-high/90 border-2 border-primary-container shadow-[0_0_45px_rgba(0,242,254,0.25)] lg:-translate-y-3 z-10'
-                  : 'bg-surface-container/70 border border-outline-variant/30 hover:border-primary-container/30 hover:bg-surface-container-high/60 shadow-lg'
+                  ? 'bg-surface-container-high/95 border-2 border-primary-container shadow-[0_0_40px_rgba(0,242,254,0.25)] lg:-translate-y-2.5 z-10'
+                  : 'bg-surface-container/70 border border-outline-variant/30 hover:border-primary-container/40 hover:bg-surface-container-high/70 shadow-lg'
               }`}
             >
               {/* Popular Floating Pill Badge */}
               {plan.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary-fixed font-mono text-xs font-bold tracking-wider uppercase shadow-[0_0_15px_rgba(0,242,254,0.5)]">
-                  MOST POPULAR
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary-fixed font-mono text-[11px] font-bold tracking-wider uppercase shadow-[0_0_15px_rgba(0,242,254,0.5)]">
+                  {plan.badgeHighlight}
                 </div>
               )}
 
               <div>
-                {/* Header row */}
-                <div className="flex items-center justify-between mb-3 mt-1">
+                {/* Category Badge */}
+                <div className="mb-2">
                   <span
                     className={`font-mono text-xs uppercase tracking-wider font-semibold ${
-                      plan.popular ? 'text-primary-container' : 'text-on-surface-variant'
-                    }`}
-                  >
-                    {plan.name}
-                  </span>
-                  <span
-                    className={`px-2.5 py-0.5 rounded font-mono text-xs ${
-                      plan.popular
-                        ? 'bg-primary-container/20 text-primary-container border border-primary-container/30'
-                        : 'bg-surface-container-highest text-on-surface-variant'
+                      plan.popular ? 'text-primary-container' : 'text-primary'
                     }`}
                   >
                     {plan.badge}
                   </span>
                 </div>
 
+                {/* Plan Title */}
+                <h3 className="font-display text-2xl font-bold text-on-surface mb-2">
+                  {plan.name}
+                </h3>
+
                 {/* Price Display */}
-                <div className="flex items-baseline gap-2 mb-2">
+                <div className="flex items-baseline gap-2 mb-3">
                   <span
-                    className={`font-display text-4xl sm:text-5xl font-bold tracking-tight ${
-                      plan.popular ? 'text-primary drop-shadow-[0_0_15px_rgba(0,242,254,0.3)]' : 'text-on-surface'
+                    className={`font-display text-3xl sm:text-4xl font-bold tracking-tight ${
+                      plan.popular ? 'text-primary drop-shadow-[0_0_12px_rgba(0,242,254,0.3)]' : 'text-on-surface'
                     }`}
                   >
                     {plan.prices[currency].amount}
                   </span>
-                  <span className="text-sm text-on-surface-variant">
-                    {plan.prices[currency].period}
+                  <span className="font-mono text-xs text-on-surface-variant">
+                    {plan.prices[currency].unit}
                   </span>
                 </div>
 
-                {/* Subtitle */}
-                <div className="font-mono text-xs font-semibold text-primary mb-2">
-                  {plan.subtitle}
-                </div>
-
                 {/* Description */}
-                <p className="text-sm text-on-surface-variant mb-6 pb-4 border-b border-outline-variant/30 leading-relaxed">
+                <p className="text-xs sm:text-sm text-on-surface-variant mb-5 pb-4 border-b border-outline-variant/30 leading-relaxed">
                   {plan.description}
                 </p>
 
                 {/* Features List */}
-                <ul className="flex flex-col gap-3 text-sm text-on-surface mb-8">
+                <ul className="flex flex-col gap-2.5 text-xs sm:text-sm text-on-surface mb-6">
                   {plan.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-3">
-                      <span className="material-symbols-outlined text-primary-container text-[20px] shrink-0 mt-0.5">
+                    <li key={fIdx} className="flex items-start gap-2.5">
+                      <span className="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">
                         {plan.popular ? 'check_circle' : 'check'}
                       </span>
-                      <span className={plan.popular && fIdx === 0 ? 'font-semibold text-primary' : ''}>
+                      <span className={plan.popular && fIdx === 0 ? 'font-semibold text-primary' : 'text-on-surface/90'}>
                         {feat}
                       </span>
                     </li>
@@ -214,31 +253,49 @@ export default function Pricing({ onSelectPlan }) {
                 </ul>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-col gap-2.5 pt-2">
-                <button
-                  type="button"
-                  onClick={() => handlePlanClick(`${plan.name} (${plan.prices.INR.amount})`)}
-                  className={`w-full inline-flex items-center justify-center py-3.5 px-4 rounded-xl text-sm font-bold transition-all ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-primary-container via-secondary-container to-secondary text-on-primary-fixed shadow-[0_0_25px_rgba(0,242,254,0.4)] hover:shadow-[0_0_35px_rgba(0,242,254,0.65)] hover:-translate-y-0.5 active:scale-95'
-                      : 'bg-surface-container-highest text-primary hover:bg-primary-container hover:text-on-primary-fixed'
-                  }`}
-                >
-                  <span>{plan.ctaText}</span>
-                  <span className="material-symbols-outlined ml-1.5 text-[18px]">arrow_downward</span>
-                </button>
+              {/* Bottom Meta & Action */}
+              <div>
+                {/* Meta details divider */}
+                <div className="pt-4 pb-5 border-t border-outline-variant/30 text-xs font-mono text-on-surface-variant flex flex-col gap-1.5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-primary font-semibold">Delivery:</span>
+                    <span>{plan.meta.delivery}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-primary font-semibold">Hosting:</span>
+                    <span>{plan.meta.hosting}</span>
+                  </div>
+                  <div className="leading-normal text-[11px] text-outline mt-0.5">
+                    <span className="text-primary font-semibold">Domain:</span> {plan.meta.domain}
+                  </div>
+                </div>
 
-                {/* Instant WhatsApp plan trigger */}
-                <a
-                  href={`https://wa.me/917907142807?text=${encodeURIComponent(plan.whatsappMessage)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-mono text-on-surface-variant hover:text-primary-container transition-colors"
-                >
-                  <span className="material-symbols-outlined text-[16px]">chat</span>
-                  <span>Instant WhatsApp Booking</span>
-                </a>
+                {/* Action Buttons */}
+                <div className="flex flex-col gap-2">
+                  <button
+                    type="button"
+                    onClick={() => handlePlanClick(`${plan.name} (${plan.prices.INR.amount})`)}
+                    className={`w-full inline-flex items-center justify-center py-3.5 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                      plan.popular
+                        ? 'bg-gradient-to-r from-primary-container via-secondary-container to-secondary text-on-primary-fixed shadow-[0_0_25px_rgba(0,242,254,0.4)] hover:shadow-[0_0_35px_rgba(0,242,254,0.65)] hover:-translate-y-0.5 active:scale-95'
+                        : 'bg-surface-container-highest text-primary hover:bg-primary-container hover:text-on-primary-fixed'
+                    }`}
+                  >
+                    <span>{plan.ctaText}</span>
+                    <span className="material-symbols-outlined ml-1.5 text-[16px]">arrow_downward</span>
+                  </button>
+
+                  {/* Instant WhatsApp trigger */}
+                  <a
+                    href={`https://wa.me/917907142807?text=${encodeURIComponent(plan.whatsappMessage)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-mono text-on-surface-variant hover:text-primary-container transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-[15px]">chat</span>
+                    <span>Chat on WhatsApp</span>
+                  </a>
+                </div>
               </div>
             </div>
           ))}

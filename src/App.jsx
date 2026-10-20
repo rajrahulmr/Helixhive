@@ -9,7 +9,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Footer from './components/Footer';
 
 export default function App() {
-  const [selectedPlan, setSelectedPlan] = useState('Custom Make Plan (₹10,000)');
+  const [selectedPlan, setSelectedPlan] = useState('The ₹2999 Plan (₹2999)');
 
   const handleSelectPlan = (plan) => {
     setSelectedPlan(plan);
