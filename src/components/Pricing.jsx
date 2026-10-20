@@ -38,6 +38,7 @@ export default function Pricing({ onSelectPlan }) {
         domain: 'Free subdomain included or connect yours',
       },
       ctaText: 'Ask about this plan',
+      whatsappMessage: 'Hi Helixhive! I am interested in The ₹1499 Plan (Static One Page). Can we discuss the launch timeline?',
     },
     {
       id: 'react-2999',
@@ -67,6 +68,7 @@ export default function Pricing({ onSelectPlan }) {
         domain: 'Use yours, or we buy & connect (extra charge)',
       },
       ctaText: 'Ask about this plan ⚡',
+      whatsappMessage: 'Hi Helixhive! I would like to get started with The ₹2999 Plan (Multi-Page React). Let us build our custom website.',
     },
     {
       id: 'growth-6999',
@@ -94,6 +96,7 @@ export default function Pricing({ onSelectPlan }) {
         domain: 'Free custom domain DNS setup & SSL',
       },
       ctaText: 'Ask about this plan',
+      whatsappMessage: 'Hi Helixhive! I am interested in The ₹6999 Growth Web App Plan. Can we discuss our project requirements?',
     },
     {
       id: 'enterprise-custom',
@@ -120,6 +123,7 @@ export default function Pricing({ onSelectPlan }) {
         domain: 'Full production provisioning & custom setup',
       },
       ctaText: 'Discuss Custom Scope',
+      whatsappMessage: 'Hi Helixhive! Our company requires an Enterprise / Bespoke solution (₹19,999+). We have custom specifications to discuss.',
     },
   ];
 
@@ -131,10 +135,6 @@ export default function Pricing({ onSelectPlan }) {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const handleOpenWhatsAppChatbot = (planName) => {
-    window.dispatchEvent(new CustomEvent('open-whatsapp-bot', { detail: { plan: planName } }));
   };
 
   return (
@@ -271,7 +271,7 @@ export default function Pricing({ onSelectPlan }) {
                     <button
                       type="button"
                       onClick={() => toggleExpand(plan.id)}
-                      className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-primary-container hover:text-white transition-colors py-1.5 mb-4 group"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-primary-container hover:text-white transition-colors py-1.5 mb-4 group cursor-pointer"
                     >
                       <span>
                         {isExpanded ? 'Show fewer features' : `+${remainingCount} more features`}
@@ -302,7 +302,7 @@ export default function Pricing({ onSelectPlan }) {
                     <button
                       type="button"
                       onClick={() => handlePlanClick(`${plan.name} (${plan.prices.INR.amount})`)}
-                      className={`w-full inline-flex items-center justify-center py-3 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                      className={`w-full inline-flex items-center justify-center py-3 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                         plan.popular
                           ? 'bg-gradient-to-r from-primary-container via-secondary-container to-secondary text-on-primary-fixed shadow-[0_0_25px_rgba(0,242,254,0.4)] hover:shadow-[0_0_35px_rgba(0,242,254,0.65)] hover:-translate-y-0.5 active:scale-95'
                           : 'bg-surface-container-highest text-primary hover:bg-primary-container hover:text-on-primary-fixed'
@@ -312,15 +312,16 @@ export default function Pricing({ onSelectPlan }) {
                       <span className="material-symbols-outlined ml-1.5 text-[16px]">arrow_downward</span>
                     </button>
 
-                    {/* Instant WhatsApp Assistant Trigger */}
-                    <button
-                      type="button"
-                      onClick={() => handleOpenWhatsAppChatbot(`${plan.name} (${plan.prices.INR.amount})`)}
+                    {/* Direct WhatsApp Redirection Trigger */}
+                    <a
+                      href={`https://wa.me/917907142807?text=${encodeURIComponent(plan.whatsappMessage)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-mono text-on-surface-variant hover:text-[#25D366] hover:bg-[#25D366]/10 transition-colors"
                     >
                       <span className="material-symbols-outlined text-[16px] text-[#25D366]">chat</span>
                       <span>Chat on WhatsApp</span>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

@@ -48,16 +48,17 @@ export default function Hero() {
             <span className="material-symbols-outlined ml-2 text-[20px]">arrow_forward</span>
           </a>
 
-          <button
-            type="button"
-            onClick={() => window.dispatchEvent(new CustomEvent('open-whatsapp-bot'))}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-base font-semibold text-primary bg-surface-container-high/80 border border-outline-variant/40 hover:bg-surface-container-high hover:text-white transition-all shadow-md group cursor-pointer"
+          <a
+            href="https://wa.me/917907142807?text=Hi%20Helixhive,%20I%20am%20interested%20in%20building%20a%20website%20for%20my%20business."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-base font-semibold text-primary bg-surface-container-high/80 border border-outline-variant/40 hover:bg-surface-container-high hover:text-white transition-all shadow-md group"
           >
             <span className="material-symbols-outlined text-[20px] text-primary-container group-hover:scale-110 transition-transform">
               chat
             </span>
             <span>Chat on WhatsApp</span>
-          </button>
+          </a>
         </div>
 
         {/* Verified Metric Telemetry Strip */}

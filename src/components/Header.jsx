@@ -80,15 +80,16 @@ export default function Header() {
 
         {/* Action Triggers (Desktop) */}
         <div className="hidden sm:flex items-center gap-4">
-          <button
-            type="button"
-            onClick={() => window.dispatchEvent(new CustomEvent('open-whatsapp-bot'))}
+          <a
+            href="https://wa.me/917907142807?text=Hi%20Helixhive,%20I%20am%20interested%20in%20building%20a%20website%20for%20my%20business."
+            target="_blank"
+            rel="noopener noreferrer"
             className="p-2.5 rounded-lg bg-surface-container-high/80 text-primary-container hover:text-white hover:bg-surface-container-highest transition-all"
-            title="Open WhatsApp Project Assistant"
+            title="Chat on WhatsApp"
             aria-label="Direct WhatsApp Consultation"
           >
             <span className="material-symbols-outlined text-[20px] block">chat</span>
-          </button>
+          </a>
 
           <a
             href="#contact"
@@ -101,14 +102,15 @@ export default function Header() {
 
         {/* Mobile Hamburger Toggle Button */}
         <div className="flex md:hidden items-center gap-3">
-          <button
-            type="button"
-            onClick={() => window.dispatchEvent(new CustomEvent('open-whatsapp-bot'))}
+          <a
+            href="https://wa.me/917907142807?text=Hi%20Helixhive,%20I%20am%20interested%20in%20building%20a%20website%20for%20my%20business."
+            target="_blank"
+            rel="noopener noreferrer"
             className="p-2 rounded-lg bg-surface-container-high text-primary-container"
-            aria-label="Open WhatsApp Assistant"
+            aria-label="WhatsApp"
           >
             <span className="material-symbols-outlined text-[18px]">chat</span>
-          </button>
+          </a>
 
           <button
             type="button"
@@ -148,17 +150,16 @@ export default function Header() {
               >
                 Get Free Consultation
               </a>
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  window.dispatchEvent(new CustomEvent('open-whatsapp-bot'));
-                }}
-                className="w-full py-3 px-4 rounded-xl text-center text-sm font-semibold text-primary bg-surface-container-high flex items-center justify-center gap-2 hover:bg-surface-container-highest transition-colors"
+              <a
+                href="https://wa.me/917907142807?text=Hi%20Helixhive,%20I%20am%20interested%20in%20building%20a%20website%20for%20my%20business."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-3 px-4 rounded-xl text-center text-sm font-semibold text-primary bg-surface-container-high flex items-center justify-center gap-2"
               >
                 <span className="material-symbols-outlined text-primary-container text-[18px]">chat</span>
                 Chat on WhatsApp (+91 7907142807)
-              </button>
+              </a>
             </div>
           </nav>
         </div>
