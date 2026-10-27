@@ -101,13 +101,7 @@ export default function Portfolio({ onInspectProject, onOpenWhatsAppModal }) {
 
                 <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
                   <span className="font-mono text-slate-500">{proj.tech}</span>
-                  <button
-                    onClick={() => onInspectProject(proj)}
-                    className="font-semibold text-brand-600 hover:text-brand-700 flex items-center gap-0.5 cursor-pointer"
-                  >
-                    <span>Inspect</span>
-                    <span className="material-symbols-outlined text-[14px]">arrow_outward</span>
-                  </button>
+                  <span className="font-semibold text-slate-400 text-[11px]">{proj.category}</span>
                 </div>
               </div>
             </div>
