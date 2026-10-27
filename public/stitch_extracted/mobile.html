@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "background": "#f8f9ff", "outline": "#76777d", "surface-container-highest": "#d3e4fe", "on-error": "#ffffff", "on-surface-variant": "#45464d", "on-tertiary": "#ffffff", "tertiary-fixed-dim": "#c3c0ff", "on-tertiary-fixed-variant": "#3323cc", "inverse-on-surface": "#eaf1ff", "on-secondary-fixed": "#001d31", "surface-container-lowest": "#ffffff", "on-primary-container": "#7c839b", "on-tertiary-fixed": "#0f0069", "surface-container": "#e5eeff", "on-secondary": "#ffffff", "tertiary-fixed": "#e2dfff", "on-primary-fixed-variant": "#3f465c", "on-tertiary-container": "#7671ff", "primary-fixed-dim": "#bec6e0", "on-error-container": "#93000a", "on-surface": "#0b1c30", "surface-container-low": "#eff4ff", "surface-dim": "#cbdbf5", "surface": "#f8f9ff", "secondary": "#006398", "on-background": "#0b1c30", "on-secondary-container": "#00476e", "inverse-primary": "#bec6e0", "on-primary-fixed": "#131b2e", "surface-bright": "#f8f9ff", "surface-container-high": "#dce9ff", "primary-fixed": "#dae2fd", "tertiary": "#000000", "error": "#ba1a1a", "surface-tint": "#565e74", "surface-variant": "#d3e4fe", "secondary-container": "#5bb8fe", "outline-variant": "#c6c6cd", "secondary-fixed-dim": "#93ccff", "primary-container": "#131b2e", "on-secondary-fixed-variant": "#004b73", "on-primary": "#ffffff", "secondary-fixed": "#cce5ff", "error-container": "#ffdad6", "inverse-surface": "#213145", "primary": "#000000", "tertiary-container": "#0f0069" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "gutter-mobile": "1rem", "space-xs": "0.25rem", "margin": "3rem", "space-2xl": "4rem", "gutter": "1.5rem", "space-lg": "1.5rem", "margin-mobile": "1.25rem", "space-xl": "2.5rem", "space-md": "1rem", "space-sm": "0.5rem" }, fontFamily: { "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "label-sm": ["Inter"], "display-hero-mobile": ["Plus Jakarta Sans"], "label-md": ["Inter"], "headline-xl": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "display-hero": ["Plus Jakarta Sans"] }, fontSize: { "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "-0.006em", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "-0.011em", "fontWeight": "400" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#f8f9ff;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt='A modern, clean, luxury tech agency logo for "Raj Work Lab". Minimalist geometric monogram combining letters R and W with a sleek forward-pointing chevron and elegant apex vertex. Deep obsidian black (#0F172A) with vibrant electric cyan (#06B6D4) accent on crisp pure white background. Ultra-premium, modern, suitable for Dubai UAE and India founders. Vector style, high resolution, centered.. Design context: - Primary color: #0f172a
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-sm
+. The logo should be visually consistent with these brand tokens.' class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XlT6TWS3eRSllCaz1KRK7Bve9a-5gGz4UoOPwnAEMn_HKu1Cj2H2avpciy-SpxK2WE7igY7qEf8MjAHCKoLhSsFP-W9r4Fi2ChC33dLvufbmrsu4fWpoHDutGRZRk0JBY7npgtOdnVMDx7MDOn2Lp37O9HCNTwuX9Bn6oxhL1eaMEQYvmBvhHPdPtxL-HSA2NDRfJG0DJcx0dK-YaOauLOkhdzm0C0q0tbwR3IM_3gwjCBaXWCbkJKhg"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Raj Work Lab</span><span class="px-1.5 py-0.5 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm leading-none">DXB · BLR</span></div><span class="font-label-sm text-label-sm text-on-surface-variant leading-none mt-1">Home Overview</span></div></div><div class="flex items-center gap-space-xs"><a aria-label="Direct WhatsApp Contact" class="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" data-path="quick-connect" href="#"><span class="material-symbols-outlined text-[20px]">chat</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-20 bg-surface"><div class="flex flex-col w-full">
+<!-- Announcement Ribbon -->
+<div class="w-full bg-primary text-on-primary py-space-xs px-gutter-mobile flex items-center justify-between text-label-sm font-label-sm shadow-sm">
+<div class="flex items-center gap-1.5 truncate">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="truncate tracking-tight font-medium">🇦🇪 UAE (+971) • 🇮🇳 India (+91) • 48h Turnaround</span>
+</div>
+<a class="flex items-center gap-1 text-secondary-container hover:underline ml-2 shrink-0 font-semibold" href="https://wa.me/971582389502?text=Hi%20Raj,%20interested%20in%20a%20high-speed%20creator%20site" target="_blank">
+<span>Direct Line</span>
+<span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="px-gutter-mobile pt-space-lg pb-space-md flex flex-col gap-space-md">
+<!-- Guarantee Badge -->
+<div class="self-start inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container text-on-surface shadow-sm">
+<span class="flex h-2 w-2 rounded-full bg-secondary-container animate-ping"></span>
+<span class="font-label-sm text-label-sm tracking-wide font-semibold text-secondary">100/100 PageSpeed Guaranteed • 48h Turnaround</span>
+</div>
+<!-- Hero Title & Subtitle -->
+<div class="flex flex-col gap-2">
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface tracking-tight font-bold">
+        Custom High-Speed Websites for Modern Creators.
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Hand-crafted static builds replacing sluggish Linktree, Carrd &amp; bloated WordPress. Pick your tier, launch in 48 hours.
+      </p>
+</div>
+<!-- Micro Trust Metric Pills -->
+<div class="flex flex-wrap gap-2 pt-1">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container-low text-on-surface text-label-sm font-label-sm shadow-sm">
+<span class="text-secondary font-bold">⚡</span>
+<span class="font-semibold">100/100 Lighthouse</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container-low text-on-surface text-label-sm font-label-sm shadow-sm">
+<span class="text-secondary font-bold">⏱️</span>
+<span class="font-semibold">0.2s LCP Load</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container-low text-on-surface text-label-sm font-label-sm shadow-sm">
+<span class="text-secondary font-bold">🛡️</span>
+<span class="font-semibold">Zero Monthly Subscriptions</span>
+</div>
+</div>
+</section>
+<!-- Interactive Package Switcher & Currency Toggle -->
+<section class="px-gutter-mobile py-space-md flex flex-col gap-space-lg" id="pricing-section">
+<!-- Section Header & Currency Filter -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Tier Selection</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold tracking-tight">Transparent Pricing</h2>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-full">One-Time Fee</span>
+</div>
+<!-- Currency Switcher Segmented Control -->
+<div class="grid grid-cols-3 p-1 rounded-xl bg-surface-container shadow-inner gap-1" id="currency-group">
+<button class="currency-btn py-2 px-3 rounded-lg font-label-sm text-label-sm text-center font-bold transition-all bg-surface text-primary shadow-sm min-h-[44px] flex items-center justify-center gap-1" data-currency="AED" type="button">
+<span>AED (د.إ)</span>
+</button>
+<button class="currency-btn py-2 px-3 rounded-lg font-label-sm text-label-sm text-center font-medium transition-all text-on-surface-variant hover:text-on-surface min-h-[44px] flex items-center justify-center gap-1" data-currency="USD" type="button">
+<span>USD ($)</span>
+</button>
+<button class="currency-btn py-2 px-3 rounded-lg font-label-sm text-label-sm text-center font-medium transition-all text-on-surface-variant hover:text-on-surface min-h-[44px] flex items-center justify-center gap-1" data-currency="INR" type="button">
+<span>INR (₹)</span>
+</button>
+</div>
+</div>
+<!-- Package Cards Container -->
+<div class="flex flex-col gap-space-md">
+<!-- Tier 1: Bio Link Website -->
+<div class="p-5 rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-4 relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Starter Level</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Bio Link Website</h3>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Replaces slow Linktree &amp; Beacons</span>
+</div>
+<span class="px-2 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm shrink-0">48h Delivery</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-on-surface price-val" data-aed="AED 349" data-inr="₹7,999" data-usd="$95">AED 349</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">flat / lifetime</span>
+</div>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span>Ultra-fast 0.1s instant mobile launch</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span>WhatsApp &amp; Instagram DM high-converting buttons</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span>Custom domain setup + Lifetime zero hosting cost</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span>QR Code generator for business cards &amp; events</span>
+</li>
+</ul>
+<a class="w-full min-h-[48px] px-4 py-3 rounded-xl bg-secondary text-on-secondary font-label-md text-label-md font-bold flex items-center justify-center gap-2 shadow-sm hover:opacity-95 transition-opacity" href="https://wa.me/971582389502?text=Hi%20Raj,%20I%20want%20the%20Bio%20Link%20Website%20Package" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span>Get Bio Link on WhatsApp</span>
+</a>
+</div>
+<!-- Tier 2: Creator Business Website (POPULAR) -->
+<div class="p-5 rounded-xl bg-primary text-on-primary shadow-lg flex flex-col gap-4 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span>⭐ MOST POPULAR</span>
+</span>
+<span class="font-label-sm text-label-sm text-surface-container-highest">3-4 Days Delivery</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-md font-bold text-on-primary">Creator Business Website</h3>
+<p class="font-body-sm text-body-sm text-surface-container-highest mt-0.5">High-impact editorial portfolio with high conversion booking workflows.</p>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-on-primary price-val" data-aed="AED 899" data-inr="₹19,999" data-usd="$245">AED 899</span>
+<span class="font-label-sm text-label-sm text-surface-container-highest">one-time investment</span>
+</div>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-surface-container-highest">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary-container">verified</span>
+<span>Multi-section visual case studies &amp; video embeds</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary-container">verified</span>
+<span>Client reviews carousel + Proof metrics widgets</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary-container">verified</span>
+<span>Direct WhatsApp &amp; Email lead capture form</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary-container">verified</span>
+<span>100/100 Core Web Vitals audit badge included</span>
+</li>
+</ul>
+<a class="w-full min-h-[48px] px-4 py-3 rounded-xl bg-surface text-on-surface font-label-md text-label-md font-bold flex items-center justify-center gap-2 shadow hover:bg-surface-bright transition-colors" href="https://wa.me/971582389502?text=Hi%20Raj,%20I%20want%20the%20Creator%20Business%20Website%20Package" target="_blank">
+<span class="material-symbols-outlined text-[20px] text-secondary">bolt</span>
+<span>Get Business Site on WhatsApp</span>
+</a>
+</div>
+<!-- Tier 3: Custom Web App -->
+<div class="p-5 rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-4 relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Enterprise Scale</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Custom Web App</h3>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Bespoke dynamic architecture</span>
+</div>
+<span class="px-2 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm shrink-0">7 Days Delivery</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-on-surface price-val" data-aed="AED 2,199" data-inr="₹49,999" data-usd="$599">AED 2,199</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">one-time build</span>
+</div>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span>Stripe/Razorpay/Apple Pay instant checkout</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span>Real-time booking calendar sync (Cal.com/Calendly)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span>Custom database CMS + Automated client emails</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span>Full cloud sovereignty &amp; priority 30-day support</span>
+</li>
+</ul>
+<a class="w-full min-h-[48px] px-4 py-3 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md font-bold flex items-center justify-center gap-2 hover:bg-surface-container-high transition-colors" href="https://wa.me/971582389502?text=Hi%20Raj,%20I%20want%20to%20discuss%20a%20Custom%20Web%20App" target="_blank">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+<span>Discuss Custom App on WhatsApp</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Recent Deployments Showcase -->
+<section class="px-gutter-mobile py-space-md flex flex-col gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Live Proof</span>
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold tracking-tight">Recent Deployments</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Static builds benchmarked on Google PageSpeed Insights mobile bots.</p>
+</div>
+<!-- Case Study Cards Stack -->
+<div class="flex flex-col gap-3">
+<!-- Deployment 1 -->
+<div class="p-4 rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-bold text-secondary text-body-sm">
+              KC
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">Karan Cinematics</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">@karan.visuals • Dubai</span>
+</div>
+</div>
+<!-- PageSpeed Metric Pill -->
+<div class="flex items-center gap-1 bg-surface px-2.5 py-1 rounded-full shadow-sm">
+<span class="text-[13px] font-bold text-secondary">100</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">speed</span>
+</div>
+</div>
+<div class="w-full h-36 rounded-lg overflow-hidden relative shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Minimalist cinematic portfolio interface mockup for Karan Cinematics showing dark aesthetics, video previews, bold typography, on an ultra-clean mobile device screen display, pristine studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIQMhH8HPDYDG1xQrgyUB8mwL_r_zxA-xqlG_L9_vZpUkawL-OijpT_CEg4EbWAvRj6LRKOWkDCyaSWeobw151gVePLr5zOBM1Hq3Cfq_FqxudIJptzfv3R62-nDZk4jWk6FqJHGyVwPO_mGbuAV_b9ZtYbMKXhg05KKv_HQ_rUGMEvincr3rDtqXQCjI4tVrtrA1C_Y0E9tPjwtVXnNQIciuH6K-f7ITNY3nfXYRfMpvG4vCV2FAS"/>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm">
+            Bio-Engine Tier • 0.18s LCP
+          </div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant pt-1">
+<span>Converted 43% more DM inquiries</span>
+<span class="text-secondary font-semibold flex items-center gap-0.5">Verified <span class="material-symbols-outlined text-[14px]">check</span></span>
+</div>
+</div>
+<!-- Deployment 2 -->
+<div class="p-4 rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-bold text-secondary text-body-sm">
+              BC
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">BrewCraft Artisanal Hub</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">@brewcraft.studio • Bangalore</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface px-2.5 py-1 rounded-full shadow-sm">
+<span class="text-[13px] font-bold text-secondary">99</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">speed</span>
+</div>
+</div>
+<div class="w-full h-36 rounded-lg overflow-hidden relative shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Modern artisanal coffee studio brand showcase website layout with warm minimalism, clean typography, roasted bean imagery, and crisp product ordering interface on mobile screen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Kkqbfpj5XbZtE1AumFt8bQbZv_epamPyTZ3cE0g6M1J4fuoiA02KURncXDrZJXt0v0lcyyVCiaEbZyDTukyUQEvwu5h-laRR7rLJWdSdqkhlDdCdoVyPWnBgofhpgB_VrVcQmGtmzApyW_q_5UG06eGU_q0VoU6GPYHHhBPvMlKC1wRWToacGmxdq9mzEmv6ZbCPTeeNhofNvuYwi4HRBOxPYbdk8g6Y8dJYiXSS82CDC6-LxDaL"/>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm">
+            Creator Business Tier • 0.22s LCP
+          </div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant pt-1">
+<span>Automated wholesale WhatsApp orders</span>
+<span class="text-secondary font-semibold flex items-center gap-0.5">Verified <span class="material-symbols-outlined text-[14px]">check</span></span>
+</div>
+</div>
+<!-- Deployment 3 -->
+<div class="p-4 rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-bold text-secondary text-body-sm">
+              VC
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">Fintech Engineer Dossier</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">@vikram.codes • Remote</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface px-2.5 py-1 rounded-full shadow-sm">
+<span class="text-[13px] font-bold text-secondary">100</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">speed</span>
+</div>
+</div>
+<div class="w-full h-36 rounded-lg overflow-hidden relative shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Technical founder personal engineering portfolio dashboard displaying GitHub commit metrics, algorithmic case studies, monospaced typography and electric cyan accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-2SJrfbBBuE2GA7gdbOPiOfvcZKQuueP6VNYtoiBYyQSIUO-G9CH_rOAJ_z0o8LTASQxDbXb6aqVt3fsqSK7TaO6FFmfSZWumYMhv6WdDd1f4tL6NWHvUUlt7zZympC4TmarN1-RsPF1j4ylpCv1Rbf8K9OZjE6GOCCXkAjfJgC9u7CnMpnFqv_CJZyN6uKWABbBPiqaLA0zT0obh__VML2HX2RPinE2e8EfyPUELis7hfb6BbHvA"/>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm">
+            Custom App Tier • 0.15s LCP
+          </div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant pt-1">
+<span>3x higher response rate from US founders</span>
+<span class="text-secondary font-semibold flex items-center gap-0.5">Verified <span class="material-symbols-outlined text-[14px]">check</span></span>
+</div>
+</div>
+</div>
+</section>
+<!-- Conversion & Ironclad Guarantee Card -->
+<section class="px-gutter-mobile py-space-md">
+<div class="p-6 rounded-xl bg-primary text-on-primary shadow-xl flex flex-col gap-5 relative overflow-hidden">
+<!-- Decorative Glow Accent -->
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-secondary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex flex-col gap-2">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface/10 text-surface-container-highest font-label-sm text-label-sm self-start">
+<span class="material-symbols-outlined text-[16px] text-secondary-container">verified_user</span>
+<span>100% Performance Guarantee</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-primary leading-tight">
+          Ready to turn your Instagram followers into paying clients?
+        </h3>
+<p class="font-body-sm text-body-sm text-surface-container-highest">
+          If your live website scores lower than 95 on mobile Google Lighthouse, get an instant 100% refund. No questions asked.
+        </p>
+</div>
+<!-- Action Stack -->
+<div class="flex flex-col gap-2.5 pt-1">
+<a class="w-full min-h-[48px] px-4 py-3 rounded-xl bg-surface text-on-surface font-label-md text-label-md font-bold flex items-center justify-center gap-2 shadow-md hover:bg-surface-bright transition-colors" href="https://wa.me/971582389502?text=Hi%20Raj,%20I'm%20claiming%20the%20AED%20899%20Creator%20Website%20package" target="_blank">
+<span>Claim My Website (AED 899)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<button class="w-full min-h-[48px] px-4 py-3 rounded-xl bg-surface/10 text-on-primary font-label-md text-label-md font-medium flex items-center justify-center gap-2 hover:bg-surface/20 transition-colors" id="trigger-lead-modal" type="button">
+<span class="material-symbols-outlined text-[18px]">forum</span>
+<span>Ask Raj on WhatsApp</span>
+</button>
+</div>
+<div class="flex items-center justify-center gap-4 text-label-sm font-label-sm text-surface-container-highest/80 pt-1">
+<span class="flex items-center gap-1">🔒 Stripe &amp; Card Secure</span>
+<span>•</span>
+<span class="flex items-center gap-1">⚡ 48-Hour Handover</span>
+</div>
+</div>
+</section>
+<!-- Floating Mobile WhatsApp CTA Button -->
+<div class="fixed bottom-20 right-4 z-40">
+<a class="flex items-center gap-2.5 px-4 py-3 rounded-full bg-primary text-on-primary shadow-xl hover:opacity-90 transition-transform active:scale-95" href="https://wa.me/971582389502?text=Hi%20Raj,%20I'm%20ready%20to%20build%20my%20creator%20site" target="_blank">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary-container"></span>
+</span>
+<span class="font-label-md text-label-md font-bold tracking-tight">Chat on WhatsApp</span>
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</a>
+</div>
+<!-- Interactive Quick Inquiry Modal Layer -->
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-primary/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200 p-0 sm:p-4" id="quick-inquiry-modal">
+<div class="w-full max-w-md bg-surface p-6 rounded-t-2xl sm:rounded-2xl shadow-2xl flex flex-col gap-4 transform translate-y-full transition-transform duration-200" id="modal-card">
+<div class="flex items-center justify-between pb-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Priority Routing</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Quick WhatsApp Consultation</h3>
+</div>
+<button class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-container-high" id="close-modal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Message directly with Raj. Typical response time is under 15 minutes during UAE/India hours.
+      </p>
+<div class="flex flex-col gap-3">
+<a class="p-3.5 rounded-xl bg-surface-container flex items-center justify-between hover:bg-surface-container-high transition-colors" href="https://wa.me/971582389502?text=Hi%20Raj,%20I'm%20inquiring%20about%20the%20Bio%20Link%20Website">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Bio Link Website (AED 349)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Fast 48h turnaround</span>
+</div>
+<span class="material-symbols-outlined text-secondary">arrow_forward</span>
+</a>
+<a class="p-3.5 rounded-xl bg-surface-container flex items-center justify-between hover:bg-surface-container-high transition-colors" href="https://wa.me/971582389502?text=Hi%20Raj,%20I'm%20inquiring%20about%20the%20Creator%20Business%20Website">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Creator Business Site (AED 899)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Most popular editorial build</span>
+</div>
+<span class="material-symbols-outlined text-secondary">arrow_forward</span>
+</a>
+<a class="p-3.5 rounded-xl bg-surface-container flex items-center justify-between hover:bg-surface-container-high transition-colors" href="https://wa.me/971582389502?text=Hi%20Raj,%20I'm%20inquiring%20about%20a%20Custom%20Web%20App">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Custom Web App (AED 2,199)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Full database &amp; payment integration</span>
+</div>
+<span class="material-symbols-outlined text-secondary">arrow_forward</span>
+</a>
+</div>
+<div class="pt-2">
+<a class="w-full min-h-[44px] py-2.5 px-4 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold flex items-center justify-center gap-2" href="https://wa.me/971582389502?text=Hi%20Raj,%20I%20have%20a%20general%20question%20about%20your%20services" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>General Question</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Currency switcher logic
+  const currencyBtns = document.querySelectorAll('.currency-btn');
+  const priceElements = document.querySelectorAll('.price-val');
+
+  currencyBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedCurrency = btn.getAttribute('data-currency');
+
+      // Update button active styling
+      currencyBtns.forEach(b => {
+        b.classList.remove('bg-surface', 'text-primary', 'font-bold', 'shadow-sm');
+        b.classList.add('text-on-surface-variant', 'font-medium');
+      });
+      btn.classList.add('bg-surface', 'text-primary', 'font-bold', 'shadow-sm');
+      btn.classList.remove('text-on-surface-variant', 'font-medium');
+
+      // Update price values
+      priceElements.forEach(el => {
+        if (selectedCurrency === 'AED') {
+          el.textContent = el.getAttribute('data-aed');
+        } else if (selectedCurrency === 'USD') {
+          el.textContent = el.getAttribute('data-usd');
+        } else if (selectedCurrency === 'INR') {
+          el.textContent = el.getAttribute('data-inr');
+        }
+      });
+    });
+  });
+
+  // Modal behavior
+  const modalTrigger = document.getElementById('trigger-lead-modal');
+  const modal = document.getElementById('quick-inquiry-modal');
+  const modalCard = document.getElementById('modal-card');
+  const closeModal = document.getElementById('close-modal');
+
+  function openLeadModal() {
+    modal.classList.remove('pointer-events-none', 'opacity-0');
+    modal.classList.add('opacity-100');
+    modalCard.classList.remove('translate-y-full');
+    modalCard.classList.add('translate-y-0');
+  }
+
+  function hideLeadModal() {
+    modalCard.classList.remove('translate-y-0');
+    modalCard.classList.add('translate-y-full');
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+  }
+
+  if (modalTrigger) {
+    modalTrigger.addEventListener('click', openLeadModal);
+  }
+
+  if (closeModal) {
+    closeModal.addEventListener('click', hideLeadModal);
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        hideLeadModal();
+      }
+    });
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] flex-1 transition-colors text-primary font-semibold" data-path="home-overview" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-label-sm mt-1">Lab</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] flex-1 text-on-surface-variant transition-colors" data-path="packages-offerings" href="#"><span class="material-symbols-outlined text-[22px]">inventory_2</span><span class="font-label-sm text-label-sm mt-1">Packages</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] flex-1 text-on-surface-variant transition-colors" data-path="creator-portfolio" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-label-sm text-label-sm mt-1">Work</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] flex-1 text-on-surface-variant transition-colors" data-path="uae-in-desk" href="#"><span class="material-symbols-outlined text-[22px]">public</span><span class="font-label-sm text-label-sm mt-1">Desks</span></a></div></nav></body></html>
