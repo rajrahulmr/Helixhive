@@ -1,7 +1,33 @@
 import React from 'react';
+import { dataService } from '../services/dataService';
 
-export default function WhatsAppModal({ isOpen, onClose }) {
+export default function WhatsAppModal({ isOpen, onClose, onOrderCreated }) {
   if (!isOpen) return null;
+
+  const handleDeskClick = (regionName, targetPhone, prefillText) => {
+    // Auto-record inquiry in Admin Orders & Leads
+    const newOrder = dataService.addOrder({
+      name: `WhatsApp Lead (${regionName})`,
+      companyName: 'Direct Hotline Inquiry',
+      businessType: 'Custom High-Speed Website Consultation',
+      domainPreference: 'Consultation & Purchase Guidance',
+      tier: 'General Consultation',
+      quotedPrice: 'Custom Assessment',
+      phone: targetPhone,
+      email: 'Initiated via WhatsApp Desk',
+      region: regionName,
+      notes: `Visitor connected to ${regionName} hotline: "${prefillText}"`,
+      status: 'New',
+      source: 'WhatsApp Desk Modal',
+    });
+
+    if (onOrderCreated) {
+      onOrderCreated(newOrder);
+    }
+
+    onClose();
+    window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(prefillText)}`, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
@@ -38,27 +64,33 @@ export default function WhatsAppModal({ isOpen, onClose }) {
         </div>
 
         <div className="space-y-2 pt-1">
-          <a
-            href="https://wa.me/971582389502?text=Hi%20Raj,%20I'm%20based%20in%20UAE%20and%20would%20like%20to%20discuss%20a%20high-speed%20custom%20website%20build."
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={onClose}
-            className="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all"
+          <button
+            onClick={() =>
+              handleDeskClick(
+                'UAE (+971 58 238 9502)',
+                '971582389502',
+                "Hi Raj, I'm based in UAE and would like to discuss a high-speed custom website build."
+              )
+            }
+            className="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer"
           >
             <span>🇦🇪 Chat UAE Desk (+971 58 238 9502)</span>
             <span className="material-symbols-outlined text-[14px]">arrow_outward</span>
-          </a>
+          </button>
 
-          <a
-            href="https://wa.me/917907142807?text=Hi%20Raj,%20I'm%20reaching%20out%20from%20India%20to%20upgrade%20my%20business%20website%20and%20landing%20page."
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={onClose}
-            className="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all"
+          <button
+            onClick={() =>
+              handleDeskClick(
+                'India (+91 79071 42807)',
+                '917907142807',
+                "Hi Raj, I'm reaching out from India to upgrade my business website and landing page."
+              )
+            }
+            className="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer"
           >
             <span>🇮🇳 Chat India Desk (+91 79071 42807)</span>
             <span className="material-symbols-outlined text-[14px]">arrow_outward</span>
-          </a>
+          </button>
 
           <button
             onClick={onClose}

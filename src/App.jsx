@@ -100,6 +100,7 @@ export default function App() {
           offers={offers}
           onSelectPlan={handleOpenOrderModal}
           onOpenWhatsAppModal={() => setIsWhatsAppModalOpen(true)}
+          onOrderCreated={handleOrderCreated}
         />
 
         {/* 4. Tested Live Architectures Showcase */}
@@ -134,6 +135,7 @@ export default function App() {
       <WhatsAppModal
         isOpen={isWhatsAppModalOpen}
         onClose={() => setIsWhatsAppModalOpen(false)}
+        onOrderCreated={handleOrderCreated}
       />
 
       {/* Project Architecture Inspector */}

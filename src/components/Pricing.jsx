@@ -1,16 +1,46 @@
 import React, { useState } from 'react';
 import { dataService } from '../services/dataService';
 
-export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal }) {
+export default function Pricing({ offers = [], onSelectPlan, onOrderCreated }) {
   const [currency, setCurrency] = useState('AED');
 
   // Use passed offers or fallback to dataService
   const packageList = offers && offers.length > 0 ? offers : dataService.getOffers();
 
+  // Handle WhatsApp Order Click & Auto-capture in Admin Orders & Leads
+  const handleWhatsAppOrder = (pkg) => {
+    const priceValue = pkg.prices?.[currency] || pkg.prices?.AED || 'Direct Quote';
+    const targetPhone = currency === 'AED' ? '971582389502' : '917907142807';
+
+    // 1. Auto-record order/lead in Admin Control Center
+    const newOrder = dataService.addOrder({
+      name: `WhatsApp Visitor (${pkg.title})`,
+      companyName: 'Direct WhatsApp Customer',
+      businessType: pkg.category || pkg.title,
+      domainPreference: pkg.id === 'starter-business-growth' ? 'Free 1-Year Custom Domain' : 'Standard Domain Setup',
+      tier: pkg.title,
+      quotedPrice: priceValue,
+      phone: currency === 'AED' ? '+971 58 238 9502' : '+91 79071 42807',
+      email: 'Initiated via WhatsApp',
+      region: currency === 'AED' ? 'UAE (+971 58 238 9502)' : currency === 'INR' ? 'India (+91)' : 'Global',
+      notes: `Customer clicked "${pkg.buttonText}" on pricing card for ${pkg.title}. Quoted price: ${priceValue}.`,
+      status: 'New',
+      source: 'WhatsApp Order Button',
+    });
+
+    if (onOrderCreated) {
+      onOrderCreated(newOrder);
+    }
+
+    // 2. Open WhatsApp with pre-filled package message
+    const message = pkg.waMessage || `Hi Raj, I am interested in the ${pkg.title} (${priceValue}). Let's get started!`;
+    window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section className="py-12 sm:py-20 bg-white w-full max-w-full overflow-hidden" id="packages">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header - Perfectly Center-Aligned on Mobile, Left-Aligned on Desktop */}
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-5 mb-10 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start max-w-2xl">
             <div className="flex items-center justify-center md:justify-start gap-2 flex-wrap">
@@ -29,7 +59,7 @@ export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal
             </p>
           </div>
 
-          {/* Currency Segmented Control - Centered on Mobile */}
+          {/* Currency Segmented Control */}
           <div className="inline-flex items-center p-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold shadow-inner mx-auto md:mx-0 shrink-0">
             <button
               onClick={() => setCurrency('AED')}
@@ -64,7 +94,7 @@ export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal
           </div>
         </div>
 
-        {/* Pricing Cards Grid - Perfectly Centered on Mobile */}
+        {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch w-full max-w-full">
           {packageList.map((pkg) => {
             const isPop = pkg.isPopular;
@@ -81,7 +111,7 @@ export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal
               >
                 {/* Most Popular Ribbon */}
                 {isPop && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-0.5 rounded-full shadow-sm flex items-center gap-1 z-10">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-0.5 rounded-full shadow-sm flex items-center gap-1 z-10 whitespace-nowrap">
                     <span className="material-symbols-outlined text-[12px] text-white">star</span>
                     RECOMMENDED
                   </div>
@@ -151,13 +181,9 @@ export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal
 
                 {/* Card Action Buttons */}
                 <div className="mt-6 pt-3 border-t border-slate-100 space-y-2">
-                  <a
-                    href={`https://wa.me/917907142807?text=${encodeURIComponent(
-                      pkg.waMessage || `Hi Raj, I am interested in the ${pkg.title} (${priceValue}).`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`w-full py-2.5 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-xs ${
+                  <button
+                    onClick={() => handleWhatsAppOrder(pkg)}
+                    className={`w-full py-2.5 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-xs cursor-pointer ${
                       isPop
                         ? 'bg-slate-900 hover:bg-slate-800 text-white shadow-sm'
                         : 'bg-slate-100 hover:bg-slate-200 text-slate-800'
@@ -167,7 +193,7 @@ export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal
                     <span className="material-symbols-outlined text-[15px] text-emerald-500">
                       chat
                     </span>
-                  </a>
+                  </button>
 
                   <button
                     onClick={() => onSelectPlan(`${pkg.title} (${priceValue})`)}
@@ -181,7 +207,7 @@ export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal
           })}
         </div>
 
-        {/* Business Upgrade Value Callout - Centered on mobile */}
+        {/* Business Upgrade Value Callout */}
         <div id="business-solutions" className="mt-12 bg-slate-50 border border-slate-200/90 rounded-2xl p-5 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
           <div className="space-y-2 max-w-2xl">
             <span className="text-[11px] font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-100 inline-block">
@@ -195,7 +221,7 @@ export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal
             </p>
           </div>
           <button
-            onClick={() => onSelectPlan('Website Upgrade & Redesign')}
+            onClick={() => onSelectPlan('WordPress to Blazing-Fast Static Shift')}
             className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer shrink-0"
           >
             <span>Upgrade My Website</span>

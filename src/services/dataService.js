@@ -3,103 +3,103 @@
 
 const DEFAULT_OFFERS = [
   {
-    id: 'starter-fast-launch',
-    title: '1-Page Fast Launch',
+    id: 'creator-link-site',
+    title: '1-Page Creator Link Site',
     category: 'Creators & Solo Pros',
-    badge: 'Replace Linktree & Carrd',
+    badge: 'Replace Links & Launch Fast',
     delivery: '48h Delivery',
-    desc: 'Perfect for creators, consultants, and solo founders who need a high-converting, instant-loading digital front door.',
+    desc: 'Upgrade your Linktree with a fast-loading, branded social hub.',
     prices: {
-      AED: 'AED 349',
-      USD: '$99',
-      INR: '₹4,999',
+      AED: 'AED 299',
+      USD: '$79',
+      INR: '₹3,999',
     },
-    feeSubtext: 'Zero monthly fees forever',
+    feeSubtext: 'Limited Time Launch Price! No Monthly Fees.',
     isPopular: false,
     isActive: true,
     features: [
-      'Replaces slow Linktree with custom branded domain setup',
-      'Instant tap-to-chat WhatsApp & social media triggers',
-      'Showcase services, photos, bio & portfolio links',
-      '0.1s instant mobile launch speed guaranteed',
-      'Delivered ready to launch in 48 Hours',
+      'Your own branded .com (or yourname.ae) setup',
+      'Direct link-to-chat WhatsApp & Social Media',
+      'Showcase bio, portfolio, services, photos',
+      'Blazing fast 0.3s load time guaranteed',
+      'Ready to Launch in Just 48 Hours',
     ],
-    waMessage: "Hi Raj, I want the 1-Page Fast Launch website for my business/profile.",
-    buttonText: 'Claim 1-Page Site',
+    waMessage: "Hi Raj, I want the 1-Page Creator Link Site (AED 299). Let's launch it in 48 hours!",
+    buttonText: 'Get My 1-Page Site',
   },
   {
-    id: 'small-biz-growth',
-    title: 'Small Business Growth Website',
+    id: 'starter-business-growth',
+    title: 'Starter Business Growth Site',
     category: 'Local & Service Businesses',
-    badge: 'Complete Showcase',
-    delivery: '3-4 Days Delivery',
-    desc: 'Engineered for clinics, restaurants, retail, consultants, and agencies who want more paying customer leads.',
+    badge: 'Showcase Your Brand',
+    delivery: '3 to 4 Days',
+    desc: 'Get more local leads with a complete multi-section static website.',
     prices: {
-      AED: 'AED 899',
-      USD: '$249',
-      INR: '₹12,999',
+      AED: 'AED 799',
+      USD: '$219',
+      INR: '₹10,999',
     },
-    feeSubtext: 'Zero monthly retainers • Free SSL included',
+    feeSubtext: 'Launch Offer: FREE Custom Domain for 1 Year',
     isPopular: true,
     isActive: true,
     features: [
-      'Custom multi-section React + Tailwind architecture',
-      'Google Maps, direct WhatsApp & Email lead booking',
-      'Showcase products, client reviews & business credentials',
-      'Custom domain configuration (yourbusiness.com) + free SSL',
-      'Delivered ready to launch in 3 to 4 Days',
+      'Multi-page-feel React + Tailwind design',
+      'Integrated Maps, WhatsApp, Email lead booking',
+      'Service pages, client reviews, about section',
+      'Full technical domain config + Free SSL',
+      'Done & Dusted in 3 to 4 Days',
     ],
-    waMessage: "Hi Raj, I'm ready to get the Small Business Growth Website for my company.",
-    buttonText: 'Claim Business Site',
+    waMessage: "Hi Raj, I want the Starter Business Growth Site (AED 799) with free domain for 1 year.",
+    buttonText: 'Get Starter Business Site',
   },
   {
-    id: 'site-upgrade-engine',
-    title: 'Website Upgrade & Redesign',
+    id: 'wordpress-static-shift',
+    title: 'WordPress to Blazing-Fast Static Shift',
     category: 'Modernization / Migration',
-    badge: 'Speed & Conversion Boost',
+    badge: 'Ditch Old Slow Sites',
     delivery: '5 Days Delivery',
-    desc: 'Upgrade your slow, outdated WordPress, Wix, or old website into a blazing-fast 100/100 PageSpeed React experience.',
+    desc: 'Convert your slow, unsecure website to a secure, instant-loading experience.',
     prices: {
-      AED: 'AED 1,499',
-      USD: '$399',
-      INR: '₹19,999',
+      AED: 'AED 1,199',
+      USD: '$329',
+      INR: '₹16,999',
     },
-    feeSubtext: 'Zero plugins to update • Guaranteed 99+ speed',
+    feeSubtext: 'Includes 30 Days of Free Content Updates',
     isPopular: false,
     isActive: true,
     features: [
-      'Complete modern UI redesign preserving your existing content & SEO',
-      'Replaces clunky WordPress/Wix plugins with native static code',
-      '100/100 Google Lighthouse mobile score guaranteed',
-      'Domain migration & DNS transfer handled with 0 downtime',
-      'Delivered in 5 Days with 30 days post-launch support',
+      'Move existing content to secure, un-hackable static code',
+      'Guaranteed 100/100 Google Lighthouse Score',
+      'Fixes slow load times & plugin headaches',
+      'Hassle-free domain & DNS migration',
+      'Done in 5 Days + 1st Month Support',
     ],
-    waMessage: "Hi Raj, I want to upgrade my existing slow website with a high-speed redesign.",
-    buttonText: 'Upgrade My Website',
+    waMessage: "Hi Raj, I want to convert my slow website to a Blazing-Fast Static Shift (AED 1,199).",
+    buttonText: 'Speed Up My Website',
   },
   {
-    id: 'bespoke-web-app',
-    title: 'Bespoke Web App & Portal',
+    id: 'premium-custom-app',
+    title: 'Premium Custom App & Portal',
     category: 'Startups & Portals',
-    badge: 'Custom Systems',
+    badge: 'Full Stack Solutions',
     delivery: '7-10 Days Delivery',
-    desc: 'For businesses that need online payment checkouts, booking calendars, customer portals, or interactive tools.',
+    desc: 'For complex business workflows, online stores, & booking engines.',
     prices: {
-      AED: 'AED 2,799',
-      USD: '$749',
-      INR: '₹34,999',
+      AED: 'AED 2,499',
+      USD: '$679',
+      INR: '₹32,999',
     },
-    feeSubtext: 'Includes full database & 30 days engineering support',
+    feeSubtext: 'Includes Custom Admin Dashboard & database setup',
     isPopular: false,
     isActive: true,
     features: [
-      'Online payment checkout (Stripe / Apple Pay / Cards)',
-      'Automated booking schedule or client portal',
-      'Custom admin dashboard to manage leads & data',
-      'Zero maintenance vulnerabilities or plugin crashes',
-      'Delivered in 7-10 Days with full priority support',
+      'Secure, custom-built secure payment gateway (Stripe/Apple/etc.)',
+      'Custom automated booking or user portal (e.g., client portal)',
+      'Backend dashboard to manage leads, orders, & users',
+      'Scalable React/Angular architecture, not a template',
+      'Full support & delivery in 7-10 days',
     ],
-    waMessage: "Hi Raj, I am interested in building a Bespoke Web App with payments/portal.",
+    waMessage: "Hi Raj, I am interested in building a Premium Custom App & Portal (AED 2,499).",
     buttonText: 'Discuss Custom App',
   },
 ];
@@ -113,69 +113,89 @@ const DEFAULT_PROMO = {
 
 const DEFAULT_ORDERS = [
   {
+    id: 'ORD-1043',
+    name: 'Tariq Al-Mansoor',
+    businessType: 'Starter Business Growth Site',
+    companyName: 'Al-Mansoor Logistics Dubai',
+    ig: '@almansoor_dxb',
+    email: 'tariq@almansoor.ae',
+    phone: '+971 58 238 9502',
+    region: 'UAE (+971 58 238 9502)',
+    tier: 'Starter Business Growth Site',
+    quotedPrice: 'AED 799',
+    domainPreference: 'Need New Domain (almansoor.ae)',
+    notes: 'Inquiry via WhatsApp. Needs direct WhatsApp quote request and fleet services showcase.',
+    status: 'In Build',
+    createdAt: '2026-10-27T19:20:00Z',
+    source: 'WhatsApp',
+  },
+  {
     id: 'ORD-1042',
     name: 'Siddharth Rao',
-    businessType: 'Small Business / Clinic',
+    businessType: 'Starter Business Growth Site',
     companyName: 'Rao Dental Aesthetics',
     ig: '@sid.visuals',
     email: 'siddharth@raoaesthetics.com',
     phone: '+91 98450 11223',
     region: 'India (+91)',
-    tier: 'Small Business Growth Website',
-    quotedPrice: '₹12,999',
+    tier: 'Starter Business Growth Site',
+    quotedPrice: '₹10,999',
     domainPreference: 'Need New Domain (raodental.com)',
     notes: 'Need online appointment booking and WhatsApp patient inquiries for Bangalore clinic.',
     status: 'In Build',
     createdAt: '2026-10-27T17:45:00Z',
+    source: 'Online Form',
   },
   {
     id: 'ORD-1041',
     name: 'Elena Rostova',
-    businessType: 'Creator / Fitness Coach',
+    businessType: '1-Page Creator Link Site',
     companyName: 'Elena Fit Club Dubai',
     ig: '@elena_fitclub',
     email: 'elena@fitnessdubai.ae',
-    phone: '+971 50 123 4567',
+    phone: '+971 58 238 9502',
     region: 'UAE (+971)',
-    tier: '1-Page Fast Launch',
-    quotedPrice: 'AED 349',
+    tier: '1-Page Creator Link Site',
+    quotedPrice: 'AED 299',
     domainPreference: 'Need New Domain (elenafit.ae)',
-    notes: 'Replaces Linktree in my Instagram bio with high-speed video reels and WhatsApp coaching bookings.',
+    notes: 'Replaces Linktree in Instagram bio with high-speed video reels and WhatsApp coaching bookings.',
     status: 'Delivered',
     createdAt: '2026-10-26T14:20:00Z',
+    source: 'WhatsApp',
   },
   {
     id: 'ORD-1040',
     name: 'Marcus Sterling',
-    businessType: 'Upgrade Existing Website',
+    businessType: 'WordPress to Blazing-Fast Static Shift',
     companyName: 'Sterling Property Advisors',
     ig: '@sterling_ventures',
     email: 'marcus@sterlingprop.co.uk',
     phone: '+44 7911 123456',
     region: 'Global / Other',
-    tier: 'Website Upgrade & Redesign',
-    quotedPrice: '£399 / $499',
+    tier: 'WordPress to Blazing-Fast Static Shift',
+    quotedPrice: 'AED 1,199 / $329',
     domainPreference: 'Already Own Domain (sterlingprop.co.uk)',
-    notes: 'Old WordPress site is very slow (takes 7 seconds to load). Want 100/100 speed and luxury clean aesthetics.',
+    notes: 'Old WordPress site is very slow. Converting to secure, un-hackable static code with 100/100 speed.',
     status: 'In Review',
     createdAt: '2026-10-25T11:10:00Z',
+    source: 'WhatsApp',
   },
 ];
 
 const DEFAULT_AUDIT = [
   {
     id: 'LOG-001',
-    timestamp: '2026-10-27T18:00:00Z',
+    timestamp: new Date().toISOString(),
     type: 'SYSTEM',
-    description: 'Raj Work Lab operations platform deployed with security gate',
+    description: 'Raj Work Lab operations platform deployed with updated package catalog',
     actor: 'System Engine',
   },
   {
     id: 'LOG-002',
-    timestamp: '2026-10-27T17:45:10Z',
+    timestamp: '2026-10-27T19:20:10Z',
     type: 'ORDER_NEW',
-    description: 'New lead received: Siddharth Rao (Rao Dental Aesthetics) - ₹12,999',
-    actor: 'Client Portal',
+    description: 'WhatsApp lead received: Tariq Al-Mansoor (Al-Mansoor Logistics Dubai) - AED 799',
+    actor: 'WhatsApp Lead Tracker',
   },
 ];
 
@@ -184,7 +204,7 @@ export const dataService = {
   // Offers
   getOffers: () => {
     try {
-      const data = localStorage.getItem('raj_offers');
+      const data = localStorage.getItem('raj_offers_v3');
       return data ? JSON.parse(data) : DEFAULT_OFFERS;
     } catch (e) {
       return DEFAULT_OFFERS;
@@ -192,7 +212,7 @@ export const dataService = {
   },
 
   saveOffers: (offers) => {
-    localStorage.setItem('raj_offers', JSON.stringify(offers));
+    localStorage.setItem('raj_offers_v3', JSON.stringify(offers));
     dataService.logAudit('OFFERS_UPDATE', `Updated package catalog (${offers.length} active tiers)`, 'Admin');
   },
 
@@ -231,7 +251,8 @@ export const dataService = {
     };
     const updated = [newOrder, ...orders];
     localStorage.setItem('raj_orders', JSON.stringify(updated));
-    dataService.logAudit('ORDER_NEW', `New order received from ${newOrder.name} (${newOrder.tier})`, 'Client');
+    const actorName = order.source ? `Client (${order.source})` : 'Client Portal';
+    dataService.logAudit('ORDER_NEW', `New order/lead received: ${newOrder.name} (${newOrder.tier || 'Custom'}) - ${newOrder.quotedPrice || 'Direct Quote'}`, actorName);
     return newOrder;
   },
 
@@ -268,10 +289,11 @@ export const dataService = {
   // CSV Export
   exportOrdersCSV: () => {
     const orders = dataService.getOrders();
-    const headers = ['Order ID', 'Date', 'Client Name', 'Business / Company', 'Type', 'Package', 'Quoted Price', 'Phone', 'Email', 'Region', 'Status', 'Notes'];
+    const headers = ['Order ID', 'Date', 'Source', 'Client Name', 'Business / Company', 'Type', 'Package', 'Quoted Price', 'Phone', 'Email', 'Region', 'Status', 'Notes'];
     const rows = orders.map((o) => [
       o.id,
       new Date(o.createdAt).toLocaleDateString(),
+      `"${o.source || 'Direct'}"`,
       `"${o.name}"`,
       `"${o.companyName || ''}"`,
       `"${o.businessType || ''}"`,
