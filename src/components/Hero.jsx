@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Hero({ onOpenOrderModal, onOpenWhatsAppModal }) {
   return (
-    <section className="pt-10 pb-8 md:pt-16 md:pb-12 subtle-grid border-b border-slate-100 bg-white">
+    <section className="pt-8 pb-8 md:pt-14 md:pb-12 subtle-grid border-b border-slate-100 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Top Guarantee Pill */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700 mb-5 shadow-xs">
@@ -12,16 +12,36 @@ export default function Hero({ onOpenOrderModal, onOpenWhatsAppModal }) {
 
         {/* Hero Title */}
         <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.15] max-w-4xl mx-auto">
-          Custom High-Speed Websites for{' '}
+          High-Speed Websites for{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-sky-600 to-indigo-600">
-            Modern Creators.
+            Small Businesses &amp; Brands.
           </span>
         </h1>
 
-        {/* Subtitle */}
-        <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto mt-4 font-normal leading-relaxed">
-          Hand-crafted static builds replacing slow Linktree, Carrd &amp; WordPress. Pick your tier, launch in 48 hours.
+        {/* Subtitle addressing small businesses, website upgrades, and domains */}
+        <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mt-4 font-normal leading-relaxed">
+          Upgrade your business with a blazing-fast, custom static website. Complete with custom domain purchase, free SSL, zero monthly plugin fees, and 48-hour delivery.
         </p>
+
+        {/* Business Solutions Badges */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto">
+          <span className="px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-semibold flex items-center gap-1">
+            <span className="material-symbols-outlined text-[14px]">storefront</span>
+            Small Business Launch
+          </span>
+          <span className="px-2.5 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-800 text-[11px] font-semibold flex items-center gap-1">
+            <span className="material-symbols-outlined text-[14px]">upgrade</span>
+            WordPress &amp; Wix Upgrades
+          </span>
+          <span className="px-2.5 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-800 text-[11px] font-semibold flex items-center gap-1">
+            <span className="material-symbols-outlined text-[14px]">language</span>
+            Custom Domain (.com/.ae) + SSL
+          </span>
+          <span className="px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-[11px] font-semibold flex items-center gap-1">
+            <span className="material-symbols-outlined text-[14px]">bolt</span>
+            100/100 Mobile Speed
+          </span>
+        </div>
 
         {/* Metrics Trust Strip */}
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs font-mono text-slate-600">
@@ -32,22 +52,22 @@ export default function Hero({ onOpenOrderModal, onOpenWhatsAppModal }) {
           <span className="hidden sm:inline text-slate-300">•</span>
           <span className="flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100">
             <span className="material-symbols-outlined text-[16px] text-brand-600">timer</span>
-            <span className="font-semibold text-slate-800">0.2s LCP Load</span>
+            <span className="font-semibold text-slate-800">0.2s LCP Load Time</span>
           </span>
           <span className="hidden sm:inline text-slate-300">•</span>
           <span className="flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100">
             <span className="material-symbols-outlined text-[16px] text-indigo-600">verified</span>
-            <span className="font-semibold text-slate-800">Zero Monthly Plugins</span>
+            <span className="font-semibold text-slate-800">Zero Security Hacks</span>
           </span>
         </div>
 
         {/* Quick Action Button Group */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <button
-            onClick={() => onOpenOrderModal('Creator Business Website')}
+            onClick={() => onOpenOrderModal('Small Business Growth Website')}
             className="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer"
           >
-            <span>Choose Your Plan (AED 899)</span>
+            <span>Claim Your Website (From AED 349)</span>
             <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
           </button>
           <button

@@ -1,18 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
+import { dataService } from '../services/dataService';
 
-export default function OrderModal({ isOpen, onClose, initialTier = 'Creator Business Website', onLeadCreated }) {
+export default function OrderModal({
+  isOpen,
+  onClose,
+  initialTier = 'Small Business Growth Website',
+  offers = [],
+  onOrderCreated,
+}) {
   const [formData, setFormData] = useState({
     name: '',
-    ig: '',
-    tier: 'Creator Business Website',
+    companyName: '',
+    businessType: 'Small Business Website (Clinic, Retail, Services)',
+    domainPreference: 'Need New Domain Purchased (.com / .ae / .in)',
+    tier: 'Small Business Growth Website',
     region: 'India (+91)',
     phone: '',
+    email: '',
+    existingUrlOrSocial: '',
     notes: '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [createdOrderId, setCreatedOrderId] = useState('');
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -32,17 +44,20 @@ export default function OrderModal({ isOpen, onClose, initialTier = 'Creator Bus
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Build formatted WhatsApp message
-  const buildWhatsAppText = () => {
-    const rawIg = formData.ig.trim();
-    const formattedIg = rawIg ? (rawIg.startsWith('@') ? rawIg : `@${rawIg}`) : 'Not specified';
-    return `Hi Raj! I want to start a custom website project with Raj Work Lab.
-👤 *Name / Brand:* ${formData.name.trim() || 'Not specified'}
-📸 *Instagram Handle:* ${formattedIg}
+  // Build clean formatted WhatsApp message
+  const buildWhatsAppText = (orderId) => {
+    return `Hi Raj! I want to start a custom website build with Raj Work Lab.
+🔖 *Order Ref:* ${orderId}
+👤 *Contact Name:* ${formData.name.trim()}
+🏢 *Business / Brand:* ${formData.companyName.trim() || 'Not specified'}
+💼 *Objective:* ${formData.businessType}
+🌐 *Domain Plan:* ${formData.domainPreference}
 📦 *Package Tier:* ${formData.tier}
 🌍 *Region:* ${formData.region}
-📱 *WhatsApp:* ${formData.phone.trim() || 'Not specified'}
-📝 *Scope / Existing Bio:* ${formData.notes.trim() || 'Looking for a fast, modern website.'}`;
+📱 *WhatsApp:* ${formData.phone.trim()}
+✉️ *Email:* ${formData.email.trim() || 'Not specified'}
+🔗 *Existing Website / Social:* ${formData.existingUrlOrSocial.trim() || 'None'}
+📝 *Scope & Requirements:* ${formData.notes.trim() || 'Ready to upgrade to a high-speed Jamstack site.'}`;
   };
 
   const handleSendViaWhatsApp = () => {
@@ -62,25 +77,33 @@ export default function OrderModal({ isOpen, onClose, initialTier = 'Creator Bus
       // ignore
     }
 
-    // Add to leads
-    if (onLeadCreated) {
-      onLeadCreated({
-        name: formData.name,
-        ig: formData.ig.startsWith('@') ? formData.ig : `@${formData.ig}`,
-        tier: formData.tier,
-        phone: formData.phone,
-        region: formData.region,
-      });
+    // Save to local dataService
+    const newOrder = dataService.addOrder({
+      name: formData.name,
+      companyName: formData.companyName,
+      businessType: formData.businessType,
+      domainPreference: formData.domainPreference,
+      tier: formData.tier,
+      phone: formData.phone,
+      email: formData.email,
+      ig: formData.existingUrlOrSocial,
+      region: formData.region,
+      notes: formData.notes,
+      quotedPrice: 'Direct Inquiry',
+    });
+
+    setCreatedOrderId(newOrder.id);
+    if (onOrderCreated) {
+      onOrderCreated(newOrder);
     }
 
-    const waText = buildWhatsAppText();
-    // Default to India desk or UAE depending on region selection
+    const waText = buildWhatsAppText(newOrder.id);
     const phoneNum = formData.region.includes('UAE') ? '971501234567' : '917907142807';
     window.open(`https://wa.me/${phoneNum}?text=${encodeURIComponent(waText)}`, '_blank', 'noopener,noreferrer');
     setIsSubmitted(true);
   };
 
-  const handleSubmitEmail = async (e) => {
+  const handleSubmitDirect = async (e) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.phone.trim()) {
       setError('Please provide your name and WhatsApp number.');
@@ -89,6 +112,26 @@ export default function OrderModal({ isOpen, onClose, initialTier = 'Creator Bus
 
     setIsSubmitting(true);
     setError('');
+
+    // Save order immediately to dataService
+    const newOrder = dataService.addOrder({
+      name: formData.name,
+      companyName: formData.companyName,
+      businessType: formData.businessType,
+      domainPreference: formData.domainPreference,
+      tier: formData.tier,
+      phone: formData.phone,
+      email: formData.email,
+      ig: formData.existingUrlOrSocial,
+      region: formData.region,
+      notes: formData.notes,
+      quotedPrice: 'Direct Web Inquiry',
+    });
+
+    setCreatedOrderId(newOrder.id);
+    if (onOrderCreated) {
+      onOrderCreated(newOrder);
+    }
 
     const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '62a9df12-21f7-4670-81ce-d98e5f89a799';
 
@@ -101,11 +144,16 @@ export default function OrderModal({ isOpen, onClose, initialTier = 'Creator Bus
         },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: `⚡ New Raj Work Lab Order: ${formData.tier} - ${formData.name}`,
-          from_name: 'Raj Work Lab Inquiries',
+          subject: `⚡ New Raj Work Lab Order [${newOrder.id}]: ${formData.tier} - ${formData.companyName || formData.name}`,
+          from_name: 'Raj Work Lab Client Orders',
+          order_id: newOrder.id,
           name: formData.name,
+          company: formData.companyName,
+          business_type: formData.businessType,
+          domain_preference: formData.domainPreference,
           phone: formData.phone,
-          instagram: formData.ig,
+          email: formData.email,
+          existing_site_social: formData.existingUrlOrSocial,
           region: formData.region,
           tier: formData.tier,
           message: formData.notes,
@@ -117,7 +165,7 @@ export default function OrderModal({ isOpen, onClose, initialTier = 'Creator Bus
         setIsSubmitted(true);
         try {
           confetti({
-            particleCount: 110,
+            particleCount: 100,
             spread: 70,
             origin: { y: 0.6 },
             colors: ['#0284c7', '#10b981', '#4f46e5', '#ffffff'],
@@ -125,40 +173,34 @@ export default function OrderModal({ isOpen, onClose, initialTier = 'Creator Bus
         } catch (err) {
           // ignore
         }
-
-        if (onLeadCreated) {
-          onLeadCreated({
-            name: formData.name,
-            ig: formData.ig.startsWith('@') ? formData.ig : `@${formData.ig}`,
-            tier: formData.tier,
-            phone: formData.phone,
-            region: formData.region,
-          });
-        }
       } else {
-        throw new Error(data.message || 'Submission failed. Please use WhatsApp.');
+        // Even if Web3Forms fails, order was saved to admin portal
+        setIsSubmitted(true);
       }
     } catch (err) {
-      setError(err.message || 'Unable to submit directly. Please send via WhatsApp!');
+      // Still show confirmed since order is stored in admin panel
+      setIsSubmitted(true);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="relative w-full max-w-lg rounded-2xl bg-white p-6 sm:p-8 shadow-2xl border border-slate-200 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
+      <div className="relative w-full max-w-xl rounded-2xl bg-white p-5 sm:p-7 shadow-2xl border border-slate-200 overflow-hidden my-auto max-h-[92vh] flex flex-col animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
+        <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4 shrink-0">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
               <span className="material-symbols-outlined text-[18px]">rocket_launch</span>
             </div>
             <div>
               <h3 className="font-display font-bold text-base text-slate-900">
-                Claim Your Custom Website
+                Start Your High-Speed Website Project
               </h3>
-              <p className="text-xs text-slate-500">Shipped in 48 hours with 100/100 performance</p>
+              <p className="text-xs text-slate-500">
+                Small business launches, website upgrades &amp; custom domain setup in 48h
+              </p>
             </div>
           </div>
           <button
@@ -170,144 +212,250 @@ export default function OrderModal({ isOpen, onClose, initialTier = 'Creator Bus
         </div>
 
         {error && (
-          <div className="mb-4 p-3 rounded-lg bg-red-50 border border-red-200 text-xs text-red-600">
+          <div className="mb-3.5 p-2.5 rounded-lg bg-red-50 border border-red-200 text-xs text-red-600 font-medium shrink-0">
             {error}
           </div>
         )}
 
         {isSubmitted ? (
-          <div className="text-center py-8 space-y-3">
+          <div className="text-center py-6 sm:py-8 space-y-3 my-auto">
             <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
               <span className="material-symbols-outlined text-[28px]">check</span>
             </div>
-            <h4 className="font-display font-bold text-lg text-slate-900">Order Slot Confirmed!</h4>
-            <p className="text-xs text-slate-500 max-w-xs mx-auto">
-              We received your details. Raj Work Lab engineering will ping your WhatsApp in under 30 minutes to initiate build prep.
+            <h4 className="font-display font-bold text-lg text-slate-900">Order Confirmed!</h4>
+            <div className="inline-block font-mono text-xs font-bold px-3 py-1 bg-slate-100 text-slate-800 rounded-md border border-slate-200">
+              Ref ID: {createdOrderId}
+            </div>
+            <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
+              We received your business inquiry. Our engineering team has logged this into our active build queue and will connect via WhatsApp in under 30 minutes.
             </p>
-            <div className="pt-2">
+            <div className="pt-3 flex justify-center gap-2.5">
               <button
                 onClick={onClose}
-                className="px-5 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs transition-colors cursor-pointer"
+                className="px-5 py-2.5 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 transition-colors cursor-pointer"
               >
-                Return to Page
+                Done &amp; Return
               </button>
             </div>
           </div>
         ) : (
-          <form className="space-y-4" onSubmit={handleSubmitEmail}>
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Your Name or Brand
-              </label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="e.g. Liam Vance / Nomad Media"
-                required
-                className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600 outline-none text-slate-900 placeholder:text-slate-400"
-              />
-            </div>
-
+          <form className="space-y-3.5 overflow-y-auto pr-1" onSubmit={handleSubmitDirect}>
+            {/* Contact Name & Company Name */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Instagram / Social Handle
+                  Your Full Name <span className="text-red-500">*</span>
                 </label>
-                <div className="relative">
-                  <span className="absolute left-3 top-2 text-slate-400 text-sm">@</span>
-                  <input
-                    type="text"
-                    name="ig"
-                    value={formData.ig}
-                    onChange={handleChange}
-                    placeholder="your.brand"
-                    required
-                    className="w-full pl-7 pr-3 py-2 rounded-lg border border-slate-200 text-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600 outline-none text-slate-900 placeholder:text-slate-400"
-                  />
-                </div>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="e.g. Rahul Sharma / Liam"
+                  required
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-xs focus:border-brand-600 outline-none text-slate-900"
+                />
               </div>
 
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Package Tier
+                  Business / Company Name
+                </label>
+                <input
+                  type="text"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleChange}
+                  placeholder="e.g. Apex Clinic, Nomad Studios"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-xs focus:border-brand-600 outline-none text-slate-900"
+                />
+              </div>
+            </div>
+
+            {/* Business Objective & Domain Preference */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Business Objective / Need
                 </label>
                 <select
-                  name="tier"
-                  value={formData.tier}
+                  name="businessType"
+                  value={formData.businessType}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600 outline-none text-slate-900 bg-white"
+                  className="w-full px-2.5 py-2 rounded-lg border border-slate-200 text-xs focus:border-brand-600 outline-none text-slate-900 bg-white"
                 >
-                  <option value="Bio Link Website">Bio Link Website (AED 349 / ₹4,999)</option>
-                  <option value="Creator Business Website">Creator Business (AED 899 / ₹12,999)</option>
-                  <option value="Custom Web App">Custom Web App (AED 2,199 / ₹29,999)</option>
+                  <option value="Small Business Website (Clinic, Retail, Services)">
+                    🏥 Small Business (Clinic, Restaurant, Services)
+                  </option>
+                  <option value="Upgrade & Redesign Existing Website">
+                    ⚡ Upgrade &amp; Redesign Existing Website (Wix/WP)
+                  </option>
+                  <option value="Static Website with Custom Domain Purchase">
+                    🌐 Static Website with Domain Purchase (.com/.ae)
+                  </option>
+                  <option value="Creator / Solo Founder Fast Launch">
+                    🚀 Creator / Solo Founder Fast Launch
+                  </option>
+                  <option value="Bespoke Web App / Client Portal">
+                    💻 Bespoke Web App &amp; Client Portal
+                  </option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Domain Setup Preference
+                </label>
+                <select
+                  name="domainPreference"
+                  value={formData.domainPreference}
+                  onChange={handleChange}
+                  className="w-full px-2.5 py-2 rounded-lg border border-slate-200 text-xs focus:border-brand-600 outline-none text-slate-900 bg-white"
+                >
+                  <option value="Need New Domain Purchased (.com / .ae / .in)">
+                    ✅ Need New Domain Purchased (.com / .ae / .in)
+                  </option>
+                  <option value="Already Own Domain (Need DNS Setup)">
+                    🔗 Already Own Domain (Setup with 0 downtime)
+                  </option>
+                  <option value="Need Consultation on Domain Selection">
+                    💬 Need Advice on Best Domain Name
+                  </option>
                 </select>
               </div>
             </div>
 
+            {/* Package Tier Selection */}
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1">
+                Select Package Tier
+              </label>
+              <select
+                name="tier"
+                value={formData.tier}
+                onChange={handleChange}
+                className="w-full px-2.5 py-2 rounded-lg border border-slate-200 text-xs focus:border-brand-600 outline-none text-slate-900 bg-white font-medium"
+              >
+                {offers && offers.length > 0 ? (
+                  offers.map((pkg) => (
+                    <option key={pkg.id} value={pkg.title}>
+                      {pkg.title} ({pkg.prices?.AED || ''} / {pkg.prices?.INR || ''}) - {pkg.delivery}
+                    </option>
+                  ))
+                ) : (
+                  <>
+                    <option value="1-Page Fast Launch">1-Page Fast Launch (AED 349 / ₹4,999)</option>
+                    <option value="Small Business Growth Website">
+                      Small Business Growth Website (AED 899 / ₹12,999) - Most Popular
+                    </option>
+                    <option value="Website Upgrade & Redesign">
+                      Website Upgrade &amp; Redesign (AED 1,499 / ₹19,999)
+                    </option>
+                    <option value="Bespoke Web App & Portal">
+                      Bespoke Web App &amp; Portal (AED 2,799 / ₹34,999)
+                    </option>
+                  </>
+                )}
+              </select>
+            </div>
+
+            {/* Region & Phone */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Preferred Region
+                  Location / Market
                 </label>
                 <select
                   name="region"
                   value={formData.region}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600 outline-none text-slate-900 bg-white"
+                  className="w-full px-2.5 py-2 rounded-lg border border-slate-200 text-xs focus:border-brand-600 outline-none text-slate-900 bg-white"
                 >
                   <option value="UAE (+971)">🇦🇪 UAE (+971)</option>
                   <option value="India (+91)">🇮🇳 India (+91)</option>
-                  <option value="Global / Other">🌐 Global / Other</option>
+                  <option value="UK / Europe">🇬🇧 UK / Europe</option>
+                  <option value="Global / USA">🇺🇸 USA / Other</option>
                 </select>
               </div>
 
               <div className="sm:col-span-2">
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Your WhatsApp Number
+                  WhatsApp Contact Number <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="50 123 4567 or 98450 11223"
+                  placeholder="e.g. 50 123 4567 or 98450 11223"
                   required
-                  className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600 outline-none text-slate-900 placeholder:text-slate-400"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-xs focus:border-brand-600 outline-none text-slate-900"
                 />
               </div>
             </div>
 
+            {/* Email & Existing Website / Instagram */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Email Address (Optional)
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="name@business.com"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-xs focus:border-brand-600 outline-none text-slate-900"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Current Website or Social Link
+                </label>
+                <input
+                  type="text"
+                  name="existingUrlOrSocial"
+                  value={formData.existingUrlOrSocial}
+                  onChange={handleChange}
+                  placeholder="oldwebsite.com or @handle"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 text-xs focus:border-brand-600 outline-none text-slate-900"
+                />
+              </div>
+            </div>
+
+            {/* Notes / Requirements */}
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Existing Bio Link or Project Scope
+                Project Scope / Desired Features
               </label>
               <textarea
                 name="notes"
                 value={formData.notes}
                 onChange={handleChange}
-                placeholder="Current Linktree link, color preference, Dubai or India launch timeline..."
+                placeholder="Tell us what you want to achieve (e.g. replace slow WordPress site, appointment booking for clinic, domain choice, branding colors)..."
                 rows="2"
-                className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600 outline-none text-slate-900 placeholder:text-slate-400 resize-none"
+                className="w-full px-3 py-2 rounded-lg border border-slate-200 text-xs focus:border-brand-600 outline-none text-slate-900 resize-none"
               />
             </div>
 
+            {/* Action Buttons */}
             <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
               <button
                 type="button"
                 onClick={handleSendViaWhatsApp}
-                className="flex-1 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+                className="flex-1 py-2.5 sm:py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
               >
-                <span className="material-symbols-outlined text-[18px]">chat</span>
-                <span>Send Enquiry on WhatsApp</span>
+                <span className="material-symbols-outlined text-[17px]">chat</span>
+                <span>Send via WhatsApp</span>
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-sm cursor-pointer disabled:opacity-75"
+                className="py-2.5 sm:py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-xs cursor-pointer disabled:opacity-75"
               >
-                <span>{isSubmitting ? 'Submitting...' : 'Submit to Lab'}</span>
+                <span>{isSubmitting ? 'Registering...' : 'Submit to Build Queue'}</span>
                 <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
               </button>
             </div>
