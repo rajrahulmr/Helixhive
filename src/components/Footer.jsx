@@ -1,81 +1,40 @@
 import React from 'react';
-import Logo from './Logo';
 
-export default function Footer() {
+export default function Footer({ onOpenAdminModal }) {
   return (
-    <footer className="w-full bg-surface-container-lowest border-t border-outline-variant/30 mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-outline-variant/20">
-          
-          {/* Col 1: Brand & Identity */}
-          <div className="md:col-span-5 flex flex-col gap-4">
-            <a href="#" className="flex items-center">
-              <Logo size="default" />
-            </a>
-            <p className="text-sm text-on-surface-variant max-w-sm leading-relaxed">
-              High-conviction digital engineering, bespoke web systems, and high-performance frontend architecture crafted for scaling tech leaders and growing enterprises.
-            </p>
+    <footer className="border-t border-slate-200/80 bg-slate-50/60 py-12 text-xs text-slate-500">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+        <div className="flex items-center gap-2.5">
+          <div className="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center font-bold text-xs">
+            R
           </div>
-
-          {/* Col 2: Navigation Links */}
-          <div className="md:col-span-3 flex flex-col gap-3">
-            <span className="font-mono text-xs uppercase tracking-wider text-primary-container font-semibold">
-              Navigation
-            </span>
-            <a href="#services" className="text-sm text-on-surface-variant hover:text-primary transition-colors">
-              Services & Capabilities
-            </a>
-            <a href="#pricing" className="text-sm text-on-surface-variant hover:text-primary transition-colors">
-              Pricing Plans
-            </a>
-            <a href="#work" className="text-sm text-on-surface-variant hover:text-primary transition-colors">
-              Work / Case Studies
-            </a>
-            <a href="#contact" className="text-sm text-on-surface-variant hover:text-primary transition-colors">
-              Initiate Project Brief
-            </a>
-          </div>
-
-          {/* Col 3: Direct Engagement */}
-          <div className="md:col-span-4 flex flex-col gap-3">
-            <span className="font-mono text-xs uppercase tracking-wider text-primary-container font-semibold">
-              Direct Engagement
-            </span>
-            
-            <a
-              href="https://wa.me/917907142807?text=Hi%20Helixhive,%20I%20am%20interested%20in%20building%20a%20website%20for%20my%20business."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2.5"
-            >
-              <span className="material-symbols-outlined text-[18px] text-secondary">chat</span>
-              <span>+91 7907142807</span>
-            </a>
-
-            <a
-              href="mailto:rajrahulmr96@gmail.com"
-              className="text-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2.5"
-            >
-              <span className="material-symbols-outlined text-[18px] text-secondary">mail</span>
-              <span>rajrahulmr96@gmail.com</span>
-            </a>
-
-            <div className="mt-2 font-mono text-xs text-outline flex items-center gap-2">
-              <span className="material-symbols-outlined text-[16px] text-primary-container">location_on</span>
-              <span>Bengaluru / Global Remote Delivery</span>
-            </div>
+          <div>
+            <span className="font-semibold text-slate-800">Raj Work Lab</span>
+            <span className="text-slate-500 hidden sm:inline"> — Pure Native Static Architecture.</span>
           </div>
         </div>
 
-        {/* Bottom Credits & Telemetry */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-mono text-xs text-on-surface-variant text-center md:text-left">
-            © 2026 Helixhive Web Studio. All rights reserved.
-          </p>
-          <div className="flex items-center gap-3 font-mono text-xs text-outline">
-            <span className="inline-block w-2 h-2 rounded-full bg-primary-container animate-pulse" />
-            <span>Helixhive System Architecture v2.4 Active</span>
-          </div>
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          <a href="#packages" className="hover:text-slate-900 transition-colors">
+            Packages &amp; Pricing
+          </a>
+          <a href="#showcase" className="hover:text-slate-900 transition-colors">
+            Showcase
+          </a>
+          <a href="#guarantee" className="hover:text-slate-900 transition-colors">
+            48h Guarantee
+          </a>
+          <button
+            onClick={onOpenAdminModal}
+            className="text-slate-600 hover:text-slate-900 font-semibold flex items-center gap-1 transition-colors cursor-pointer"
+          >
+            <span className="material-symbols-outlined text-[14px]">tune</span>
+            Admin Portal
+          </button>
+        </div>
+
+        <div className="text-slate-400">
+          © {new Date().getFullYear()} Raj Work Lab. Built strictly without bloat.
         </div>
       </div>
     </footer>

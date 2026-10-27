@@ -1,169 +1,161 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Logo from './Logo';
 
-export default function Header() {
+export default function Header({ onOpenOrderModal, onOpenWhatsAppModal, onOpenAdminModal }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-
-      // Section spy
-      const sections = ['services', 'pricing', 'work', 'contact'];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
-      if (window.scrollY < 300) {
-        setActiveSection('hero');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: 'Services', href: '#services', id: 'services' },
-    { name: 'Pricing Plans', href: '#pricing', id: 'pricing' },
-    { name: 'Work / Projects', href: '#work', id: 'work' },
-    { name: 'Contact', href: '#contact', id: 'contact' },
-  ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#061423]/90 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
-          : 'bg-[#061423]/60 backdrop-blur-md border-b border-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Brand Logo & Name */}
-        <a href="#" className="flex items-center focus:outline-none">
-          <Logo size="default" />
-        </a>
-
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
-            return (
-              <a
-                key={link.id}
-                href={link.href}
-                className={`text-sm font-medium transition-colors relative py-1 ${
-                  isActive
-                    ? 'text-primary-container font-semibold drop-shadow-[0_0_8px_rgba(0,242,254,0.4)]'
-                    : 'text-on-surface-variant hover:text-primary'
-                }`}
-              >
-                {link.name}
-                {isActive && (
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary-container to-secondary rounded-full" />
-                )}
-              </a>
-            );
-          })}
-        </nav>
-
-        {/* Action Triggers (Desktop) */}
-        <div className="hidden sm:flex items-center gap-4">
-          <a
-            href="https://wa.me/917907142807?text=Hi%20Helixhive,%20I%20am%20interested%20in%20building%20a%20website%20for%20my%20business."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-lg bg-surface-container-high/80 text-primary-container hover:text-white hover:bg-surface-container-highest transition-all"
-            title="Chat on WhatsApp"
-            aria-label="Direct WhatsApp Consultation"
-          >
-            <span className="material-symbols-outlined text-[20px] block">chat</span>
-          </a>
-
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-bold text-on-primary-fixed bg-gradient-to-r from-primary-container via-secondary-container to-secondary shadow-[0_0_24px_rgba(0,242,254,0.35)] hover:shadow-[0_0_35px_rgba(0,242,254,0.6)] hover:-translate-y-0.5 active:scale-95 transition-all"
-          >
-            <span>Get Started</span>
-            <span className="material-symbols-outlined ml-1.5 text-[18px]">arrow_forward</span>
-          </a>
-        </div>
-
-        {/* Mobile Hamburger Toggle Button */}
-        <div className="flex md:hidden items-center gap-3">
-          <a
-            href="https://wa.me/917907142807?text=Hi%20Helixhive,%20I%20am%20interested%20in%20building%20a%20website%20for%20my%20business."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-lg bg-surface-container-high text-primary-container"
-            aria-label="WhatsApp"
-          >
-            <span className="material-symbols-outlined text-[18px]">chat</span>
-          </a>
-
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg bg-surface-container-high text-primary hover:text-primary-container focus:outline-none transition-colors"
-            aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
-            aria-expanded={mobileMenuOpen}
-          >
-            <span className="material-symbols-outlined text-[24px]">
-              {mobileMenuOpen ? 'close' : 'menu'}
+    <>
+      {/* Minimal Announcement Bar */}
+      <div className="border-b border-slate-100 bg-slate-50/80 text-xs text-slate-600 py-2.5 px-4 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+            <span className="inline-flex items-center px-2 py-0.5 rounded-full font-semibold bg-emerald-100 text-emerald-700 text-[11px] tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
+              48h Turnaround
             </span>
-          </button>
+            <span className="text-slate-700 font-medium text-xs">
+              Jamstack Sites for UAE 🇦🇪 &amp; India 🇮🇳 Creators &amp; Startups.
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2.5 text-[11px]">
+            <span className="text-slate-500 font-medium hidden md:inline">Direct Line:</span>
+            <a
+              href="https://wa.me/971501234567?text=Hi%20Raj,%20I'm%20reaching%20out%20from%20UAE%20for%20a%20custom%20high-speed%20website."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2 py-0.5 rounded-md inline-flex items-center gap-1 transition-colors"
+            >
+              <span>🇦🇪 UAE (+971)</span>
+            </a>
+            <a
+              href="https://wa.me/917907142807?text=Hi%20Raj,%20I'm%20reaching%20out%20from%20India%20for%20a%20custom%20high-speed%20website."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2 py-0.5 rounded-md inline-flex items-center gap-1 transition-colors"
+            >
+              <span>🇮🇳 India (+91)</span>
+            </a>
+            <button
+              onClick={() => onOpenOrderModal('Creator Business Website')}
+              className="font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center gap-0.5 transition-colors ml-1 cursor-pointer"
+            >
+              Claim yours
+              <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Hamburger Drawer Overlay */}
-      {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-20 bg-[#061423]/98 backdrop-blur-2xl border-b border-outline-variant/40 shadow-[0_20px_50px_rgba(0,0,0,0.8)] px-6 py-6 transition-all duration-300">
-          <nav className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.id}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between text-base font-medium text-on-surface hover:text-primary-container py-2 border-b border-surface-container-high transition-colors"
-              >
-                <span>{link.name}</span>
-                <span className="material-symbols-outlined text-primary-container text-[18px]">chevron_right</span>
-              </a>
-            ))}
+      {/* Ultra-Clean Top Navigation */}
+      <header className="sticky top-[41px] z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          {/* Brand Logo */}
+          <a href="#" className="flex items-center gap-2.5 group">
+            <Logo />
+          </a>
 
-            <div className="pt-4 flex flex-col gap-3">
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-3.5 px-4 rounded-xl text-center text-sm font-bold text-on-primary-fixed bg-gradient-to-r from-primary-container to-secondary-container shadow-[0_0_20px_rgba(0,242,254,0.35)]"
-              >
-                Get Free Consultation
-              </a>
-              <a
-                href="https://wa.me/917907142807?text=Hi%20Helixhive,%20I%20am%20interested%20in%20building%20a%20website%20for%20my%20business."
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-3 px-4 rounded-xl text-center text-sm font-semibold text-primary bg-surface-container-high flex items-center justify-center gap-2"
-              >
-                <span className="material-symbols-outlined text-primary-container text-[18px]">chat</span>
-                Chat on WhatsApp (+91 7907142807)
-              </a>
-            </div>
+          {/* Center Links */}
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+            <a href="#packages" className="hover:text-slate-900 transition-colors text-slate-900 font-semibold">
+              Packages &amp; Pricing
+            </a>
+            <a href="#showcase" className="hover:text-slate-900 transition-colors">
+              Live Builds
+            </a>
+            <a href="#guarantee" className="hover:text-slate-900 transition-colors">
+              48h Guarantee
+            </a>
           </nav>
+
+          {/* Right CTAs */}
+          <div className="flex items-center gap-2.5">
+            <button
+              onClick={onOpenWhatsAppModal}
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 px-3 py-2 rounded-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all cursor-pointer"
+            >
+              <span className="material-symbols-outlined text-[16px] text-emerald-600">chat</span>
+              <span>WhatsApp</span>
+            </button>
+
+            <button
+              onClick={() => onOpenOrderModal('Creator Business Website')}
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 px-3.5 sm:px-4 py-2 rounded-lg shadow-sm hover:shadow transition-all cursor-pointer"
+            >
+              <span>Claim Website</span>
+              <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
+            </button>
+
+            {/* Admin Portal Toggle */}
+            <button
+              onClick={onOpenAdminModal}
+              className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-colors cursor-pointer"
+              title="Admin Control Dashboard"
+            >
+              <span className="material-symbols-outlined text-[18px]">lock</span>
+            </button>
+
+            {/* Mobile Hamburger */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden w-8 h-8 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center justify-center cursor-pointer"
+            >
+              <span className="material-symbols-outlined text-[20px]">
+                {mobileMenuOpen ? 'close' : 'menu'}
+              </span>
+            </button>
+          </div>
         </div>
-      )}
-    </header>
+
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-slate-100 bg-white/95 backdrop-blur-md px-4 py-4 space-y-3">
+            <a
+              href="#packages"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-sm font-semibold text-slate-900 hover:text-brand-600"
+            >
+              Packages &amp; Pricing
+            </a>
+            <a
+              href="#showcase"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-sm font-medium text-slate-700 hover:text-brand-600"
+            >
+              Live Builds
+            </a>
+            <a
+              href="#guarantee"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-sm font-medium text-slate-700 hover:text-brand-600"
+            >
+              48h Guarantee
+            </a>
+            <div className="pt-2 border-t border-slate-100 flex gap-2">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenWhatsAppModal();
+                }}
+                className="flex-1 py-2 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 flex items-center justify-center gap-1.5"
+              >
+                <span className="material-symbols-outlined text-[16px] text-emerald-600">chat</span>
+                WhatsApp
+              </button>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenOrderModal('Creator Business Website');
+                }}
+                className="flex-1 py-2 rounded-lg bg-slate-900 text-white text-xs font-semibold flex items-center justify-center gap-1"
+              >
+                Claim Website
+              </button>
+            </div>
+          </div>
+        )}
+      </header>
+    </>
   );
 }
