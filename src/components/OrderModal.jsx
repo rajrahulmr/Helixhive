@@ -387,7 +387,7 @@ export default function OrderModal({
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="e.g. 50 123 4567 or 98450 11223"
+                  placeholder="e.g. 58 238 9502 or 98450 11223"
                   required
                   className="w-full px-3 py-2 rounded-lg border border-slate-200 text-xs focus:border-brand-600 outline-none text-slate-900"
                 />

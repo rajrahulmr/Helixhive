@@ -10,7 +10,7 @@ export default function Pricing({ offers = [], onSelectPlan, onOrderCreated }) {
   // Handle WhatsApp Order Click & Auto-capture in Admin Orders & Leads
   const handleWhatsAppOrder = (pkg) => {
     const priceValue = pkg.prices?.[currency] || pkg.prices?.AED || 'Direct Quote';
-    const targetPhone = currency === 'AED' ? '971582389502' : '917907142807';
+    const targetPhone = currency === 'INR' ? '917907142807' : '971582389502';
 
     // 1. Auto-record order/lead in Admin Control Center
     const newOrder = dataService.addOrder({
@@ -20,9 +20,9 @@ export default function Pricing({ offers = [], onSelectPlan, onOrderCreated }) {
       domainPreference: pkg.id === 'starter-business-growth' ? 'Free 1-Year Custom Domain' : 'Standard Domain Setup',
       tier: pkg.title,
       quotedPrice: priceValue,
-      phone: currency === 'AED' ? '+971 58 238 9502' : '+91 79071 42807',
+      phone: currency === 'INR' ? '+91 79071 42807' : '+971 58 238 9502',
       email: 'Initiated via WhatsApp',
-      region: currency === 'AED' ? 'UAE (+971 58 238 9502)' : currency === 'INR' ? 'India (+91)' : 'Global',
+      region: currency === 'INR' ? 'India (+91)' : 'UAE (+971 58 238 9502)',
       notes: `Customer clicked "${pkg.buttonText}" on pricing card for ${pkg.title}. Quoted price: ${priceValue}.`,
       status: 'New',
       source: 'WhatsApp Order Button',

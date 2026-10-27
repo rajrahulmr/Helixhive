@@ -379,7 +379,7 @@ export default function AdminModal({
                                   Summary
                                 </button>
                                 <a
-                                  href={`https://wa.me/${(o.phone || '').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${o.name}, Raj Work Lab team here regarding your project order ${o.id}.`)}`}
+                                  href={`https://wa.me/${(!((o.phone || '').replace(/[^0-9]/g, '')) || ((o.phone || '').replace(/[^0-9]/g, '')).includes('1234567') || ((o.phone || '').replace(/[^0-9]/g, '')).startsWith('97150')) ? '971582389502' : (o.phone || '').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${o.name}, Raj Work Lab team here regarding your project order ${o.id}.`)}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="inline-flex items-center gap-0.5 text-xs font-semibold text-emerald-600 hover:text-emerald-800"

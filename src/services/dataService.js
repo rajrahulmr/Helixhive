@@ -234,8 +234,43 @@ export const dataService = {
   // Orders
   getOrders: () => {
     try {
-      const data = localStorage.getItem('raj_orders');
-      return data ? JSON.parse(data) : DEFAULT_ORDERS;
+      let orders = DEFAULT_ORDERS;
+      const data = localStorage.getItem('raj_orders_v4');
+      if (data) {
+        orders = JSON.parse(data);
+      } else {
+        const legacy = localStorage.getItem('raj_orders');
+        if (legacy) {
+          orders = JSON.parse(legacy);
+        }
+      }
+
+      // Proactively sanitize and migrate any stale dummy phone numbers in stored browser data
+      let mutated = false;
+      orders = orders.map((o) => {
+        if (
+          !o.phone ||
+          o.phone.includes('123 4567') ||
+          o.phone.includes('1234567') ||
+          o.phone.includes('97150') ||
+          (o.name && o.name.includes('Elena') && !o.phone.includes('582389502'))
+        ) {
+          mutated = true;
+          return {
+            ...o,
+            phone: '+971 58 238 9502',
+            region: 'UAE (+971 58 238 9502)',
+          };
+        }
+        return o;
+      });
+
+      if (mutated || !data) {
+        localStorage.setItem('raj_orders_v4', JSON.stringify(orders));
+        localStorage.setItem('raj_orders', JSON.stringify(orders));
+      }
+
+      return orders;
     } catch (e) {
       return DEFAULT_ORDERS;
     }
@@ -250,6 +285,7 @@ export const dataService = {
       ...order,
     };
     const updated = [newOrder, ...orders];
+    localStorage.setItem('raj_orders_v4', JSON.stringify(updated));
     localStorage.setItem('raj_orders', JSON.stringify(updated));
     const actorName = order.source ? `Client (${order.source})` : 'Client Portal';
     dataService.logAudit('ORDER_NEW', `New order/lead received: ${newOrder.name} (${newOrder.tier || 'Custom'}) - ${newOrder.quotedPrice || 'Direct Quote'}`, actorName);
@@ -259,6 +295,7 @@ export const dataService = {
   updateOrderStatus: (orderId, newStatus) => {
     const orders = dataService.getOrders();
     const updated = orders.map((o) => (o.id === orderId ? { ...o, status: newStatus } : o));
+    localStorage.setItem('raj_orders_v4', JSON.stringify(updated));
     localStorage.setItem('raj_orders', JSON.stringify(updated));
     dataService.logAudit('ORDER_STATUS', `Order ${orderId} status changed to ${newStatus}`, 'Admin');
   },

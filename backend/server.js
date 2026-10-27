@@ -37,7 +37,7 @@ let orders = [
     companyName: 'Elena Fit Club Dubai',
     ig: '@elena_fitclub',
     email: 'elena@fitnessdubai.ae',
-    phone: '+971 50 123 4567',
+    phone: '+971 58 238 9502',
     region: 'UAE (+971)',
     tier: '1-Page Fast Launch',
     quotedPrice: 'AED 349',

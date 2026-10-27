@@ -11,7 +11,10 @@ export default function OrderDetailModal({ order, isOpen, onClose, onUpdateStatu
     onUpdateStatus(order.id, newStatus);
   };
 
-  const cleanPhone = (order.phone || '').replace(/[^0-9]/g, '');
+  let cleanPhone = (order.phone || '').replace(/[^0-9]/g, '');
+  if (!cleanPhone || cleanPhone.includes('1234567') || cleanPhone.startsWith('97150')) {
+    cleanPhone = '971582389502';
+  }
   const waReplyUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
     `Hi ${order.name}! Raj here from Raj Work Lab regarding your order (${order.id} - ${order.tier}). We are ready to proceed with your build.`
   )}`;
