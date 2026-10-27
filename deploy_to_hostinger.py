@@ -27,7 +27,8 @@ try:
         upload_url = res_data["url"]
         auth_key = res_data["auth_key"]
         rest_auth_key = res_data["rest_auth_key"]
-        print(f"✓ Upload credentials obtained successfully. Target: {upload_url}")
+        base_url = upload_url.replace("/api/tus/public_html", "")
+        print(f"✓ Upload credentials obtained successfully. Base: {base_url}")
 except Exception as e:
     print(f"✗ Failed to obtain upload credentials: {e}")
     sys.exit(1)
@@ -38,44 +39,20 @@ def upload_file(local_path, remote_path):
     with open(local_path, "rb") as f:
         data = f.read()
 
-    endpoint = f"{upload_url}/{remote_path}?override=true"
+    endpoint = f"{base_url}/api/resources/public_html/{remote_path}?override=true"
 
-    # Step 1: POST (Create / reserve file size)
-    req1 = urllib.request.Request(
+    req = urllib.request.Request(
         endpoint,
+        data=data,
         method="POST",
         headers={
             "X-Auth": auth_key,
             "X-Auth-Rest": rest_auth_key,
-            "Tus-Resumable": "1.0.0",
-            "Upload-Length": str(size),
-            "Upload-Offset": "0",
             "User-Agent": "curl/8.7.1",
         },
     )
     try:
-        with urllib.request.urlopen(req1) as res:
-            pass
-    except Exception as e:
-        # 409 or already created
-        pass
-
-    # Step 2: PATCH (Upload file binary)
-    req2 = urllib.request.Request(
-        endpoint,
-        data=data,
-        method="PATCH",
-        headers={
-            "X-Auth": auth_key,
-            "X-Auth-Rest": rest_auth_key,
-            "Tus-Resumable": "1.0.0",
-            "Content-Type": "application/offset+octet-stream",
-            "Upload-Offset": "0",
-            "User-Agent": "curl/8.7.1",
-        },
-    )
-    try:
-        with urllib.request.urlopen(req2) as res:
+        with urllib.request.urlopen(req) as res:
             print(f"✓ Uploaded {remote_path} ({size} bytes) -> HTTP {res.status}")
     except Exception as e:
         print(f"✗ Error uploading {remote_path}: {e}")
