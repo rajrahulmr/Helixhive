@@ -15,7 +15,7 @@ export default function WhatsAppModal({ isOpen, onClose }) {
             Direct WhatsApp Hotline
           </h3>
           <p className="text-xs text-slate-500 mt-1">
-            Instant developer access for UAE (Dubai) and India creators &amp; founders.
+            Instant developer access for UAE (Dubai) and India businesses &amp; founders.
           </p>
         </div>
 
@@ -32,31 +32,31 @@ export default function WhatsAppModal({ isOpen, onClose }) {
             <span className="font-medium text-slate-800">under 5 minutes</span>
           </div>
           <div className="flex items-center justify-between pt-1 border-t border-slate-200/60 text-[11px]">
-            <span className="text-slate-500">Regions:</span>
-            <span className="font-mono font-semibold text-brand-700">Dubai GST &amp; India IST</span>
+            <span className="text-slate-500">Direct Lines:</span>
+            <span className="font-mono font-semibold text-brand-700">+971 58 238 9502</span>
           </div>
         </div>
 
         <div className="space-y-2 pt-1">
           <a
-            href="https://wa.me/971501234567?text=Hi%20Raj,%20I'm%20based%20in%20UAE%20and%20would%20like%20to%20discuss%20a%20high-speed%20custom%20website%20build."
+            href="https://wa.me/971582389502?text=Hi%20Raj,%20I'm%20based%20in%20UAE%20and%20would%20like%20to%20discuss%20a%20high-speed%20custom%20website%20build."
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
             className="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all"
           >
-            <span>🇦🇪 Chat via UAE Desk (+971)</span>
+            <span>🇦🇪 Chat UAE Desk (+971 58 238 9502)</span>
             <span className="material-symbols-outlined text-[14px]">arrow_outward</span>
           </a>
 
           <a
-            href="https://wa.me/917907142807?text=Hi%20Raj,%20I'm%20reaching%20out%20from%20India%20to%20upgrade%20my%20creator%20bio%20and%20landing%20page."
+            href="https://wa.me/917907142807?text=Hi%20Raj,%20I'm%20reaching%20out%20from%20India%20to%20upgrade%20my%20business%20website%20and%20landing%20page."
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
             className="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all"
           >
-            <span>🇮🇳 Chat via India Desk (+91)</span>
+            <span>🇮🇳 Chat India Desk (+91 79071 42807)</span>
             <span className="material-symbols-outlined text-[14px]">arrow_outward</span>
           </a>
 

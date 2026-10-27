@@ -98,7 +98,7 @@ export default function OrderModal({
     }
 
     const waText = buildWhatsAppText(newOrder.id);
-    const phoneNum = formData.region.includes('UAE') ? '971501234567' : '917907142807';
+    const phoneNum = formData.region.includes('UAE') ? '971582389502' : '917907142807';
     window.open(`https://wa.me/${phoneNum}?text=${encodeURIComponent(waText)}`, '_blank', 'noopener,noreferrer');
     setIsSubmitted(true);
   };

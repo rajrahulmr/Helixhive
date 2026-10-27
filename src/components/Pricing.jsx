@@ -3,54 +3,37 @@ import { dataService } from '../services/dataService';
 
 export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal }) {
   const [currency, setCurrency] = useState('AED');
-  const [activeCategory, setActiveCategory] = useState('ALL');
 
   // Use passed offers or fallback to dataService
   const packageList = offers && offers.length > 0 ? offers : dataService.getOffers();
 
-  const categories = ['ALL', 'Small Business', 'Modernization', 'Custom Systems'];
-
-  const filteredPackages = packageList.filter((pkg) => {
-    if (activeCategory === 'ALL') return true;
-    if (activeCategory === 'Small Business') {
-      return pkg.category?.includes('Small Business') || pkg.id?.includes('small-biz') || pkg.id?.includes('starter');
-    }
-    if (activeCategory === 'Modernization') {
-      return pkg.category?.includes('Modernization') || pkg.id?.includes('upgrade');
-    }
-    if (activeCategory === 'Custom Systems') {
-      return pkg.category?.includes('Startups') || pkg.id?.includes('app');
-    }
-    return true;
-  });
-
   return (
-    <section className="py-14 sm:py-20 bg-white" id="packages">
+    <section className="py-12 sm:py-20 bg-white w-full max-w-full overflow-hidden" id="packages">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-8">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
+        {/* Section Header - Perfectly Center-Aligned on Mobile, Left-Aligned on Desktop */}
+        <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-5 mb-10 text-center md:text-left">
+          <div className="flex flex-col items-center md:items-start max-w-2xl">
+            <div className="flex items-center justify-center md:justify-start gap-2 flex-wrap">
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-brand-600">
                 Transparent Fixed Pricing
               </span>
-              <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">
                 Zero Monthly Retainers
               </span>
             </div>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-2">
               Select Your Build Tier
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl">
+            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-lg leading-relaxed">
               High-speed Jamstack architectures for small businesses, site modernizations, and bespoke applications.
             </p>
           </div>
 
-          {/* Currency Segmented Control */}
-          <div className="inline-flex items-center p-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold shadow-inner self-start md:self-auto">
+          {/* Currency Segmented Control - Centered on Mobile */}
+          <div className="inline-flex items-center p-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold shadow-inner mx-auto md:mx-0 shrink-0">
             <button
               onClick={() => setCurrency('AED')}
-              className={`px-3.5 py-1.5 rounded-lg transition-all cursor-pointer ${
+              className={`px-3 sm:px-3.5 py-1.5 rounded-lg transition-all cursor-pointer ${
                 currency === 'AED'
                   ? 'bg-white text-slate-900 shadow-xs font-bold'
                   : 'text-slate-500 hover:text-slate-900'
@@ -60,7 +43,7 @@ export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal
             </button>
             <button
               onClick={() => setCurrency('USD')}
-              className={`px-3.5 py-1.5 rounded-lg transition-all cursor-pointer ${
+              className={`px-3 sm:px-3.5 py-1.5 rounded-lg transition-all cursor-pointer ${
                 currency === 'USD'
                   ? 'bg-white text-slate-900 shadow-xs font-bold'
                   : 'text-slate-500 hover:text-slate-900'
@@ -70,7 +53,7 @@ export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal
             </button>
             <button
               onClick={() => setCurrency('INR')}
-              className={`px-3.5 py-1.5 rounded-lg transition-all cursor-pointer ${
+              className={`px-3 sm:px-3.5 py-1.5 rounded-lg transition-all cursor-pointer ${
                 currency === 'INR'
                   ? 'bg-white text-slate-900 shadow-xs font-bold'
                   : 'text-slate-500 hover:text-slate-900'
@@ -81,16 +64,16 @@ export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal
           </div>
         </div>
 
-        {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
-          {filteredPackages.map((pkg) => {
+        {/* Pricing Cards Grid - Perfectly Centered on Mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch w-full max-w-full">
+          {packageList.map((pkg) => {
             const isPop = pkg.isPopular;
             const priceValue = pkg.prices?.[currency] || pkg.prices?.AED || 'Inquire';
 
             return (
               <div
                 key={pkg.id}
-                className={`rounded-2xl p-5 sm:p-6 flex flex-col justify-between transition-all relative ${
+                className={`w-full max-w-md mx-auto md:max-w-none rounded-2xl p-5 sm:p-6 flex flex-col justify-between transition-all relative ${
                   isPop
                     ? 'border-2 border-brand-600 bg-white shadow-xl shadow-brand-500/10 md:-translate-y-1.5'
                     : 'border border-slate-200 bg-white hover:border-slate-300 hover:shadow-md'
@@ -98,7 +81,7 @@ export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal
               >
                 {/* Most Popular Ribbon */}
                 {isPop && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-0.5 rounded-full shadow-sm flex items-center gap-1">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-0.5 rounded-full shadow-sm flex items-center gap-1 z-10">
                     <span className="material-symbols-outlined text-[12px] text-white">star</span>
                     RECOMMENDED
                   </div>
@@ -198,22 +181,22 @@ export default function Pricing({ offers = [], onSelectPlan, onOpenWhatsAppModal
           })}
         </div>
 
-        {/* Business Upgrade Value Callout */}
-        <div id="business-solutions" className="mt-12 bg-slate-50 border border-slate-200/90 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 text-center md:text-left">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-100">
+        {/* Business Upgrade Value Callout - Centered on mobile */}
+        <div id="business-solutions" className="mt-12 bg-slate-50 border border-slate-200/90 rounded-2xl p-5 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
+          <div className="space-y-2 max-w-2xl">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-100 inline-block">
               Business Transformation
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-slate-900">
+            <h3 className="font-display text-lg sm:text-2xl font-bold text-slate-900">
               Want to upgrade your existing business with a high-speed website?
             </h3>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               We migrate your slow WordPress or Wix site to modern React Jamstack architecture with <strong>custom domain purchase, zero downtime, free SSL, and a guaranteed 100/100 Google Lighthouse score</strong>.
             </p>
           </div>
           <button
             onClick={() => onSelectPlan('Website Upgrade & Redesign')}
-            className="shrink-0 px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm transition-all shadow-sm flex items-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer shrink-0"
           >
             <span>Upgrade My Website</span>
             <span className="material-symbols-outlined text-[16px]">arrow_forward</span>

@@ -6,12 +6,20 @@
   html {
     scroll-behavior: smooth;
     font-family: 'Inter', sans-serif;
+    overflow-x: clip;
+    width: 100%;
+    max-width: 100%;
   }
   
   body {
     background-color: #ffffff;
     color: #0f172a;
-    overflow-x: hidden;
+    overflow-x: clip;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
   }
 
   ::selection {

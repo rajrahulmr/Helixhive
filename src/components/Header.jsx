@@ -9,12 +9,15 @@ export default function Header({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+    <header
+      style={{ position: 'sticky', top: 0, zIndex: 50 }}
+      className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full max-w-full"
+    >
       {/* Clean Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
-        {/* Brand Logo */}
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
+        {/* Brand Logo (Larger size) */}
         <a href="#" className="flex items-center shrink-0">
-          <Logo />
+          <Logo size="default" />
         </a>
 
         {/* Center Desktop Links */}
@@ -34,8 +37,8 @@ export default function Header({
         </nav>
 
         {/* Right Action Buttons */}
-        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-          {/* WhatsApp Direct */}
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+          {/* WhatsApp Direct (Tablet/Desktop) */}
           <button
             onClick={onOpenWhatsAppModal}
             className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 px-3 py-2 rounded-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all cursor-pointer"
@@ -44,13 +47,21 @@ export default function Header({
             <span>WhatsApp</span>
           </button>
 
-          {/* Claim Website Button */}
+          {/* Desktop/Tablet Primary Button */}
           <button
             onClick={() => onOpenOrderModal('Small Business Growth Website')}
-            className="inline-flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 px-3.5 sm:px-4 py-2 rounded-lg shadow-xs hover:shadow transition-all cursor-pointer"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 px-4 py-2 rounded-lg shadow-xs hover:shadow transition-all cursor-pointer"
           >
             <span>Claim Website</span>
-            <span className="material-symbols-outlined text-[14px] sm:text-[15px]">arrow_forward</span>
+            <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
+          </button>
+
+          {/* Mobile Compact Claim Button (Keeps mobile width under 320px to prevent overflow) */}
+          <button
+            onClick={() => onOpenOrderModal('Small Business Growth Website')}
+            className="sm:hidden inline-flex items-center px-2.5 py-1.5 text-[11px] font-bold text-white bg-slate-900 hover:bg-slate-800 rounded-lg shadow-xs transition-all cursor-pointer"
+          >
+            <span>Claim</span>
           </button>
 
           {/* Admin Security Portal Lock Icon */}
@@ -114,12 +125,12 @@ export default function Header({
             </span>
             <div className="flex gap-2">
               <a
-                href="https://wa.me/971501234567?text=Hi%20Raj,%20I'm%20reaching%20out%20from%20UAE%20for%20a%20high-speed%20website%20or%20upgrade."
+                href="https://wa.me/971582389502?text=Hi%20Raj,%20I'm%20reaching%20out%20from%20UAE%20for%20a%20high-speed%20website%20or%20upgrade."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 py-1.5 px-2 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700 text-center hover:bg-slate-100"
               >
-                🇦🇪 UAE (+971)
+                🇦🇪 UAE (+971 58 238 9502)
               </a>
               <a
                 href="https://wa.me/917907142807?text=Hi%20Raj,%20I'm%20reaching%20out%20from%20India%20for%20a%20high-speed%20website%20or%20upgrade."

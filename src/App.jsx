@@ -78,7 +78,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col relative selection:bg-brand-100 selection:text-brand-700">
+    <div className="min-h-screen bg-white text-slate-900 flex flex-col relative selection:bg-brand-100 selection:text-brand-700 w-full max-w-full overflow-x-clip">
       {/* 1. Header with integrated announcement bar & clean responsive hotlines */}
       <Header
         promo={promo}
