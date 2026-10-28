@@ -12,6 +12,7 @@ import InspectModal from './components/InspectModal';
 import AdminModal from './components/AdminModal';
 import AdminAuthModal from './components/AdminAuthModal';
 import { dataService } from './services/dataService';
+import { authService } from './services/authService';
 
 export default function App() {
   // Reactive Data State
@@ -53,8 +54,7 @@ export default function App() {
 
   // Secure Admin Access Check
   const handleOpenAdminTrigger = () => {
-    const isAuthed = sessionStorage.getItem('raj_admin_auth') === 'true';
-    if (isAuthed) {
+    if (authService.isAuthenticated()) {
       setIsAdminModalOpen(true);
     } else {
       setIsAdminAuthOpen(true);
@@ -64,11 +64,11 @@ export default function App() {
   const handleAdminAuthSuccess = () => {
     setIsAdminAuthOpen(false);
     setIsAdminModalOpen(true);
-    dataService.logAudit('AUTH', 'Master Admin unlocked control session', 'Admin');
+    dataService.logAudit('AUTH', `Master Admin (${authService.getUser()}) unlocked control session`, 'Admin');
   };
 
   const handleAdminLogout = () => {
-    sessionStorage.removeItem('raj_admin_auth');
+    authService.logout();
     setIsAdminModalOpen(false);
     dataService.logAudit('AUTH', 'Admin locked control center', 'Admin');
   };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { dataService } from '../services/dataService';
+import { authService } from '../services/authService';
 import OrderDetailModal from './OrderDetailModal';
 
 export default function AdminModal({
@@ -25,9 +26,13 @@ export default function AdminModal({
   // Promo Banner State
   const [promoForm, setPromoForm] = useState(promo || dataService.getPromo());
 
-  // Security Master PIN state
-  const [newPin, setNewPin] = useState('');
+  // Security Master Password state
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmNewPassword, setConfirmNewPassword] = useState('');
+  const [pinError, setPinError] = useState('');
   const [pinSuccess, setPinSuccess] = useState('');
+  const [isUpdatingPassword, setIsUpdatingPassword] = useState(false);
 
   if (!isOpen) return null;
 
@@ -118,17 +123,36 @@ export default function AdminModal({
     alert('Promotional banner settings updated!');
   };
 
-  const handleChangePin = (e) => {
+  const handleChangePassword = async (e) => {
     e.preventDefault();
-    if (newPin.trim().length >= 4) {
-      localStorage.setItem('raj_admin_master_pin', newPin.trim());
-      dataService.logAudit('SECURITY', 'Master Admin PIN changed', 'Admin');
-      setPinSuccess('Master Admin PIN successfully updated!');
-      setNewPin('');
+    setPinError('');
+    setPinSuccess('');
+
+    if (newPassword.length < 6) {
+      setPinError('New password must be at least 6 characters.');
+      return;
+    }
+
+    if (newPassword !== confirmNewPassword) {
+      setPinError('New passwords do not match. Please re-enter.');
+      return;
+    }
+
+    setIsUpdatingPassword(true);
+    const res = await authService.changePassword(currentPassword, newPassword);
+    setIsUpdatingPassword(false);
+
+    if (res.success) {
+      setPinSuccess('Master password successfully updated across all devices!');
+      dataService.logAudit('SECURITY', 'Master Admin password changed globally', 'Admin');
+      setCurrentPassword('');
+      setNewPassword('');
+      setConfirmNewPassword('');
     } else {
-      alert('PIN must be at least 4 digits/characters.');
+      setPinError(res.message || 'Failed to update master password. Please verify current password.');
     }
   };
+
 
   return (
     <>
@@ -606,39 +630,88 @@ export default function AdminModal({
             {activeTab === 'security' && (
               <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-xs max-w-md space-y-4">
                 <div>
-                  <h4 className="font-display font-bold text-base text-slate-900">
-                    Change Master Admin PIN
+                  <h4 className="font-display font-bold text-base text-slate-900 flex items-center gap-2">
+                    <span className="material-symbols-outlined text-[18px] text-slate-700">lock_reset</span>
+                    Change Master Admin Password
                   </h4>
-                  <p className="text-xs text-slate-500">
-                    Update the passcode required to unlock this control center.
+                  <p className="text-xs text-slate-500 mt-1">
+                    Update the global server-side password required to unlock this control center on any device.
                   </p>
                 </div>
 
                 {pinSuccess && (
-                  <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-xs text-emerald-700 font-semibold">
-                    {pinSuccess}
+                  <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-xs text-emerald-700 font-semibold flex items-center gap-2">
+                    <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                    <span>{pinSuccess}</span>
                   </div>
                 )}
 
-                <form onSubmit={handleChangePin} className="space-y-3">
+                {pinError && (
+                  <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-xs text-red-600 font-semibold flex items-center gap-2">
+                    <span className="material-symbols-outlined text-[16px]">error</span>
+                    <span>{pinError}</span>
+                  </div>
+                )}
+
+                <form onSubmit={handleChangePassword} className="space-y-3.5">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      New Security Code (min 4 characters)
+                      Current Password
                     </label>
                     <input
                       type="password"
-                      value={newPin}
-                      onChange={(e) => setNewPin(e.target.value)}
-                      placeholder="Enter new PIN"
+                      value={currentPassword}
+                      onChange={(e) => setCurrentPassword(e.target.value)}
+                      placeholder="Enter current password"
                       required
-                      className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm font-mono outline-none focus:border-brand-600"
+                      disabled={isUpdatingPassword}
+                      className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm outline-none focus:border-brand-600 focus:ring-1 focus:ring-brand-600"
                     />
                   </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      New Master Password (min 6 characters)
+                    </label>
+                    <input
+                      type="password"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      placeholder="Enter new strong password"
+                      required
+                      disabled={isUpdatingPassword}
+                      className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm outline-none focus:border-brand-600 focus:ring-1 focus:ring-brand-600"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Confirm New Password
+                    </label>
+                    <input
+                      type="password"
+                      value={confirmNewPassword}
+                      onChange={(e) => setConfirmNewPassword(e.target.value)}
+                      placeholder="Re-enter new password"
+                      required
+                      disabled={isUpdatingPassword}
+                      className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm outline-none focus:border-brand-600 focus:ring-1 focus:ring-brand-600"
+                    />
+                  </div>
+
                   <button
                     type="submit"
-                    className="py-2.5 px-4 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs cursor-pointer"
+                    disabled={isUpdatingPassword || !currentPassword || !newPassword}
+                    className="w-full py-2.5 px-4 rounded-lg bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white text-xs font-semibold shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    Update Master PIN
+                    {isUpdatingPassword ? (
+                      <>
+                        <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                        <span>Updating Password...</span>
+                      </>
+                    ) : (
+                      'Update Master Password'
+                    )}
                   </button>
                 </form>
               </div>

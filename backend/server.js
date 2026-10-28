@@ -66,7 +66,7 @@ app.get('/api/health', (req, res) => {
 // Admin Auth
 app.post('/api/auth/login', (req, res) => {
   const { pin } = req.body;
-  if (pin === adminPin || pin === 'raj2026' || pin === '1234') {
+  if (adminPin && pin === adminPin) {
     const token = 'rwl_token_' + Date.now();
     auditLogs.unshift({
       id: `LOG-${Date.now()}`,

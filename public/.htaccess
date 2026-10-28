@@ -15,8 +15,14 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Direct API routing for backend authentication
+  RewriteRule ^api/auth/?$ api/auth.php [L,QSA]
+  RewriteRule ^api/auth/([a-zA-Z0-9_-]+)/?$ api/auth.php?action=$1 [L,QSA]
+
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
+

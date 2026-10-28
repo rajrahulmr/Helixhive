@@ -50,3 +50,6 @@ Icon
 *.tmp
 *.bak
 .vercel
+*auth_store*
+auth_store.php
+

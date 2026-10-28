@@ -2,6 +2,7 @@ import http from 'http';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { handleAuthRequest } from './devAuthHandler.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,8 +26,13 @@ const MIME_TYPES = {
 };
 
 const server = http.createServer((req, res) => {
+  if (req.url && req.url.startsWith('/api/auth')) {
+    if (handleAuthRequest(req, res)) return;
+  }
+
   let reqPath = req.url.split('?')[0];
   if (reqPath === '/') reqPath = '/index.html';
+
 
   let filePath = path.join(DIST_DIR, reqPath);
 

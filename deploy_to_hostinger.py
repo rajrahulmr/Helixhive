@@ -61,8 +61,11 @@ def upload_file(local_path, remote_path):
 print("\n2. Uploading dist files to Hostinger public_html...")
 for root, dirs, files in os.walk("dist"):
     for file in files:
+        if "auth_store.php" in file:
+            continue
         full_path = os.path.join(root, file)
         rel_path = os.path.relpath(full_path, "dist")
         upload_file(full_path, rel_path)
+
 
 print("\n✓ Deployment to Hostinger public_html completed successfully!")
