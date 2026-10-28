@@ -13,6 +13,7 @@ import AdminModal from './components/AdminModal';
 import AdminAuthModal from './components/AdminAuthModal';
 import { dataService } from './services/dataService';
 import { authService } from './services/authService';
+import { trackPageView, trackInitiateCheckout } from './utils/pixel';
 
 export default function App() {
   // Reactive Data State
@@ -36,11 +37,13 @@ export default function App() {
     setOffers(dataService.getOffers());
     setPromo(dataService.getPromo());
     setOrders(dataService.getOrders());
+    trackPageView();
   }, []);
 
   const handleOpenOrderModal = (plan = 'Small Business Growth Website') => {
     setSelectedPlan(plan);
     setIsOrderModalOpen(true);
+    trackInitiateCheckout(plan);
   };
 
   const handleCloseOrderModal = () => {

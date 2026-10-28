@@ -12,6 +12,10 @@ export const trackCustomEvent = (eventName, params = {}) => {
   }
 };
 
+export const trackPageView = () => {
+  trackEvent('PageView');
+};
+
 export const trackLead = (details = {}) => {
   trackEvent('Lead', {
     content_name: details.tier || details.plan || 'Website Project Inquiry',
@@ -20,5 +24,19 @@ export const trackLead = (details = {}) => {
     currency: details.currency || 'AED',
     status: 'submitted',
     ...details,
+  });
+};
+
+export const trackContact = (channel = 'WhatsApp') => {
+  trackEvent('Contact', {
+    content_name: channel,
+    channel,
+  });
+};
+
+export const trackInitiateCheckout = (tierName) => {
+  trackEvent('InitiateCheckout', {
+    content_name: tierName,
+    currency: 'AED',
   });
 };
