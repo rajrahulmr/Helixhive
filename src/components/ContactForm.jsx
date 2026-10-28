@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
+import { trackLead } from '../utils/pixel';
 
 export default function ContactForm({ selectedPlan = '' }) {
   const [formData, setFormData] = useState({
@@ -174,6 +175,12 @@ ${formData.message.trim() || 'Looking for a clean, high-speed modern website.'}`
       if (data.success) {
         setIsSubmitting(false);
         setSubmitted(true);
+        trackLead({
+          plan: formData.plan,
+          name: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+        });
 
         try {
           confetti({

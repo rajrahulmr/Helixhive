@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { dataService } from '../services/dataService';
+import { trackLead } from '../utils/pixel';
 
 export default function OrderModal({
   isOpen,
@@ -163,6 +164,13 @@ export default function OrderModal({
       const data = await response.json();
       if (data.success) {
         setIsSubmitted(true);
+        trackLead({
+          tier: formData.tier,
+          name: formData.name,
+          company: formData.companyName,
+          businessType: formData.businessType,
+          orderId: newOrder.id,
+        });
         try {
           confetti({
             particleCount: 100,
@@ -176,11 +184,26 @@ export default function OrderModal({
       } else {
         // Even if Web3Forms fails, order was saved to admin portal
         setIsSubmitted(true);
+        trackLead({
+          tier: formData.tier,
+          name: formData.name,
+          company: formData.companyName,
+          businessType: formData.businessType,
+          orderId: newOrder.id,
+        });
       }
     } catch (err) {
       // Still show confirmed since order is stored in admin panel
       setIsSubmitted(true);
+      trackLead({
+        tier: formData.tier,
+        name: formData.name,
+        company: formData.companyName,
+        businessType: formData.businessType,
+        orderId: newOrder.id,
+      });
     } finally {
+
       setIsSubmitting(false);
     }
   };
